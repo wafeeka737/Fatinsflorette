@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shop by Occasion | Fatin's Florette</title>
+
+    <meta name="description"
+        content="Discover beautiful flowers for birthdays, anniversaries, graduations, weddings and meaningful moments.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Shared flower data -->
+    <script src="flowers.js"></script>
+
+    <!-- Occasion page JavaScript -->
+    <script src="occasional.js"></script>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header">
+
+        <a href="index.html" class="logo" aria-label="Fatin's Florette Home">
+            <span class="logo-name">Fatin's Florette</span>
+            <span class="logo-tagline">Flowers for every feeling</span>
+        </a>
+
+        <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false"
+            aria-controls="main-navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="main-nav" id="main-navigation">
+
+            <a href="index.html">Home</a>
+
+            <a href="about.html">About Us</a>
+
+            <div class="nav-dropdown">
+                <a href="catalog.html" class="dropdown-toggle">
+                    Catalogue <span class="arrow">⌄</span>
+                </a>
+
+                <div class="dropdown-menu">
+                    <a href="catalog.html">Shop All</a>
+                    <a href="catalog.html?category=petals-pastries">
+                        Petals &amp; Pastries
+                    </a>
+                    <a href="catalog.html?category=basket-series">
+                        Basket Series
+                    </a>
+                </div>
+            </div>
+
+            <a href="build-a-bouquet.html">Build a Bouquet</a>
+
+            <div class="nav-dropdown">
+                <a href="occasional.html" class="dropdown-toggle active">
+                    Shop by Occasion <span class="arrow">⌄</span>
+                </a>
+
+                <div class="dropdown-menu">
+                    <a href="occasional.html?occasion=birthday">Birthday</a>
+                    <a href="occasional.html?occasion=anniversary">Anniversary</a>
+                    <a href="occasional.html?occasion=graduation">Graduation</a>
+                    <a href="occasional.html?occasion=wedding">Wedding</a>
+                    <a href="occasional.html?occasion=teachers">Teacher's Day</a>
+                    <a href="occasional.html?occasion=mothers">Mother's Day</a>
+                </div>
+            </div>
+
+            <a href="subscription.html">Subscription</a>
+            <a href="contact.html">Contact Us</a>
+
+        </nav>
+
+        <div class="header-actions">
+            <button class="search-button" type="button" aria-label="Search flowers"
+                onclick="window.location.href='catalog.html'">
+                ⌕
+            </button>
+
+            <a href="cart.html" class="cart-link" aria-label="Shopping cart">
+                ♡ <span id="cart-count">0</span>
+            </a>
+        </div>
+
+    </header>
+
+         <!-- OCCASION FILTER BAR -->
+  
+<main class="catalog-page">
+
+  <!-- Occasion Page Heading -->
+  <section class="catalog-hero">
+    <p class="eyebrow">MAKE EVERY MOMENT SPECIAL</p>
+    <h1>Flowers for every occasion.</h1>
+    <p>Find the perfect blooms for life's most meaningful moments.</p>
+  </section>
+
+  <!-- Clickable Occasion Filters -->
+  <div class="catalog-toolbar">
+    <div class="filter-group">
+      <label for="occasion-filter">Shop by occasion</label>
+      <select id="occasion-filter">
+    <option value="all">All Occasions</option>
+    <option value="birthday">Birthday</option>
+    <option value="wedding">Wedding</option>
+    <option value="anniversary">Anniversary</option>
+    <option value="graduation">Graduation</option>
+    <option value="teachers">Teacher's Day</option>
+    <option value="mothers">Mother's Day</option>
+</select>
+    </div>
+
+    <label class="sort-group" for="occasion-sort">
+      Sort by
+      <select id="occasion-sort">
+        <option value="featured">Featured</option>
+        <option value="low-high">Cheapest</option>
+        <option value="high-low">Most expensive</option>
+        <option value="name">Name A–Z</option>
+      </select>
+    </label>
+  </div>
+
+  <!-- Occasion Flowers -->
+  <div id="occasion-sections"></div>
+
+</main>
+
+
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+
+        <div class="footer-main">
+
+            <div class="footer-brand">
+
+                <a href="index.html" class="footer-logo">
+                    Fatin's Florette
+                </a>
+
+                <p>
+                    Flowers for every feeling.
+                    Little things make life bloom.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h3>Explore</h3>
+
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="catalog.html">Catalogue</a>
+                <a href="occasional.html">Shop by Occasion</a>
+                <a href="subscription.html">Subscription</a>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h3>Need Help?</h3>
+
+                <a href="faq.html">First-Time Visitor Guide</a>
+                <a href="contact.html">Contact Us</a>
+
+            </div>
+
+
+            <div class="footer-social">
+
+                <h3>Follow Our Journey</h3>
+
+                <p>
+                    Find us on social media for more floral inspiration.
+                </p>
+
+                <div class="social-icons">
+
+                    <a href="https://instagram.com/fatinsflorette" target="_blank" rel="noopener noreferrer"
+                        aria-label="Instagram">IG</a>
+
+                    <a href="https://tiktok.com/@fatinsflorette" target="_blank" rel="noopener noreferrer"
+                        aria-label="TikTok">TT</a>
+
+                    <a href="https://wa.me/6738633134" target="_blank" rel="noopener noreferrer"
+                        aria-label="WhatsApp">WA</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>&copy; 2026 Fatin's Florette. All rights reserved.</p>
+
+            <a href="#">Back to top ↑</a>
+
+        </div>
+
+    </footer>
+
+    <script src="flowers.js"></script>
+    <script src="catalog.js"></script>
+    <script src="product.js"></script>
+    <script src="occasional.js"></script>
+
+</body>
+
+</html>
