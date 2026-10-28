@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Fatin's Florette | Flowers for Every Feeling</title>
+
+  <meta name="description"
+    content="Discover beautiful floral arrangements, bouquets and flower experiences at Fatin's Florette.">
+
+  <!-- Google Fonts -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="site-header">
+
+    <!-- Logo -->
+    <a href="index.html" class="logo" aria-label="Fatin's Florette Home">
+      <span class="logo-name">Fatin's Florette</span>
+      <span class="logo-tagline">Flowers for every feeling</span>
+    </a>
+
+    <!-- Mobile menu button -->
+    <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false"
+      aria-controls="main-navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+
+    <!-- Navigation -->
+
+    <nav class="main-nav" id="main-navigation">
+
+      <a href="index.html" class="active">Home</a>
+
+      <a href="pages/about.html">About Us</a>
+
+      <!-- Catalogue dropdown -->
+      <div class="nav-dropdown">
+        <a href="catalog.html" class="dropdown-toggle">
+          Catalogue <span class="arrow">⌄</span>
+        </a>
+
+        <div class="dropdown-menu">
+          <a href="catalog.html?category=all">Shop All</a>
+          <a href="catalog.html?category=petals-pastries">Petals & Pastries</a>
+          <a href="catalog.html?category=basket-series">Basket Series</a>
+        </div>
+      </div>
+
+
+      <a href="pages/build-a-bouquet.html">Build a Bouquet</a>
+
+      <!-- Shop by Occasion dropdown -->
+      <div class="nav-dropdown">
+        <a href="occasional.html" class="dropdown-toggle">
+          Shop by Occasion <span class="arrow">⌄</span>
+        </a>
+
+        <div class="dropdown-menu">
+          <a href="occasional.html?occasion=birthday">Birthday</a>
+          <a href="occasional.html?occasion=anniversary">Anniversary</a>
+          <a href="occasional.html?occasion=graduation">Graduation</a>
+          <a href="occasional.html?occasion=wedding">Wedding</a>
+          <a href="occasional.html?occasion=teachers-day">Teacher's Day</a>
+          <a href="occasional.html?occasion=mothers-day">Mother's Day</a>
+        </div>
+      </div>
+
+      <a href="subscription.html">Subscription</a>
+      <a href="contact.html">Contact Us</a>
+
+    </nav>
+
+
+    <!-- Header actions -->
+
+    <div class="header-actions">
+      <button class="search-button" type="button" aria-label="Search the catalogue" id="search-toggle">⌕</button>
+      <a href="cart.html" class="cart-link" aria-label="Shopping cart">♡ <span id="cart-count">0</span></a>
+
+
+    </div>
+  </header>
+
+  <body>
+
+    <main class="product-page">
+      <div class="breadcrumbs"><a href="../index.html">Home</a><span>›</span>
+        <a href="catalog.html">Catalogue</a><span>›</span><span id="breadcrumb-name">Flower</span>
+
+      </div>
+
+      <section class="product-main">
+        <div class="product-image-wrap">
+          <img id="product-image" src="images/lilies 1.jpeg" alt="Flower bouquet">
+        </div>
+
+        <div class="product-info">
+          <p class="eyebrow" id="product-category">FLOWER BOUQUET</p>
+          <h1 id="product-name">Fresh Lily bouquet</h1>
+
+          <p id="product-tagline" class="product-tagline"></p>
+          <div class="product-price-row">
+            <p id="product-price" class="product-price"></p>
+            <button id="favourite-button" class="heart-button" type="button" aria-label="Add to favourites">♡</button>
+          </div>
+
+          <div class="product-options">
+            <label for="gift-card">Gift card
+              <select id="gift-card">
+                <option value="0">No Gift Card</option>
+                <option value="2">Printed Gift Card (+BND 2)</option>
+                <option value="0">Handwritten Gift Card</option>
+
+              </select>
+            </label>
+
+            <label for="extra-flowers">Extra flowers
+              <select id="extra-flowers">
+                <option value="0">No extra flowers (+BND 0)</option>
+                <option value="5">Small addition (+BND 5)</option>
+                <option value="10">Medium addition (+BND 10)</option>
+
+              </select>
+
+            </label>
+          </div>
+
+          <div class="quantity-row"><span>Quantity</span>
+            <div class="quantity-control"><button id="quantity-minus" type="button"
+                aria-label="Decrease quantity">−</button><span id="quantity">1</span>
+              <button id="quantity-plus" type="button" aria-label="Increase quantity">+</button>
+            </div>
+          </div>
+
+          <button id="add-to-cart" class="button button-dark button-full" type="button">ADD TO CART <span>→</span>
+          </button>
+
+          <button id="buy-it-now" class="button button-dark button-full" type="button">BUY IT NOW <span>→</span>
+          </button>
+
+          <p id="cart-message" class="small-note" aria-live="polite"></p>
+
+          <div class="accordion-list">
+            <details open>
+              <summary>Description</summary>
+              <p id="product-description"></p>
+            </details>
+
+            <details>
+              <summary>Delivery / Return</summary>
+              <p>Kindly confirm your preferred delivery or collection date at the time of ordering. 
+                Each arrangement is thoughtfully prepared using fresh flowers, 
+                we kindly ask that any concerns regarding your order be reported to us as soon as possible.</p>
+            </details>
+
+            <details>
+              <summary>Ordering Guide</summary>
+              <p>Personalise your bouquet by selecting your preferred gift card and any additional extras, 
+                then choose your desired quantity and add it to your cart. Please ensure your contact details and 
+                preferred delivery or collection date are provided when placing your order.</p>
+            </details>
+
+            <details>
+              <summary>How to Take Care</summary>
+              <p>For longer-lasting blooms, trim the stems at an angle before placing your bouquet in a clean vase filled with fresh water. 
+                Keep the flowers away from direct sunlight and heat, and refresh the water regularly to maintain their freshness and beauty.</p>
+            </details>
+          </div>
+        </div>
+
+      </section>
+
+      <section class="recommendations">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">HANDPICKED FOR YOU</p>
+            <h2>You may also like</h2>
+          </div>
+          <a href="catalog.html">View all flowers →</a>
+
+        </div>
+
+        <div class="recommendation-grid" id="recommendations"></div>
+      </section>
+    </main>
+
+
+    <footer class="site-footer">
+      <div class="footer-main">
+        <div class="footer-brand"><a href="../index.html" class="footer-logo">Fatin's Florette</a>
+          <p>Flowers for every feeling.<br>Little things make life bloom.</p>
+        </div>
+
+        <div class="footer-links">
+          <h3>Explore</h3>
+          <a href="../index.html">Home</a><a href="catalog.html">Catalogue</a><a href="occasional.html">Shop by
+            Occasion</a>
+        </div>
+        <div class="footer-links">
+          <h3>Need Help?</h3>
+          <a href="faq.html">First-Time Visitor Guide</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+
+        <div class="footer-social">
+          <h3>Follow Our Journey</h3>
+          <p>Find us on social media for more floral inspiration.</p>
+
+          <div class="social-icons">
+            <a href="https://www.instagram.com/">IG</a>
+            <a href="https://www.tiktok.com/">TT</a>
+            <a href="https://www.whatsapp.com/">WA</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Fatin's Florette. All rights reserved.</p>
+        <a href="catalog.html">Back to catalogue ↑</a>
+      </div>
+    </footer>
+
+    <script src="flowers.js"></script>
+    <script src="catalog.js"></script>
+    <script src="product.js"></script>
+    <script src="occasional.js"></script>
+
+  </body>
+
+</html>
