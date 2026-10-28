@@ -1,0 +1,16 @@
+/* -----  FATIN'S FLORETTE Shared styles for Home and future pages -------*/
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap');
+
+
+/* COLOURS */
+
+:root {
+    --burgundy: #740043/*#79003d*/;
+    --burgundy-dark: #740043 /*#65002f*/;
+    --blush: #f8e9e6;
+    --rose: #d8c7ca;
+    --rose-button: #a54a70 /* #614457*/ ; 
+    --text: #5d3d48;
+    --white: #fffaf9;
+}
