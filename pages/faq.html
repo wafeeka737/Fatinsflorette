@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>First-Time Shopper Guide | Fatin's Florette</title>
+    <meta name="description" content="Discover your perfect flowers and learn more about shopping with Fatin's Florette.">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/faq.css">
+
+    <script src="../js/main.js" defer></script>
+    <script src="../js/faq.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <a href="../index.html" class="logo">
+            <span class="logo-name">Fatin's Florette</span>
+            <span class="logo-tagline">FLOWERS FOR EVERY FEELING</span>
+        </a>
+
+        <button
+            class="menu-toggle"
+            type="button"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="main-navigation"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="main-nav" id="main-navigation">
+            <a href="../index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="catalog.html">Catalogue</a>
+            <a href="build-a-bouquet.html">Build a Bouquet</a>
+            <a href="occasion.html">Shop by Occasion</a>
+            <a href="subscription.html">Subscription</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+
+        <!-- Header actions -->
+        <div class="header-actions">
+
+            <button
+                class="search-button"
+                type="button"
+                aria-label="Search the catalogue"
+            >
+                <svg
+                    viewBox="0 0 24 24"
+                    width="21"
+                    height="21"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                >
+                    <circle cx="10.8" cy="10.8" r="6.8"></circle>
+                    <path d="m16 16 4.5 4.5"></path>
+                </svg>
+            </button>
+
+            <a href="pages/cart.html" class="cart-link" aria-label="Shopping cart">
+                <svg
+                    viewBox="0 0 24 24"
+                    width="22"
+                    height="22"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                >
+                    <path d="M3 3h2l2.2 11.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.5L22 7H6"></path>
+                    <circle cx="10" cy="20" r="1"></circle>
+                    <circle cx="18" cy="20" r="1"></circle>
+                </svg>
+            </a>
+
+        </div>
+
+    </header>
+
+
+
+    <main>
+
+        <!-- PAGE INTRODUCTION -->
+        <section class="faq-hero">
+            <div class="faq-hero-content">
+                <p class="faq-eyebrow">A LITTLE HELP FOR YOUR FLOWER JOURNEY</p>
+
+                <h1>New to Fatin's Florette?</h1>
+
+                <p>
+                    Whether you're choosing flowers for someone special or
+                    treating yourself, we're here to help you find a bloom
+                    that feels just right.
+                </p>
+
+                <a href="#flower-quiz" class="faq-primary-button">
+                    Find Your Perfect Bloom
+                </a>
+            </div>
+
+            <div class="faq-hero-decoration" aria-hidden="true">
+                <span>❀</span>
+                <span>✿</span>
+                <span>❀</span>
+            </div>
+        </section>
+
+
+        <!-- HOW TO GET STARTED -->
+        <section class="getting-started">
+            <div class="section-heading">
+                <p class="faq-eyebrow">YOUR FLOWER JOURNEY STARTS HERE</p>
+                <h2>Not sure where to begin?</h2>
+                <p>Here's a simple guide to help you get started.</p>
+            </div>
+
+            <div class="guide-cards">
+
+                <article class="guide-card">
+                    <div class="guide-number">01</div>
+                    <h3>Explore the Flowers</h3>
+                    <p>
+                        Browse our flower catalogue to discover different
+                        blooms, bouquets and available arrangements.
+                    </p>
+                    <a href="catalog.html">Explore the catalogue →</a>
+                </article>
+
+                <article class="guide-card">
+                    <div class="guide-number">02</div>
+                    <h3>Choose Your Style</h3>
+                    <p>
+                        Think about the colours, mood and flower style
+                        that best suit your recipient or occasion.
+                    </p>
+                    <a href="#flower-quiz">Find your style →</a>
+                </article>
+
+                <article class="guide-card">
+                    <div class="guide-number">03</div>
+                    <h3>Make It Personal</h3>
+                    <p>
+                        Looking for something more personal? Explore
+                        our bouquet customisation option.
+                    </p>
+                    <a href="build-a-bouquet.html">Build a bouquet →</a>
+                </article>
+
+            </div>
+        </section>
+
+
+        <!-- INTERACTIVE FLOWER QUIZ -->
+        <section class="flower-quiz-section" id="flower-quiz">
+            <div class="quiz-container">
+
+                <div class="section-heading">
+                    <p class="faq-eyebrow">LET'S FIND YOUR FLOWER MATCH</p>
+                    <h2>Find Your Perfect Bloom <span>✿</span></h2>
+                    <p>
+                        Answer three little questions and discover a flower
+                        style that suits your preferences.
+                    </p>
+                </div>
+
+                <form id="flower-quiz-form">
+
+                    <fieldset class="quiz-question">
+                        <legend>1. Which flower style do you love most?</legend>
+
+                        <div class="quiz-options">
+                            <label class="quiz-option">
+                                <input type="radio" name="style" value="bright" required>
+                                <span class="option-content">
+                                    <span class="option-symbol">🌼</span>
+                                    <strong>Bright & Cheerful</strong>
+                                    <small>Colourful and full of energy</small>
+                                </span>
+                            </label>
+
+                            <label class="quiz-option">
+                                <input type="radio" name="style" value="romantic" required>
+                                <span class="option-content">
+                                    <span class="option-symbol">🌹</span>
+                                    <strong>Classic & Romantic</strong>
+                                    <small>Elegant and timeless</small>
+                                </span>
+                            </label>
+
+                            <label class="quiz-option">
+                                <input type="radio" name="style" value="simple" required>
+                                <span class="option-content">
+                                    <span class="option-symbol">🌷</span>
+                                    <strong>Sweet & Simple</strong>
+                                    <small>Soft, delicate and minimal</small>
+                                </span>
+                            </label>
+
+                            <label class="quiz-option">
+                                <input type="radio" name="style" value="pastel" required>
+                                <span class="option-content">
+                                    <span class="option-symbol">🪻</span>
+                                    <strong>Soft Pastel</strong>
+                                    <small>Gentle and dreamy colours</small>
+                                </span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+
+                    <fieldset class="quiz-question">
+                        <legend>2. What best describes your budget?</legend>
+
+                        <div class="quiz-options budget-options">
+                            <label class="quiz-option">
+                                <input type="radio" name="budget" value="budget-friendly" required>
+                                <span class="option-content">
+                                    <strong>Budget-friendly</strong>
+                                    <small>Something lovely and simple</small>
+                                </span>
+                            </label>
+
+                            <label class="quiz-option">
+                                <input type="radio" name="budget" value="mid-range" required>
+                                <span class="option-content">
+                                    <strong>Mid-range</strong>
+                                    <small>A little extra detail</small>
+                                </span>
+                            </label>
+
+                            <label class="quiz-option">
+                                <input type="radio" name="budget" value="flexible" required>
+                                <span class="option-content">
+                                    <strong>Flexible</strong>
+                                    <small>Open to different arrangements</small>
+                                </span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+
+                    <fieldset class="quiz-question">
+                        <legend>3. What's the occasion?</legend>
+
+                        <div class="quiz-options occasion-options">
+                            <label class="quiz-option">
+                                <input type="radio" name="occasion" value="birthday" required>
+                                <span class="option-content">
+                                    <span class="option-symbol">🎂</span>
+                                    <strong>Birthday</strong>
+                                </span>
+                            </label>
+
+                            <label class="quiz-option">
+                                <input type="radio" name="occasion" value="romance" required>
+                                <span class="option-content">
+                                    <span class="option-symbol">💌</span>
+                                    <strong>Romance</strong>
+                                </span>
+                            </label>
+
+                            <label class="quiz-option">
+                                <input type="radio" name="occasion" value="celebration" required>
+                                <span class="option-content">
+                                    <span class="option-symbol">🎉</span>
+                                    <strong>Celebration</strong>
+                                </span>
+                            </label>
+
+                            <label class="quiz-option">
+                                <input type="radio" name="occasion" value="just-because" required>
+                                <span class="option-content">
+                                    <span class="option-symbol">💐</span>
+                                    <strong>Just Because</strong>
+                                </span>
+                            </label>
+
+                            <label class="quiz-option">
+                                <input type="radio" name="occasion" value="other" required>
+                                <span class="option-content">
+                                    <span class="option-symbol">🌸</span>
+                                    <strong>Other</strong>
+                                </span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <button type="submit" class="faq-primary-button quiz-submit">
+                        Find My Flower Match ✿
+                    </button>
+
+                </form>
+
+
+                <!-- QUIZ RESULT -->
+                <div id="quiz-result" class="quiz-result" hidden aria-live="polite">
+                    <p class="faq-eyebrow">YOUR FLOWER MATCH</p>
+                    <h3 id="result-title">Your perfect bloom</h3>
+                    <p id="result-description"></p>
+                    <p id="result-details" class="result-details"></p>
+
+                    <div class="result-buttons">
+                        <a href="catalog.html" class="faq-primary-button">
+                            Explore Catalogue
+                        </a>
+                        <a href="build-a-bouquet.html" class="faq-secondary-button">
+                            Build a Bouquet
+                        </a>
+                    </div>
+
+                    <button type="button" id="retake-quiz" class="retake-button">
+                        Try again
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- FAQ SECTION -->
+        <section class="faq-list-section" id="frequently-asked-questions">
+            <div class="section-heading">
+                <p class="faq-eyebrow">GOOD TO KNOW</p>
+                <h2>Frequently Asked Questions</h2>
+                <p>A few helpful answers before you place your order.</p>
+            </div>
+
+            <div class="faq-list">
+
+                <details class="faq-item">
+                    <summary>How do I choose the right flowers?</summary>
+                    <div class="faq-answer">
+                        <p>
+                            Think about the occasion, your preferred colours
+                            and the style you have in mind. You can browse the
+                            catalogue or try our Find Your Perfect Bloom quiz
+                            for inspiration.
+                        </p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Can I customise my bouquet?</summary>
+                    <div class="faq-answer">
+                        <p>
+                            Visit our Build a Bouquet page to explore the
+                            customisation option. Please check the available
+                            choices and contact Fatin's Florette if you need
+                            to confirm a particular flower or arrangement.
+                        </p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>How can I check flower availability?</summary>
+                    <div class="faq-answer">
+                        <p>
+                            Flower availability may vary. Please check the
+                            catalogue and contact Fatin's Florette to confirm
+                            the availability of a specific flower or bouquet.
+                        </p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>How do I ask about prices or my order?</summary>
+                    <div class="faq-answer">
+                        <p>
+                            Please visit our Contact Us page to enquire about
+                            current prices, ordering arrangements and any
+                            details you would like to confirm before ordering.
+                        </p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Do you offer flower workshops?</summary>
+                    <div class="faq-answer">
+                        <p>
+                            Fatin's Florette offers flower-related workshops.
+                            For the latest workshop dates, availability,
+                            fees and booking details, please contact the
+                            business directly.
+                        </p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Can I include personalised message card?</summary>
+                    <div class="faq-answer">
+                        <p>
+                           Yes, can. Printed card message is BND2 (no word limit). Handwritten card is Free Of Charge.
+                        </p>
+                    </div>
+                </details>
+
+            </div>
+
+            <div class="faq-contact-note">
+                <h3>Still have a question?</h3>
+                <p>We're happy to help you find the information you need.</p>
+                <a href="contact.html" class="faq-secondary-button">
+                    Contact Us
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+
+ 
+<!-- ================= FOOTER ================= -->
+
+<footer class="site-footer">
+
+    <div class="footer-main">
+
+        <!-- Brand -->
+        <div class="footer-brand">
+            <a href="../index.html" class="footer-logo">
+                Fatin's Florette
+            </a>
+
+            <p>
+                Flowers for every feeling.
+                Little things make life bloom.
+            </p>
+        </div>
+
+        <!-- Explore -->
+        <div class="footer-links">
+            <h3>Explore</h3>
+
+            <a href="../index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="catalog.html">Catalogue</a>
+            <a href="occasion.html">Shop by Occasion</a>
+            <a href="subscription.html">Subscription</a>
+        </div>
+
+        <!-- Help -->
+        <div class="footer-links">
+            <h3>Need Help?</h3>
+
+            <a href="faq.html">First-Time Visitor Guide</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+
+        <!-- Social Media and Map -->
+        <div class="footer-social">
+            <h3>Follow Our Journey</h3>
+
+            <p>
+                Find us on social media for more floral inspiration.
+            </p>
+
+            <div class="footer-icons">
+
+                <a href="https://instagram.com/fatinsflorette" 
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Instagram">
+                    <img src="../images/ig.png" alt="Instagram">
+                </a>
+
+                <a href="https://tiktok.com/@fatinsflorette"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="TikTok">
+                    <img src="../images/tt.png" alt="TikTok">
+                </a>
+
+                <a href="https://wa.me/6738633134" 
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="WhatsApp">
+                    <img src="../images/wa.png" alt="WhatsApp">
+                </a>
+
+            </div>
+
+            <!-- Google Maps -->
+            <div class="footer-map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.5187098738365!2d114.8646345!3d4.8523594999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x322261498f1d3eef%3A0x6fb80f0e46c2ac8f!2sFatin's%20Florete!5e0!3m2!1sen!2sbn!4v1792552757731!5m2!1sen!2sbn"
+                    width="250"
+                    height="150"
+                    style="border: 0; border-radius: 8px;"
+                    allowfullscreen
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Fatin's Florette location on Google Maps">
+                </iframe>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-bottom">
+        <p>&copy; 2026 Fatin's Florette. All rights reserved.</p>
+        <a href="#top">Back to top &uarr;</a>
+    </div>
+
+</footer>
+</body>
+</html>
+
