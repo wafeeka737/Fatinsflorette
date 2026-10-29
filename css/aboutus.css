@@ -16,7 +16,6 @@
     --text-dark: #2e2e2e;
     --text-muted: #6b6b6b;
     --white: #ffffff;
-    /* Fixed: Added the missing shadow-sm variable */
     --shadow-sm: 0 2px 8px rgba(107, 28, 62, 0.08); 
     --shadow-md: 0 8px 24px rgba(107, 28, 62, 0.08);
     --shadow-lg: 0 16px 40px rgba(107, 28, 62, 0.12);
@@ -472,7 +471,6 @@ nav a:hover { background: rgba(255, 255, 255, 0.15); }
 }
 
 .footer-bottom a:hover { color: var(--maroon-dark); }
-
 
 /* ============ RESPONSIVE DESIGN (MOBILE) ============ */
 @media (max-width: 900px) {
