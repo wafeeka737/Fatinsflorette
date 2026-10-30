@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subscription</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="subscription.css">
+</head>
+<body>
+
+  <!-- navigation bar -->
+  <div class="navbar">
+    <div class="logo"><img src="images/logo.jpg" alt="Fatin's Florette logo"></div>
+
+    <ul class="nav-links">
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="about.html">ABOUT US</a></li>
+      <li><a href="catalog.html">CATALOG</a></li>
+      <li><a href="custom-bouquet.html">BUILD YOUR BOUQUET</a></li>
+      <li><a href="occasion.html">OCCASION</a></li>
+      <li><a href="subscription.html">SUBSCRIPTION</a></li>
+      <li><a href="contact.html">CONTACT US</a></li>
+    </ul>
+
+    <div class="search-cart">
+      <svg
+        viewBox="0 0 24 24"
+        width="20"
+        height="20"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <circle cx="10.5" cy="10.5" r="6.5"></circle>
+        <path d="m16 16 5 5"></path>
+      </svg>
+
+      <input type="text" aria-label="Search">
+
+      <a href="cart.html" class="cart-link" aria-label="Shopping cart">
+        <svg
+          viewBox="0 0 24 24"
+          width="22"
+          height="22"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M3 3h2l2.2 11.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.5L22 7H6"></path>
+          <circle cx="10" cy="20" r="1"></circle>
+          <circle cx="18" cy="20" r="1"></circle>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="page">
+    <h1>Subscription</h1>
+
+    <!-- STEP 1: choose the flower subscription and add flowers -->
+    <div id="step1">
+      <h2>Choose your flower subscription</h2>
+
+      <div class="button-row">
+        <button class="option-btn plan-btn" onclick="choosePlan('Fresh Flowers', this)">FRESH FLOWERS</button>
+        <button class="option-btn plan-btn" onclick="choosePlan('Seasonal Flowers', this)">SEASONAL FLOWERS</button>
+        <button class="option-btn plan-btn" onclick="choosePlan('Dried Flowers', this)">DRIED FLOWERS</button>
+      </div>
+
+      <!-- this part shows after a plan is clicked -->
+      <div id="flower-area" class="hidden">
+        <p class="plan-note" id="plan-note"></p>
+        <div class="flower-grid" id="flower-grid"></div>
+
+        <h3>Your flowers (for each delivery)</h3>
+        <div class="selected-flowers" id="selected-flowers"></div>
+        <p class="price-text" id="delivery-price"></p>
+      </div>
+
+      <p class="error" id="step1-error"></p>
+      <button class="continue-btn" onclick="continueStep1()">Continue</button>
+    </div>
+
+    <!-- STEP 2: delivery, duration and price -->
+    <div id="step2" class="hidden">
+      <h2>Choose delivery</h2>
+      <h3>Select Delivery Area</h3>
+      <select id="area" onchange="showPrice()"></select>
+      <h3>Select Frequency</h3>
+      <select id="frequency" onchange="showPrice()">
+        <option value="Every week">Every week</option>
+        <option value="Every month" selected>Every month</option>
+      </select>
+
+      <h2>Choose subscription duration</h2>
+      <h3>Select Length of Subscription</h3>
+      <select id="length" onchange="showPrice()">
+        <option value="1">1 Month</option>
+        <option value="3">3 Months</option>
+        <option value="6">6 Months</option>
+        <option value="12" selected>1 Year - Most Popular</option>
+      </select>
+
+      <h2>Estimated price</h2>
+      <div class="summary-box" id="price-box"></div>
+
+      <p class="error" id="step2-error"></p>
+
+      <button class="continue-btn" onclick="confirmSubscription()">Send Subscription Request &amp; Confirm With Payment</button>
+    </div>
+
+    <!-- message after confirmation -->
+    <div id="success" class="hidden">
+      <h2>Thank you!</h2>
+      <p id="success-text"></p>
+    </div>
+
+  </div>
+
+  <script src="subscription.js"></script>
+</body>
+</html>
