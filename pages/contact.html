@@ -5,46 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Fatin's Florette</title>
 
-    <!-- Google Font: Montserrat -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-
-    <!-- External stylesheet -->
+    <!-- Shared styles (header, footer, colours, fonts, base) -->
+    <link rel="stylesheet" href="../css/shared.css">
+    <!-- Contact-page-only styles -->
     <link rel="stylesheet" href="../css/contact.css">
 </head>
 <body>
 
-    <!-- 1. Header -->
-    <header>
-        <div class="logo">
-            <img src="../logo.png" alt="Fatin's Florette Logo">
-        </div>
-        <nav>
-            <a href="../index.html">HOME</a>
-            <a href="aboutus.html">ABOUT US</a>
-            <a href="#">CATALOG</a>
-            <a href="#">OCCASION</a>
-            <a href="#">SUBSCRIPTION</a>
-            <a href="contact.html">CONTACT US</a>
-            <a href="#" aria-label="Shopping Cart">🛒</a>
+    <!-- ===== HEADER (shared) ===== -->
+    <header class="site-header">
+        <a href="../index.html" class="logo">
+            <span class="logo-name">Fatin's Florette</span>
+            <span class="logo-tagline">Little things make life bloom</span>
+        </a>
+
+        <nav class="main-nav" id="mainNav">
+            <a href="../index.html">Home</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="#">Catalog</a>
+            <a href="#">Occasion</a>
+            <a href="#">Subscription</a>
+            <a href="contact.html" class="active">Contact Us</a>
         </nav>
+
+        <div class="header-actions">
+            <button class="search-button" aria-label="Search">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+            <a href="#" class="cart-link" aria-label="Shopping Cart">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+            </a>
+            <button class="menu-toggle" aria-label="Menu" aria-controls="mainNav" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
     </header>
 
-    <!-- Main Content -->
+    <!-- ===== MAIN CONTENT ===== -->
     <main class="page-bg">
-        <!-- Added the main-card wrapper for the white background -->
         <div class="main-card">
-            <h2 class="page-title">CONTACT US</h2>
+            <h1 class="page-title">Contact Us</h1>
 
-            <!-- 2. Get In Touch (Image + Form) -->
+            <!-- Get In Touch (Image + Form) -->
             <section class="contact-top">
                 <div class="contact-image">
                     <img src="../contact.png" alt="Bouquet of flowers">
                 </div>
 
                 <div class="contact-form-container">
-                    <h3>Get In Touch</h3>
+                    <h2>Get In Touch</h2>
                     <form action="#" method="post">
                         <div class="name-row">
                             <input type="text" name="first_name" placeholder="First Name" required>
@@ -52,31 +68,31 @@
                         </div>
                         <input type="tel" name="phone" placeholder="Phone Number">
                         <textarea name="message" placeholder="Message" required></textarea>
-                        <button type="submit">SUBMIT</button>
+                        <button type="submit" class="hero-button">Submit</button>
                     </form>
                 </div>
             </section>
 
-            <!-- 3. Contact Info -->
+            <!-- Contact Info -->
             <section class="contact-info">
                 <div class="info-block">
-                    <h4>PHONE</h4>
+                    <h3>Phone</h3>
                     <p>+673 863 3134</p>
                 </div>
                 <div class="info-block">
-                    <h4>ADDRESS</h4>
+                    <h3>Address</h3>
                     <p>No. 5, Spg 66-88-13, Kampong<br>Bengkurog BF1920, Brunei</p>
                 </div>
                 <div class="info-block">
-                    <h4>EMAIL</h4>
+                    <h3>Email</h3>
                     <p>fatinfth@gmail.com</p>
                 </div>
             </section>
 
-            <!-- 4. FAQ Section -->
+            <!-- FAQ -->
             <section class="faq-banner">
-                <p>FAQS</p>
-                <h2>EVERYTHING YOU NEED TO KNOW</h2>
+                <p class="section-eyebrow">FAQs</p>
+                <h2>Everything You Need To Know</h2>
 
                 <div class="faq-list">
                     <details>
@@ -115,10 +131,10 @@
                     </details>
                 </div>
             </section>
-        </div> <!-- End of main-card -->
+        </div>
     </main>
 
-    <!-- 5. Footer -->
+    <!-- ===== FOOTER (shared) ===== -->
     <footer class="site-footer">
         <div class="footer-main">
             <div class="footer-brand">
@@ -159,13 +175,8 @@
 
             <div class="footer-map">
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.5187098738365!2d114.8646345!3d4.8523594999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x322261498f1d3eef%3A0x6fb80f0e46c2ac8f!2sFatin's%20Florete!5e0!3m2!1sen!2sbn!4v1792552757731!5m2!1sen!2sbn" 
-                    width="100%" 
-                    height="120" 
-                    style="border:0; border-radius: 8px;" 
-                    allowfullscreen="" 
-                    loading="lazy">
-                </iframe>
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.5187098738365!2d114.8646345!3d4.8523594999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x322261498f1d3eef%3A0x6fb80f0e46c2ac8f!2sFatin's%20Florete!5e0!3m2!1sen!2sbn!4v1792552757731!5m2!1sen!2sbn"
+                    allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
 
@@ -174,5 +185,17 @@
             <a href="#">Back to top &uarr;</a>
         </div>
     </footer>
+
+    <!-- Mobile menu toggle -->
+    <script>
+        const toggle = document.querySelector('.menu-toggle');
+        const nav = document.getElementById('mainNav');
+        if (toggle) {
+            toggle.addEventListener('click', () => {
+                const open = nav.classList.toggle('open');
+                toggle.setAttribute('aria-expanded', open);
+            });
+        }
+    </script>
 </body>
 </html>
