@@ -6,7 +6,7 @@ const flowers = [
     category: "fresh",
     description: "Fresh lilies arranged in a delicate bouquet, bringing a touch of elegance and beauty to any special occasion.",
     color: "pink",
-    image: "../images/lilies 1.jpeg",
+    image: "../IMAGES/lilies 1.jpeg",
     tags: ["best-seller"],
   },
   {
