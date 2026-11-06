@@ -1,10 +1,6 @@
 /* =========================================
    ABOUT US PAGE
-   (Relies on style.css for colours, fonts,
-   header, footer, and base layout)
 ========================================= */
-
-/* ========== PAGE WRAPPER ========== */
 
 .about-container {
     width: min(100% - 40px, 1120px);
@@ -16,14 +12,13 @@
 
 .about-card {
     width: 100%;
-    max-width: 850px; /* Matched to Contact page */
-    padding: 40px;    /* Matched to Contact page */
+    max-width: 850px;
+    padding: 40px;
     background: var(--white);
     border-radius: 12px;
     box-shadow: 0 16px 40px rgba(116, 0, 67, 0.10);
 }
 
-/* Page title - EXACT MATCH to Contact page */
 .page-title {
     margin-bottom: 35px;
     color: var(--burgundy);
