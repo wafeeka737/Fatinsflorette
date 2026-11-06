@@ -6,7 +6,7 @@ const flowers = [
     category: "fresh",
     description: "Fresh lilies arranged in a delicate bouquet, bringing a touch of elegance and beauty to any special occasion.",
     color: "pink",
-    image: "images/lilies 1.jpeg",
+    image: "../images/lilies 1.jpeg",
     tags: ["best-seller"],
   },
   {
@@ -16,7 +16,7 @@ const flowers = [
     category: "fresh",
     color: "mixed",
     description: "Bright sunflowers bring warmth and happiness to this cheerful bouquet, making it a lovely gift for someone special.",
-    image: "images/sunflower bouquet 1.jpeg",
+    image: "../images/sunflower bouquet 1.jpeg",
     tags: ["best-seller"],
     occasions: ["graduation"]
   },
@@ -27,7 +27,7 @@ const flowers = [
     category: "fresh",
     color: "mixed",
     description: "A timeless arrangement of roses, carefully gathered into a classic bouquet that expresses love and appreciation.",
-    image: "images/rose 1.jpeg",
+    image: "../images/rose 1.jpeg",
     tags: ["best-seller"],
     occasions: ["anniversary"]
   },
@@ -38,7 +38,7 @@ const flowers = [
     category: "fresh",
     color: "pink",
     description: "Soft and beautiful peonies create a full, romantic arrangement, perfect for celebrating meaningful moments.",
-    image: "images/peonies 2.jpeg",
+    image: "../images/peonies 2.jpeg",
     tags: ["best-seller", "seasonal"],
     occasions: ["anniversary"]
   },
