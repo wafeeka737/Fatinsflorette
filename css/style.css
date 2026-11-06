@@ -888,3 +888,56 @@ img {
         grid-template-columns: 1fr;
     }
 }
+
+/* =========================================
+   NAVIGATION DROPDOWNS
+========================================= */
+
+.nav-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.nav-dropdown .arrow {
+    font-size: 12px;
+    margin-left: 2px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.nav-dropdown:hover .arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 160px;
+    background: var(--burgundy-dark); /* or var(--white) depending on your preference */
+    border-radius: 8px;
+    padding: 10px 0;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+}
+
+.nav-dropdown:hover .dropdown-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown-menu a {
+    padding: 10px 20px;
+    color: var(--white);
+    font-size: 11px;
+    text-transform: none;
+    border-bottom: none;
+    white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    opacity: 1;
+}
