@@ -58,17 +58,14 @@ img {
 .site-header {
     width: min(100% - 40px, 1120px);
     min-height: 74px;
-    margin: 16px auto 0;
+    margin: 0 auto; /* Removed the top gap */
     padding: 10px 22px;
-
     background: var(--burgundy);
-    border-radius: 12px 12px 9px 9px;
-
+    border-radius: 0 0 12px 12px; /* Changed top radius to 0 to stick to the top */
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 18px;
-
     position: relative;
     z-index: 10;
 }
