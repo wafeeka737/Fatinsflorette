@@ -283,7 +283,7 @@ img {
     background-image:
         linear-gradient(rgba(253, 248, 246, 0.45),
             rgba(253, 248, 246, 0.45)),
-        url("images/cover 2.jpeg");
+        url("../images/flower/cover 2.jpeg 2.jpeg");
 
     background-size: cover;
     background-position: center;
