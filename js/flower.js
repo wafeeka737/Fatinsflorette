@@ -49,7 +49,7 @@ const flowers = [
     category: "fresh",
     color: "purple",
     description: "	Lovely lilac roses come together in a graceful arrangement, adding a soft and charming touch to any occasion.",
-    image: "images/fresh purple bouquet.jpeg",
+    image: "../images/fresh purple bouquet.jpeg",
     tags: ["best-seller"],
   },
   {
@@ -59,7 +59,7 @@ const flowers = [
     category: "fresh",
     color: "mixed",
     description: "A beautiful mix of seasonal blooms arranged together to create a colourful and cheerful gift.",
-    image: "images/fresh mixed bouquet.jpeg",
+    image: "../images/fresh mixed bouquet.jpeg",
     tags: ["best-seller"],
     occasions: ["graduation"]
   },
@@ -69,8 +69,8 @@ const flowers = [
     price: 70,
     category: "fresh",
     color: "pink",
-    description: "		A beautiful mix of dried flowers arranged in a natural style, making a lovely decorative piece that can be enjoyed for longer.",
-    image: "images/pastel theme 2.jpeg",
+    description: "A beautiful mix of dried flowers arranged in a natural style, making a lovely decorative piece that can be enjoyed for longer.",
+    image: "../images/pastel theme 2.jpeg",
     tags: ["best-seller"],
     occasions: ["birthday"]
   },
@@ -80,8 +80,8 @@ const flowers = [
     price: 100,
     category: "basket-series",
     color: "pink",
-    description: "	Fresh pink blooms are beautifully arranged in a charming basket, creating a thoughtful gift for someone you love.",
-    image: "images/basket fresh flowers 1.jpeg",
+    description: "Fresh pink blooms are beautifully arranged in a charming basket, creating a thoughtful gift for someone you love.",
+    image: "../images/basket fresh flowers 1.jpeg",
     tags: ["basket-series"],
     occasions: ["mothers"]
   },
@@ -92,7 +92,7 @@ const flowers = [
     category: "dried",
     color: "pink",
     description: "	A lovely arrangement of dried flowers in soft, warm tones, creating a charming keepsake that lasts beyond the occasion.",
-    image: "images/dried flowers 5.jpeg",
+    image: "../images/dried flowers 5.jpeg",
     tags: ["dried"],
   },
   {
@@ -102,7 +102,7 @@ const flowers = [
     category: "dried",
     color: "mixed",
     description: "	Warm golden grasses and dried blooms come together in a natural arrangement, bringing a cosy and rustic touch to any space.",
-    image: "images/dried flowers 6.jpeg",
+    image: "../images/dried flowers 6.jpeg",
     tags: ["dried"],
   },
   {
@@ -111,8 +111,8 @@ const flowers = [
     price: 65,
     category: "artificial",
     color: "pink",
-    description: "	Soft blush and cream artificial blooms create a beautiful arrangement that adds lasting charm to any room.",
-    image: "images/artificial flower basket 2.jpeg",
+    description: "Soft blush and cream artificial blooms create a beautiful arrangement that adds lasting charm to any room.",
+    image: "../images/artificial flower basket 2.jpeg",
     tags: ["artificial", "basket series"],
   },
   {
@@ -121,8 +121,8 @@ const flowers = [
     price: 50,
     category: "artificial",
     color: "purple",
-    description: "	Lovely lilac blooms bring a soft and graceful touch to this artificial arrangement, perfect for gifting or decorating.",
-    image: "images/artificial flowers 1.jpeg",
+    description: "Lovely lilac blooms bring a soft and graceful touch to this artificial arrangement, perfect for gifting or decorating.",
+    image: "../images/artificial flowers 1.jpeg",
     tags: ["artificial"],
     occasions: ["teachers"]
   },
@@ -132,8 +132,8 @@ const flowers = [
     price: 50,
     category: "artificial",
     color: "purple",
-    description: "	Warm-toned artificial flowers create a cheerful arrangement that keeps its beauty without the need for regular care.",
-    image: "images/artificial flower basket 1.jpeg",
+    description: "Warm-toned artificial flowers create a cheerful arrangement that keeps its beauty without the need for regular care.",
+    image: "../images/artificial flower basket 1.jpeg",
     tags: ["artificial", "basket series"],
   },
   {
@@ -143,7 +143,7 @@ const flowers = [
     category: "petals-pastries",
     color:"purple",
     description: "A sweet combination of beautiful blooms and delicious treats, thoughtfully put together to make someone's day extra special.",
-    image: "images/cake in bloom.jpeg",
+    image: "../images/cake in bloom.jpeg",
     tags: ["Petals & Pastries"],
     occasions: ["birthday"]
   },
@@ -154,7 +154,7 @@ const flowers = [
     category: "petals-pastries",
     color:"purple",
     description: "	A cosy pairing of lovely flowers and a coffee-inspired treat, perfect for slow mornings and thoughtful surprises.",
-    image: "images/petals and pastries 2.jpeg",
+    image: "../images/petals and pastries 2.jpeg",
     tags: ["Petals & Pastries"],
     occasions: ["birthday", "anniversary"]
   },
@@ -165,7 +165,7 @@ const flowers = [
     category: "petals-pastries",
     color:"purple",
     description: "	Bright yellow blooms paired with a delightful treat, creating a cheerful gift filled with sunshine and sweetness.",
-    image: "images/petals and pastries 3.jpeg",
+    image: "../images/petals and pastries 3.jpeg",
     tags: ["Petals & Pastries"],
     occasions: ["birthday"]
   },
@@ -176,7 +176,7 @@ const flowers = [
     category: "petals-pastries",
     color:"purple",
     description: "A lovely floral and beverage pairing, perfect for sharing a little happiness with someone special.",
-    image: "images/petals and pastries 15.jpeg",
+    image: "../images/petals and pastries 15.jpeg",
     tags: ["Petals & Pastries"],
     occasions: ["birthday"]
   },
@@ -187,7 +187,7 @@ const flowers = [
     category: "petals-pastries",
     color:"Red",
     description: "A sweet little surprise featuring beautiful blooms and treats, because sometimes you don't need a reason to make someone smile.",
-    image: "images/petals and pastries 8.jpeg",
+    image: "../images/petals and pastries 8.jpeg",
     tags: ["Petals & Pastries"],
   },
    {
@@ -197,7 +197,7 @@ const flowers = [
     category: "petals-pastries",
     color:"pink",
     description: "A thoughtful combination of flowers and sweet treats, made to remind someone just how special they are.",
-    image: "images/petals and pastries 7.jpeg",
+    image: "../images/petals and pastries 7.jpeg",
     tags: ["Petals & Pastries"],
     occasions: ["birthday"]
   },
@@ -208,7 +208,7 @@ const flowers = [
     category: "petals-pastries",
     color:"Green",
     description: "	A charming floral and pastry pairing, bringing together the beauty of fresh blooms and the sweetness of a little treat.",
-    image: "images/petals and pastries 12.jpeg",
+    image: "../images/petals and pastries 12.jpeg",
     tags: ["Petals & Pastries"],
   },
   {
@@ -218,7 +218,7 @@ const flowers = [
     category: "petals-pastries",
     color:"purple",
     description: "	Soft lilac-inspired blooms paired with a delightful treat, creating a sweet and thoughtful gift for any occasion.",
-    image: "images/petals and pastries 13.jpeg",
+    image: "../images/petals and pastries 13.jpeg",
     tags: ["Petals & Pastries"],
     occasions: ["birthday"]
   },
@@ -229,7 +229,7 @@ const flowers = [
     category: "basket-series",
     color:"pink",
     description: "	A lovely basket filled with delicate blooms, bringing a romantic and graceful touch to special celebrations.",
-    image: "images/basket fresh flowers 3.jpeg",
+    image: "../images/basket fresh flowers 3.jpeg",
     tags: ["basket series"],
     occasions: ["anniversary"]
   },
@@ -240,7 +240,7 @@ const flowers = [
     category: "basket-series",
     color:"pink",
     description: "	A charming floral basket featuring soft pink tones, perfect for making birthdays feel a little more special.",
-    image: "images/basket fresh flowers 4.jpeg",
+    image: "../images/basket fresh flowers 4.jpeg",
     tags: ["basket series"],
     occasions: ["birthday"]
   },
@@ -251,7 +251,7 @@ const flowers = [
     category: "fresh",
     color:"yellow",
     description: "	A gentle blend of pastel blooms creates a soft and dreamy bouquet, perfect for birthdays and thoughtful surprises.",
-    image: "images/sunflower 4.jpeg",
+    image: "../images/sunflower 4.jpeg",
     tags: ["Petals & Pastries"],
     occasions: ["graduation"]
   },
@@ -262,7 +262,7 @@ const flowers = [
     category: "fresh",
     color:"mixed",
     description: "	Delicate carnations are arranged into a lovely bouquet, making it a thoughtful gift for mothers, teachers, and loved ones.",
-    image: "images/fresh flower bouquet 4.jpeg",
+    image: "../images/fresh flower bouquet 4.jpeg",
     tags: ["Petals & Pastries"],
     occasions: ["teachers", "mothers"]
   },
@@ -273,7 +273,7 @@ const flowers = [
     category: "fresh",
     color:"white",
     description: "	An elegant bridal bouquet featuring delicate blooms, beautifully arranged for a timeless and romantic wedding look.",
-    image: "images/bridal bouquet 2.jpeg",
+    image: "../images/bridal bouquet 2.jpeg",
     tags: ["wedding"],
     occasions: ["wedding"]
   },
@@ -284,7 +284,7 @@ const flowers = [
     category: "fresh",
     color:"purple",
     description: "	A charming mix of purple blooms creates a graceful bouquet filled with colour and elegance.",
-    image: "images/fresh flower bouquet 7.jpeg",
+    image: "../images/fresh flower bouquet 7.jpeg",
     tags: ["best-seller"],
     occasions: ["mothers"]
   },
@@ -295,7 +295,7 @@ const flowers = [
     category: "fresh",
     color:"white",
     description: "	A romantic arrangement of fresh flowers, thoughtfully styled to complement a beautiful wedding celebration.",
-    image: "images/bridal bouquet 4.jpeg",
+    image: "../images/bridal bouquet 4.jpeg",
     tags: ["best-seller"],
     occasions: ["wedding"]
   },
@@ -306,7 +306,7 @@ const flowers = [
     category: "fresh",
     color:"white",
     description: "	Soft white blooms come together in an elegant arrangement, creating a graceful and timeless bridal bouquet.",
-    image: "images/bridal bouquet 5.jpeg",
+    image: "../images/bridal bouquet 5.jpeg",
     tags: ["wedding"],
     occasions: ["wedding"]
   },
@@ -317,7 +317,7 @@ const flowers = [
     category: "fresh",
     color:"blue",
     description: "	Beautiful blue and white blooms create a dreamy arrangement, perfect for adding a unique touch to a wedding.",
-    image: "images/bridal bouquet 6.jpeg",
+    image: "../images/bridal bouquet 6.jpeg",
     tags: ["wedding"],
     occasions: ["wedding"]
   },
@@ -328,7 +328,7 @@ const flowers = [
     category: "basket-series",
     color:"yellow",
     description: "A sweet arrangement of soft yellow blooms presented in a beautiful basket, bringing warmth and happiness to any space.",
-    image: "images/basket fresh flowers 5.jpeg",
+    image: "../images/basket fresh flowers 5.jpeg",
     tags: ["basket series"]
   },
   {
@@ -338,7 +338,7 @@ const flowers = [
     category: "dried",
     color:"blue",
     description: "	Soft blue dried flowers create a dreamy arrangement, offering a unique and lasting gift for someone special.",
-    image: "images/dried flowers 8.jpeg",
+    image: "../images/dried flowers 8.jpeg",
     tags: ["dried"],
   },
   {
@@ -348,7 +348,7 @@ const flowers = [
     category: "fresh",
     color:"white",
     description: "	A graceful arrangement of soft blooms, bringing a delicate and elegant touch to anniversaries and special celebrations.",
-    image: "images/fresh flower bouquet 8.jpeg",
+    image: "../images/fresh flower bouquet 8.jpeg",
     tags: ["anniversary"],
     occasions: ["anniversary"]
   },
@@ -359,7 +359,7 @@ const flowers = [
     category: "fresh",
     color:"white",
     description: "white",
-    image: "images/bridal bouquet 8.jpeg",
+    image: "../images/bridal bouquet 8.jpeg",
     tags: ["wedding"],
     occasions: ["wedding"]
   },
@@ -370,7 +370,7 @@ const flowers = [
     category: "fresh",
     color:"red",
     description: "white",
-    image: "images/bridal bouquet 9.jpeg",
+    image: "../images/bridal bouquet 9.jpeg",
     tags: ["wedding"],
     occasions: ["wedding"]
   },
@@ -380,8 +380,8 @@ const flowers = [
     price: 40,
     category: "dried",
     color:"blue",
-    description: "	A delicate blend of blue dried blooms creates a calming arrangement, perfect for adding a soft touch to your home.",
-    image: "images/dried flowers 10.jpeg",
+    description: "A delicate blend of blue dried blooms creates a calming arrangement, perfect for adding a soft touch to your home.",
+    image: "../images/dried flowers 10.jpeg",
     tags: ["best-seller"],
   },
   {
@@ -391,7 +391,7 @@ const flowers = [
     category: "fresh",
     color:"mixed",
     description: "	A lovely combination of fresh blooms arranged in a soft and elegant style, perfect for showing love and appreciation.",
-    image: "images/fresh flower bouquet 9.jpeg",
+    image: "../images/fresh flower bouquet 9.jpeg",
     tags: ["fresh"],
     occasions: ["mothers"]
   },
@@ -402,7 +402,7 @@ const flowers = [
     category: "artificial",
     color:"yellow",
     description: "	Bright yellow artificial blooms bring a little sunshine into any space, making a lovely long-lasting decorative piece.",
-    image: "images/artificial flower 3.jpeg",
+    image: "../images/artificial flower 3.jpeg",
     tags: ["artificial"]
   },
   {
@@ -412,7 +412,7 @@ const flowers = [
     category: "fresh",
     color:"yellow",
     description: "Warm orange roses bring a cheerful and vibrant touch to this bouquet, making it a lovely way to brighten someone's day.",
-    image: "images/fresh flower bouquet 10.jpeg",
+    image: "../images/fresh flower bouquet 10.jpeg",
     tags: ["fresh"]
   },
   {
@@ -422,7 +422,7 @@ const flowers = [
     category: "dried",
     color:"pruple",
     description: "Deep purple tones give this dried arrangement a charming and elegant look, perfect for those who love something different.",
-    image: "images/bridal bouquet 10.jpeg",
+    image: "../images/bridal bouquet 10.jpeg",
     tags: ["wedding"],
     occasions: ["wedding"]
   },
@@ -433,7 +433,7 @@ const flowers = [
     category: "fresh",
     color:"white",
     description: " 	An elegant arrangement of delicate blooms, designed with a romantic finish for a beautiful wedding celebration.",
-    image: "images/bridal bouquet 11.jpeg",
+    image: "../images/bridal bouquet 11.jpeg",
     tags: ["wedding"],
     occasions: ["wedding"]
   },
@@ -444,7 +444,7 @@ const flowers = [
     category: "fresh",
     color:"purple",
     description: "	Beautiful lilies create a graceful and sophisticated bridal bouquet, perfect for a timeless wedding look.",
-    image: "images/bridal bouquet 12.jpeg",
+    image: "../images/bridal bouquet 12.jpeg",
     tags: ["wedding"],
     occasions: ["wedding"]
   },
@@ -455,7 +455,7 @@ const flowers = [
     category: "fresh",
     color:"blue",
     description: "	A stylish arrangement of blue-toned blooms, offering a thoughtful and unique floral gift for someone special.",
-    image: "images/fresh flower bouquet 11.jpeg",
+    image: "../images/fresh flower bouquet 11.jpeg",
     tags: ["anniversary"],
     occasions: ["anniversary"]
   },
@@ -466,7 +466,7 @@ const flowers = [
     category: "fresh",
     color:"blue",
     description: "A charming arrangement of fresh flowers, bringing a lovely touch of colour and appreciation to any celebration.",
-    image: "images/fresh flower bouquet 13.jpeg",
+    image: "../images/fresh flower bouquet 13.jpeg",
     tags: ["fresh"],
     occasions: ["anniversary", "mothers","graduation"]
   },
@@ -477,7 +477,7 @@ const flowers = [
     category: "dried",
     color:"mixed",
     description: "home",
-    image: "images/dried flowers 12.jpeg",
+    image: "../images/dried flowers 12.jpeg",
     tags: ["dried"]
   },
   {
@@ -487,7 +487,7 @@ const flowers = [
     category: "fresh",
     color:"mixed",
     description: "	A warm mix of colourful blooms creates a cheerful arrangement, perfect for celebrating mothers and loved ones.",
-    image: "images/fresh flower bouquet 14.jpeg",
+    image: "../images/fresh flower bouquet 14.jpeg",
     tags: ["fresh"],
     occasions: ["mothers", "anniversary"]
   },
@@ -498,7 +498,7 @@ const flowers = [
     category: "dried",
     color:"mixed",
     description: "	A colourful mix of dried blooms arranged in a charming basket, making a lovely decorative gift for any occasion.",
-    image: "images/basket .jpeg",
+    image: "../images/basket .jpeg",
     tags: ["basket-series"],
     occasions: ["mothers"]
   },
@@ -509,7 +509,7 @@ const flowers = [
     category: "fresh",
     color:"purple",
     description: "	Soft lavender-toned blooms create a romantic and graceful arrangement, perfect for a dreamy wedding celebration.",
-    image: "images/bridal bouquet 2.jpeg",
+    image: "../images/bridal bouquet 2.jpeg",
     tags: ["wedding"],
     occasions: ["wedding"]
   },
@@ -520,7 +520,7 @@ const flowers = [
     category: "fresh",
     color:"pink",
     description: "Delicate blush flowers come together in a soft and elegant bouquet, making it a lovely gift for graduation day.",
-    image: "images/fresh flower bouquet 6.jpeg",
+    image: "../images/fresh flower bouquet 6.jpeg",
     tags: ["graduation"],
     occasions: ["graduation"]
   },
@@ -531,7 +531,7 @@ const flowers = [
     category: "fresh",
     color:"yellow",
     description: "Bright yellow blooms create a cheerful arrangement filled with warmth, happiness, and a little sunshine.",
-    image: "images/fresh yellow theme.jpeg",
+    image: "../images/fresh yellow theme.jpeg",
     tags: ["fresh"]
   },
   {
@@ -541,7 +541,7 @@ const flowers = [
     category: "fresh",
     color:"purple",
     description: "Rich purple blooms create a striking and elegant arrangement, perfect for adding a touch of charm to any occasion.",
-    image: "images/fresh purple theme.jpeg",
+    image: "../images/fresh purple theme.jpeg",
     tags: ["best-seller"]
   },
 ];
