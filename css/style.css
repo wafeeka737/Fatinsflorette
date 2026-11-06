@@ -964,3 +964,18 @@ img {
         padding-left: 30px;
     }
 }
+
+.nav-dropdown > .dropdown-toggle {
+    color: #fff5f7;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.2px;
+    white-space: nowrap;
+    transition: opacity 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.nav-dropdown > .dropdown-toggle:hover {
+    opacity: 0.72;
+}
