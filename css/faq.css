@@ -1,4 +1,3 @@
-
 /* ========================================
    FATIN'S FLORETTE - FAQ / SHOPPER GUIDE
 ======================================== */
@@ -6,8 +5,8 @@
 :root {
     --faq-burgundy: #79003d;
     --faq-rose: #a54a70;
-    --faq-blush: #f8e9ed;
-    --faq-cream: #fffaf6;
+    --faq-blush: #f5cbd6;
+    --faq-cream: #f6e6ed;
     --faq-pink: #f2d5df;
     --faq-text: #49323d;
     --faq-muted: #786771;
