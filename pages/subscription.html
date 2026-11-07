@@ -92,7 +92,6 @@
 
     <!-- STEP 2: delivery, duration and price -->
     <div id="step2" class="hidden">
-      <h2>Choose delivery</h2>
       <h3>Select Delivery Area</h3>
       <select id="area" onchange="showPrice()"></select>
       <h3>Select Frequency</h3>
@@ -101,7 +100,6 @@
         <option value="Every month" selected>Every month</option>
       </select>
 
-      <h2>Choose subscription duration</h2>
       <h3>Select Length of Subscription</h3>
       <select id="length" onchange="showPrice()">
         <option value="1">1 Month</option>
@@ -110,7 +108,7 @@
         <option value="12" selected>1 Year - Most Popular</option>
       </select>
 
-      <h2>Estimated price</h2>
+      <h2>Total Amount</h2>
       <div class="summary-box" id="price-box"></div>
 
       <p class="error" id="step2-error"></p>
@@ -129,3 +127,4 @@
   <script src="subscription.js"></script>
 </body>
 </html>
+
