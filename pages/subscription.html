@@ -3,67 +3,85 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Subscription</title>
+  <title>Subscription - Fatin's Florette</title>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="subscription.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Fixed CSS path out of pages folder -->
+  <link rel="stylesheet" href="../subscription.css">
 </head>
 <body>
 
-  <!-- navigation bar -->
-  <div class="navbar">
-    <div class="logo"><img src="images/logo.jpg" alt="Fatin's Florette logo"></div>
+   <!-- HEADER -->
+    <header class="site-header">
 
-    <ul class="nav-links">
-      <li><a href="index.html">HOME</a></li>
-      <li><a href="about.html">ABOUT US</a></li>
-      <li><a href="catalog.html">CATALOG</a></li>
-      <li><a href="custom-bouquet.html">BUILD YOUR BOUQUET</a></li>
-      <li><a href="occasion.html">OCCASION</a></li>
-      <li><a href="subscription.html">SUBSCRIPTION</a></li>
-      <li><a href="contact.html">CONTACT US</a></li>
-    </ul>
+        <a href="main.html" class="logo" aria-label="Fatin's Florette Home">
+            <span class="logo-name">Fatin's Florette</span>
+            <span class="logo-tagline">Flowers for every feeling</span>
+        </a>
 
-    <div class="search-cart">
-      <svg
-        viewBox="0 0 24 24"
-        width="20"
-        height="20"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="3"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        aria-hidden="true"
-      >
-        <circle cx="10.5" cy="10.5" r="6.5"></circle>
-        <path d="m16 16 5 5"></path>
-      </svg>
+        <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false"
+            aria-controls="main-navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
 
-      <input type="text" aria-label="Search">
+        <nav class="main-nav" id="main-navigation">
 
-      <a href="cart.html" class="cart-link" aria-label="Shopping cart">
-        <svg
-          viewBox="0 0 24 24"
-          width="22"
-          height="22"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-        >
-          <path d="M3 3h2l2.2 11.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.5L22 7H6"></path>
-          <circle cx="10" cy="20" r="1"></circle>
-          <circle cx="18" cy="20" r="1"></circle>
-        </svg>
-      </a>
-    </div>
-  </div>
+            <a href="main.html">Home</a>
+            <a href="aboutus.html">About Us</a>
 
-  <div class="page">
+            <div class="nav-dropdown">
+                <a href="catalog.html" class="dropdown-toggle">
+                    Catalogue <span class="arrow">⌄</span>
+                </a>
+
+                <div class="dropdown-menu">
+                    <a href="catalog.html">Shop All</a>
+                    <a href="catalog.html?category=petals-pastries">Petals &amp; Pastries</a>
+                    <a href="catalog.html?category=basket-series">Basket Series</a>
+                </div>
+            </div>
+
+            <a href="custom.bouquet.html">Build a Bouquet</a>
+
+            <div class="nav-dropdown">
+                <a href="occasional.html" class="dropdown-toggle">
+                    Shop by Occasion <span class="arrow">⌄</span>
+                </a>
+
+                <div class="dropdown-menu">
+                    <a href="occasional.html?occasion=birthday">Birthday</a>
+                    <a href="occasional.html?occasion=anniversary">Anniversary</a>
+                    <a href="occasional.html?occasion=graduation">Graduation</a>
+                    <a href="occasional.html?occasion=wedding">Wedding</a>
+                    <a href="occasional.html?occasion=teachers">Teacher's Day</a>
+                    <a href="occasional.html?occasion=mothers">Mother's Day</a>
+                </div>
+            </div>
+
+            <a href="subscription.html" class="active">Subscription</a>
+            <a href="contact.html">Contact Us</a>
+
+        </nav>
+
+        <div class="header-actions">
+            <button class="search-button" type="button" aria-label="Search flowers"
+                onclick="window.location.href='catalog.html'">
+                ⌕
+            </button>
+
+            <a href="cart.html" class="cart-link" aria-label="Shopping cart">
+                ♡ <span id="cart-count">0</span>
+            </a>
+        </div>
+
+    </header>
+
+<div class="page">
     <h1>Subscription</h1>
 
     <!-- STEP 1: choose the flower subscription and add flowers -->
@@ -92,7 +110,6 @@
 
     <!-- STEP 2: delivery, duration and price -->
     <div id="step2" class="hidden">
-      <h2>Choose delivery</h2>
       <h3>Select Delivery Area</h3>
       <select id="area" onchange="showPrice()"></select>
       <h3>Select Frequency</h3>
@@ -101,7 +118,6 @@
         <option value="Every month" selected>Every month</option>
       </select>
 
-      <h2>Choose subscription duration</h2>
       <h3>Select Length of Subscription</h3>
       <select id="length" onchange="showPrice()">
         <option value="1">1 Month</option>
@@ -110,7 +126,7 @@
         <option value="12" selected>1 Year - Most Popular</option>
       </select>
 
-      <h2>Estimated price</h2>
+      <h2>Total Amount</h2>
       <div class="summary-box" id="price-box"></div>
 
       <p class="error" id="step2-error"></p>
@@ -129,3 +145,4 @@
   <script src="subscription.js"></script>
 </body>
 </html>
+

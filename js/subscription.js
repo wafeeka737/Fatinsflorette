@@ -22,8 +22,8 @@ let plans = {
       { name: "Lily", image: "images/lily.png", price: 4 }
     ]
   },
-  "Seasonal Flowers, image": {
-    note: "Seasonal premium stock: peonies, ranunculus and dahlias.",
+  "Seasonal Flowers": {
+    note: "Seasonal premium stock: peony, ranunculus and dahlia.",
     flowers: [
       { name: "Peony", image: "images/peony.png", price: 6 },
       { name: "Dahlia", image: "images/dahlia.png", price: 6 },
@@ -241,7 +241,7 @@ function showPrice() {
     "Delivery fee (" + document.getElementById("area").value + "): $" + fee.toFixed(2) + "<br>" +
     "Total for each delivery: $" + (flowersPrice + fee).toFixed(2) + "<br>" +
     "Number of deliveries: " + getDeliveries() + "<br>" +
-    "<b>Estimated total: $" + getTotal().toFixed(2) + "</b>";
+    "<b>Total: $" + getTotal().toFixed(2) + "</b>";
 }
 
 // ---------- CONFIRM THE SUBSCRIPTION ----------

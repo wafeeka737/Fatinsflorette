@@ -5,26 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Fatin's Florette</title>
 
-    <!-- Shared styles (header, footer, colours, fonts, base) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="../css/style.css">
-    <!-- Contact-page-only styles -->
     <link rel="stylesheet" href="../css/contact.css">
 </head>
 <body>
 
-    <!-- ===== HEADER (shared) ===== -->
+    <!-- ===== HEADER (matches Image 1) ===== -->
     <header class="site-header">
         <a href="../index.html" class="logo">
             <span class="logo-name">Fatin's Florette</span>
-            <span class="logo-tagline">Little things make life bloom</span>
+            <span class="logo-tagline">Flowers for every feeling</span>
         </a>
 
         <nav class="main-nav" id="mainNav">
             <a href="../index.html">Home</a>
             <a href="aboutus.html">About Us</a>
-            <a href="#">Catalog</a>
-            <a href="#">Occasion</a>
-            <a href="#">Subscription</a>
+
+            <div class="nav-dropdown">
+                <a href="catalog.html" class="dropdown-toggle">
+                    Catalog <span class="arrow">⌄</span>
+                </a>
+                <div class="dropdown-menu">
+                    <a href="catalog.html">Shop All</a>
+                    <a href="catalog.html#petals">Petals & Pastries</a>
+                    <a href="catalog.html#basket">Basket Series</a>
+                </div>
+            </div>
+
+            <a href="build-a-bouquet.html">Build a Bouquet</a>
+
+            <div class="nav-dropdown">
+                <a href="occasional.html" class="dropdown-toggle">
+                    Occasion <span class="arrow">⌄</span>
+                </a>
+                <div class="dropdown-menu">
+                    <a href="occasional.html">Birthday</a>
+                    <a href="occasional.html">Anniversary</a>
+                    <a href="occasional.html">Graduation</a>
+                    <a href="occasional.html">Wedding</a>
+                </div>
+            </div>
+
+            <a href="subscription.html">Subscription</a>
             <a href="contact.html" class="active">Contact Us</a>
         </nav>
 
@@ -53,10 +79,9 @@
         <div class="main-card">
             <h1 class="page-title">Contact Us</h1>
 
-            <!-- Get In Touch (Image + Form) -->
             <section class="contact-top">
                 <div class="contact-image">
-                    <img src="../contact.png" alt="Bouquet of flowers">
+                    <img src="../pics/contact.png" alt="Bouquet of flowers">
                 </div>
 
                 <div class="contact-form-container">
@@ -73,7 +98,6 @@
                 </div>
             </section>
 
-            <!-- Contact Info -->
             <section class="contact-info">
                 <div class="info-block">
                     <h3>Phone</h3>
@@ -89,7 +113,6 @@
                 </div>
             </section>
 
-            <!-- FAQ -->
             <section class="faq-banner">
                 <p class="section-eyebrow">FAQs</p>
                 <h2>Everything You Need To Know</h2>
@@ -134,7 +157,7 @@
         </div>
     </main>
 
-    <!-- ===== FOOTER (shared) ===== -->
+    <!-- ===== FOOTER (matches Image 4) ===== -->
     <footer class="site-footer">
         <div class="footer-main">
             <div class="footer-brand">
@@ -146,9 +169,9 @@
                 <h3>Explore</h3>
                 <a href="../index.html">Home</a>
                 <a href="aboutus.html">About Us</a>
-                <a href="#">Catalogue</a>
-                <a href="#">Shop by Occasion</a>
-                <a href="#">Subscription</a>
+                <a href="catalog.html">Catalogue</a>
+                <a href="occasional.html">Shop by Occasion</a>
+                <a href="subscription.html">Subscription</a>
             </div>
 
             <div class="footer-links">
@@ -162,21 +185,23 @@
                 <p>Find us on social media for more floral inspiration.</p>
                 <div class="footer-icons">
                     <a href="https://instagram.com/fatinsflorette" target="_blank" aria-label="Instagram">
-                        <img src="../ig.png" alt="Instagram">
+                        <img src="../pics/ig.png" alt="Instagram">
                     </a>
                     <a href="https://tiktok.com/@fatinsflorette" target="_blank" aria-label="TikTok">
-                        <img src="../tt.png" alt="TikTok">
+                        <img src="../pics/tt.png" alt="TikTok">
                     </a>
                     <a href="https://wa.me/6738633134" target="_blank" aria-label="WhatsApp">
-                        <img src="../wa.png" alt="WhatsApp">
+                        <img src="../pics/wa.png" alt="WhatsApp">
                     </a>
                 </div>
             </div>
 
             <div class="footer-map">
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.5187098738365!2d114.8646345!3d4.8523594999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x322261498f1d3eef%3A0x6fb80f0e46c2ac8f!2sFatin's%20Florete!5e0!3m2!1sen!2sbn!4v1792552757731!5m2!1sen!2sbn"
-                    allowfullscreen="" loading="lazy"></iframe>
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.5187098738365!2d114.8646345!3d4.8523594999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x322261498f1d3eef%3A0x6fb80f0e46c2ac8f!2sFatin's%20Florete!5e0!3m2!1sen!2sbn!4v1792552757731!5m2!1sen!2sbn" 
+                    width="100%" height="120" style="border:0; border-radius: 8px;" 
+                    allowfullscreen="" loading="lazy">
+                </iframe>
             </div>
         </div>
 
@@ -186,7 +211,6 @@
         </div>
     </footer>
 
-    <!-- Mobile menu toggle -->
     <script>
         const toggle = document.querySelector('.menu-toggle');
         const nav = document.getElementById('mainNav');

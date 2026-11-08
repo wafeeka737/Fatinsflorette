@@ -5,25 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Fatin's Florette</title>
 
-    <!-- Load shared styles FIRST -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="../css/style.css">
-    <!-- Load about page styles SECOND -->
-    <link rel="stylesheet" href="../css/about.css">
+    <link rel="stylesheet" href="../css/aboutus.css">
 </head>
 <body>
-
-       <!-- ===== HEADER (shared) ===== -->
+          <!-- ===== HEADER ===== -->
     <header class="site-header">
         <a href="../index.html" class="logo">
             <span class="logo-name">Fatin's Florette</span>
-            <span class="logo-tagline">Little things make life bloom</span>
+            <span class="logo-tagline">Flowers for every feeling</span>
         </a>
 
         <nav class="main-nav" id="mainNav">
             <a href="../index.html">Home</a>
             <a href="aboutus.html" class="active">About Us</a>
 
-            <!-- Catalogue Dropdown -->
             <div class="nav-dropdown">
                 <a href="catalog.html" class="dropdown-toggle">
                     Catalog <span class="arrow">⌄</span>
@@ -35,7 +35,8 @@
                 </div>
             </div>
 
-            <!-- Occasion Dropdown -->
+            <a href="build-a-bouquet.html">Build a Bouquet</a>
+
             <div class="nav-dropdown">
                 <a href="occasional.html" class="dropdown-toggle">
                     Occasion <span class="arrow">⌄</span>
@@ -77,7 +78,6 @@
         <div class="about-card">
             <h1 class="page-title">Our Story</h1>
 
-            <!-- Top part: Story + Images -->
             <div class="story-section">
                 <div class="story-text">
                     <h3>Bloom with us</h3>
@@ -103,13 +103,11 @@
                 </div>
 
                 <div class="image-cluster">
-                    <!-- Ensure your folder is named 'pics' or change this back to 'images' -->
-                    <img src="pics/studio1.png" alt="Shop Interior">
-                    <img src="pics/studio.png" alt="Flower Decorations">
+                    <img src="../pics/studio1.png" alt="Shop Interior">
+                    <img src="../pics/studio.png" alt="Flower Decorations">
                 </div>
             </div>
 
-            <!-- Flower Workshop Section -->
             <div class="workshop-section">
                 <div class="workshop-text">
                     <h3>Flower Workshops</h3>
@@ -117,23 +115,22 @@
                     <p>Grab your friends and spend the day creating beautiful bouquets, learning from our expert florists, and taking home your very own masterpiece.</p>
                     
                     <div class="workshop-mini-gallery">
-                        <img src="pics/sky.png" alt="Workshop Flowers">
-                        <img src="pics/beach.png" alt="Workshop Lilies">
-                        <img src="pics/sb.png" alt="Workshop Setup">
+                        <img src="../pics/sky.png" alt="Workshop Flowers">
+                        <img src="../pics/beach.png" alt="Workshop Lilies">
+                        <img src="../pics/sb.png" alt="Workshop Setup">
                     </div>
                     
                     <a href="https://wa.me/6738633134?text=Hi%20Fatin's%20Florette,%20I%20would%20like%20to%20book%20a%20flower%20workshop!" target="_blank" class="workshop-btn">CONTACT TO BOOK WORKSHOP</a>
                 </div>
 
                 <div class="workshop-main-image">
-                    <img src="pics/shopp.png" alt="Flower Workshop Class">
+                    <img src="../pics/shopp.png" alt="Flower Workshop Class">
                 </div>
             </div>
 
-            <!-- Middle part: Founder with Bio -->
             <div class="founder-section">
                 <div class="founder-image">
-                    <img src="pics/founder.png" alt="The Founder">
+                    <img src="../pics/founder.png" alt="The Founder">
                 </div>
                 
                 <div class="founder-text">
@@ -152,27 +149,26 @@
                 </div>
             </div>
 
-            <!-- Bottom part: Gallery Section -->
             <div class="gallery-section">
                 <h3>Our Gallery</h3>
                 <span class="subtitle">A glimpse into our floral world</span>
                 
                 <div class="gallery-grid">
-                    <img src="pics/pop.png" alt="Floral Arrangement 1">
-                    <img src="pics/wedding.png" alt="Floral Arrangement 2">
-                    <img src="pics/wed.png" alt="Floral Arrangement 3">
-                    <img src="pics/ubd1.png" alt="Floral Arrangement 4">
-                    <img src="pics/ubd.png" alt="Floral Arrangement 5">
-                    <img src="pics/cake.png" alt="Floral Arrangement 6">
-                    <img src="pics/flower.png" alt="Floral Arrangement 7">
-                    <img src="pics/display.png" alt="Floral Arrangement 8">
-                    <img src="pics/mirror.png" alt="Floral Arrangement 9">
+                    <img src="../pics/pop.png" alt="Floral Arrangement 1">
+                    <img src="../pics/wedding.png" alt="Floral Arrangement 2">
+                    <img src="../pics/wed.png" alt="Floral Arrangement 3">
+                    <img src="../pics/ubd1.png" alt="Floral Arrangement 4">
+                    <img src="../pics/ubd.png" alt="Floral Arrangement 5">
+                    <img src="../pics/cake.png" alt="Floral Arrangement 6">
+                    <img src="../pics/flower.png" alt="Floral Arrangement 7">
+                    <img src="../pics/display.png" alt="Floral Arrangement 8">
+                    <img src="../pics/mirror.png" alt="Floral Arrangement 9">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== FOOTER (shared) ===== -->
+    <!-- ===== FOOTER (matches Image 4) ===== -->
     <footer class="site-footer">
         <div class="footer-main">
             <div class="footer-brand">
@@ -200,13 +196,13 @@
                 <p>Find us on social media for more floral inspiration.</p>
                 <div class="footer-icons">
                     <a href="https://instagram.com/fatinsflorette" target="_blank" aria-label="Instagram">
-                        <img src="pics/ig.png" alt="Instagram">
+                        <img src="../pics/ig.png" alt="Instagram">
                     </a>
                     <a href="https://tiktok.com/@fatinsflorette" target="_blank" aria-label="TikTok">
-                        <img src="pics/tt.png" alt="TikTok">
+                        <img src="../pics/tt.png" alt="TikTok">
                     </a>
                     <a href="https://wa.me/6738633134" target="_blank" aria-label="WhatsApp">
-                        <img src="pics/wa.png" alt="WhatsApp">
+                        <img src="../pics/wa.png" alt="WhatsApp">
                     </a>
                 </div>
             </div>
@@ -226,7 +222,6 @@
         </div>
     </footer>
 
-    <!-- Mobile menu toggle -->
     <script>
         const toggle = document.querySelector('.menu-toggle');
         const nav = document.getElementById('mainNav');
