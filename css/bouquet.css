@@ -1,57 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
-:root {
-    --burgundy: #740043;
-    --burgundy-dark: #5d0036;
-    --blush: #f8e9e6;
-    --rose: #d8c7ca;
-    --rose-button: #a54a70;
-    --text: #5d3d48;
-    --white: #fffaf9;
-    --page: #f8f6f5;
-    --line: #e5d8dc;
-    --muted: #8b777e
-}
-
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0
-}
-
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 24px
-}
+/* custom bouquet page css */
 
 body {
-    background: var(--page);
-    color: var(--text);
-    font-family: 'Montserrat', Arial, sans-serif;
-    font-size: 14px;
-    line-height: 1.7
+  margin: 0;
+  background-color: #f8e8e6;
+  font-family: "Montserrat", Arial, sans-serif;
+  color: #000000;
 }
 
-a {
-    color: inherit;
-    text-decoration: none
-}
-
-button,
-select,
-input {
-    font: inherit
-}
-
-button {
-    cursor: pointer
-}
-
-
-img {
-    display: block;
-    max-width: 100%
+/* ---------- navbar ---------- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #6b0040;
+  margin: 15px;
+  padding: 10px 25px;
+  border-radius: 10px;
 }
 
 /* Existing Fatin's Florette header style */
