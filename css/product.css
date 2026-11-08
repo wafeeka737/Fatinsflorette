@@ -977,6 +977,26 @@ img {
     color: var(--burgundy)
 }
 
+
+.footer-icons {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px
+}
+
+
+.footer-icons a {
+    display: grid;
+    place-items: center;
+    width: 29px;
+    height: 29px;
+    border: 1px solid #c7aeb7;
+    border-radius: 50%;
+    font-size: 9px;
+    color: var(--burgundy)
+}
+
+
 .footer-bottom {
     display: flex;
     justify-content: space-between;
