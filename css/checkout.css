@@ -71,18 +71,39 @@ input[type="radio"] {
     margin-right: 8px;
 }
 
-/* DELIVERY PRICES */
+/* DELIVERY OPTIONS */
 
-.delivery-prices {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
+.delivery-title {
+    margin-top: 15px;
+    font-weight: 600;
 }
 
-.delivery-prices p {
-    background-color: var(--white);
-    padding: 12px;
+.delivery-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.delivery-choice {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--blush);
+    padding: 15px;
     border-radius: 12px;
+    cursor: pointer;
+}
+
+.delivery-choice:hover {
+    background-color: var(--white);
+}
+
+.delivery-option {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 15px 0;
 }
 
 /* BANK DETAILS */
@@ -186,8 +207,8 @@ input[type="radio"] {
         grid-template-columns: 1fr;
     }
 
-    .delivery-prices {
-        flex-direction: column;
+    .delivery-options {
+    flex-direction: column;
     }
 
     h1 {

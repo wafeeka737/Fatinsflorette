@@ -18,7 +18,6 @@ const totalPriceEl =
     document.getElementById("totalPrice");
 
 const CARD_FEE = 2;
-const SHIPPING_FEE = 3;
 
 // ============================
 // GET CART
@@ -150,11 +149,10 @@ function renderCart() {
         `BND $${subtotal.toFixed(2)}`;
 
     totalPriceEl.textContent =
-        `BND $${(
-            subtotal +
-            CARD_FEE +
-            SHIPPING_FEE
-        ).toFixed(2)}`;
+    `BND $${(
+        subtotal +
+        CARD_FEE
+    ).toFixed(2)}`;
 }
 
 // ============================
