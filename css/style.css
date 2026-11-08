@@ -982,3 +982,33 @@ img {
         padding-left: 30px;
     }
 }
+
+/* =========================================
+   HEADER LOGO IMAGE
+========================================= */
+
+.logo-img-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.header-logo {
+    height: 45px; /* Adjust this number if you want the logo bigger or smaller */
+    width: auto;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.header-logo:hover {
+    transform: scale(1.05); /* Slight zoom effect when hovered */
+}
+
+/* Mobile adjustment */
+@media (max-width: 850px) {
+    .header-logo {
+        height: 35px; /* Make it slightly smaller on phones */
+    }
+}
