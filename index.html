@@ -1,5 +1,7 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,29 +14,38 @@
     >
 
     <!-- Google Fonts -->
-    
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
 
     <!-- Main stylesheet -->
     <link rel="stylesheet" href="css/style.css">
 
     <!-- Website JavaScript -->
     <script src="js/main.js" defer></script>
+
 </head>
 
 <body>
 
-    <!-- -----------HEADER ----------- -->
+    <!-- ----------- HEADER ----------- -->
     <header class="site-header">
 
         <!-- Logo -->
         <a href="index.html" class="logo" aria-label="Fatin's Florette Home">
+
             <span class="logo-name">Fatin's Florette</span>
-            <span class="logo-tagline">Flowers for every feeling</span>
+
+            <span class="logo-tagline">
+                Flowers for every feeling
+            </span>
+
         </a>
+
 
         <!-- Mobile menu button -->
         <button
@@ -49,6 +60,7 @@
             <span></span>
         </button>
 
+
         <!-- Navigation -->
         <nav class="main-nav" id="main-navigation">
 
@@ -56,26 +68,62 @@
 
             <a href="pages/about.html">About Us</a>
 
-            <a href="pages/catalog.html">Catalogue</a>
 
-            <a href="pages/build-a-bouquet.html">Build a Bouquet</a>
+            <!-- Catalogue dropdown -->
+            <div class="nav-dropdown">
 
-            <a href="pages/occasion.html">Shop by Occasion</a>
+                <a href="pages/catalog.html" class="dropdown-toggle">
+                    Catalogue <span class="arrow">⌄</span>
+                </a>
 
-            <a href="pages/subscription.html">Subscription</a>
+                <div class="dropdown-menu">
 
-            <a href="pages/contact.html">Contact Us</a>
+                    <a href="pages/catalog.html#shop-all">
+                        Shop All
+                    </a>
+
+                    <a href="pages/catalog.html#petals-pastries">
+                        Petals &amp; Pastries
+                    </a>
+
+                    <a href="pages/catalog.html#basket-series">
+                        Basket Series
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <a href="pages/build-a-bouquet.html">
+                Build a Bouquet
+            </a>
+
+            <a href="pages/occasion.html">
+                Shop by Occasion
+            </a>
+
+            <a href="pages/subscription.html">
+                Subscription
+            </a>
+
+            <a href="pages/contact.html">
+                Contact Us
+            </a>
 
         </nav>
+
 
         <!-- Header actions -->
         <div class="header-actions">
 
+            <!-- Search button -->
             <button
                 class="search-button"
                 type="button"
                 aria-label="Search the catalogue"
             >
+
                 <svg
                     viewBox="0 0 24 24"
                     width="21"
@@ -90,9 +138,17 @@
                     <circle cx="10.8" cy="10.8" r="6.8"></circle>
                     <path d="m16 16 4.5 4.5"></path>
                 </svg>
+
             </button>
 
-            <a href="pages/cart.html" class="cart-link" aria-label="Shopping cart">
+
+            <!-- Shopping cart -->
+            <a
+                href="pages/cart.html"
+                class="cart-link"
+                aria-label="Shopping cart"
+            >
+
                 <svg
                     viewBox="0 0 24 24"
                     width="22"
@@ -108,6 +164,7 @@
                     <circle cx="10" cy="20" r="1"></circle>
                     <circle cx="18" cy="20" r="1"></circle>
                 </svg>
+
             </a>
 
         </div>
@@ -115,7 +172,7 @@
     </header>
 
 
-    <!-------------MAIN CONTENT ----------- -->
+    <!-- ----------- MAIN CONTENT ----------- -->
     <main>
 
         <!-- Hero section -->
@@ -158,11 +215,13 @@
         <section class="home-intro">
 
             <div class="intro-image">
+
                 <img
                     src="images/img1.jpeg"
                     alt="Floral arrangements at Fatin's Florette"
                     loading="lazy"
                 >
+
             </div>
 
             <div class="intro-content">
@@ -218,121 +277,138 @@
     </main>
 
 
-    
-<!-- --------- FOOTER -------- -->
+    <!-- ----------- FOOTER ----------- -->
+    <footer class="site-footer">
 
-<footer class="site-footer">
+        <div class="footer-main">
 
-    <div class="footer-main">
+            <!-- Brand -->
+            <div class="footer-brand">
 
-        <!-- Brand -->
-        <div class="footer-brand">
+                <a href="index.html" class="footer-logo">
+                    Fatin's Florette
+                </a>
 
-            <a href="index.html" class="footer-logo">
-                Fatin's Florette
+                <p>
+                    Flowers for every feeling.
+                    Little things make life bloom.
+                </p>
+
+            </div>
+
+
+            <!-- Explore links -->
+            <div class="footer-links">
+
+                <h3>Explore</h3>
+
+                <a href="index.html">Home</a>
+
+                <a href="pages/about.html">About Us</a>
+
+                <a href="pages/catalog.html">Catalogue</a>
+
+                <a href="pages/occasion.html">Shop by Occasion</a>
+
+                <a href="pages/subscription.html">Subscription</a>
+
+            </div>
+
+
+            <!-- Help links -->
+            <div class="footer-links">
+
+                <h3>Need Help?</h3>
+
+                <a href="pages/faq.html">
+                    First-Time Visitor Guide
+                </a>
+
+                <a href="pages/contact.html">
+                    Contact Us
+                </a>
+
+            </div>
+
+
+            <!-- Social Media + Map -->
+            <div class="footer-social">
+
+                <h3>Follow Our Journey</h3>
+
+                <p>
+                    Find us on social media for more floral inspiration.
+                </p>
+
+
+                <!-- Social media icons -->
+                <div class="footer-icons">
+
+                    <a
+                        href="https://instagram.com/fatinsflorette"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Instagram"
+                    >
+                        <img src="images/ig.png" alt="Instagram">
+                    </a>
+
+                    <a
+                        href="https://tiktok.com/@fatinsflorette"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="TikTok"
+                    >
+                        <img src="images/tt.png" alt="TikTok">
+                    </a>
+
+                    <a
+                        href="https://wa.me/6738633134"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="WhatsApp"
+                    >
+                        <img src="images/wa.png" alt="WhatsApp">
+                    </a>
+
+                </div>
+
+
+                <!-- Google Maps -->
+                <div class="footer-map">
+
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.5187098738365!2d114.8646345!3d4.8523594999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x322261498f1d3eef%3A0x6fb80f0e46c2ac8f!2sFatin's%20Florete!5e0!3m2!1sen!2sbn!4v1792552757731!5m2!1sen!2sbn"
+                        width="250"
+                        height="150"
+                        style="border: 0; border-radius: 8px;"
+                        allowfullscreen
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Fatin's Florette location on Google Maps"
+                    ></iframe>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Copyright -->
+        <div class="footer-bottom">
+
+            <p>
+                &copy; 2026 Fatin's Florette. All rights reserved.
+            </p>
+
+            <a href="#top">
+                Back to top &uarr;
             </a>
 
-            <p>
-                Flowers for every feeling.
-                Little things make life bloom.
-            </p>
-
         </div>
 
-        <!-- Explore Links -->
-        <div class="footer-links">
+    </footer>
 
-            <h3>Explore</h3>
-
-            <a href="index.html">Home</a>
-            <a href="pages/about.html">About Us</a>
-            <a href="pages/catalog.html">Catalogue</a>
-            <a href="pages/occasion.html">Shop by Occasion</a>
-            <a href="pages/subscription.html">Subscription</a>
-
-        </div>
-
-        <!-- Help Links -->
-        <div class="footer-links">
-
-            <h3>Need Help?</h3>
-
-            <a href="pages/faq.html">First-Time Visitor Guide</a>
-            <a href="pages/contact.html">Contact Us</a>
-
-        </div>
-
-        <!-- Social Media + Map -->
-        <div class="footer-social">
-
-            <h3>Follow Our Journey</h3>
-
-            <p>
-                Find us on social media for more floral inspiration.
-            </p>
-
-            <div class="footer-icons">
-
-                <a
-                    href="https://instagram.com/fatinsflorette" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Instagram"
-                >
-                    <img src="images/ig.png" alt="Instagram">
-                </a>
-
-                <a
-                    href="https://tiktok.com/@fatinsflorette"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="TikTok"
-                >
-                    <img src="images/tt.png" alt="TikTok">
-                </a>
-
-                <a
-                    href="https://wa.me/6738633134" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="WhatsApp"
-                >
-                    <img src="images/wa.png" alt="WhatsApp">
-                </a>
-
-            </div>
-
-            <!-- Google Maps -->
-            <div class="footer-map">
-
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.5187098738365!2d114.8646345!3d4.8523594999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x322261498f1d3eef%3A0x6fb80f0e46c2ac8f!2sFatin's%20Florete!5e0!3m2!1sen!2sbn!4v1792552757731!5m2!1sen!2sbn"
-                    width="250"
-                    height="150"
-                    style="border: 0; border-radius: 8px;"
-                    allowfullscreen
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                    title="Fatin's Florette location on Google Maps">
-                </iframe>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- Copyright -->
-    <div class="footer-bottom">
-
-        <p>
-            &copy; 2026 Fatin's Florette. All rights reserved.
-        </p>
-
-        <a href="#top">Back to top &uarr;</a>
-
-    </div>
-
-</footer>
 </body>
 </html>
