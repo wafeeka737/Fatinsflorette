@@ -191,6 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
         flower.occasions.includes(occasion.id)
       );
 
+      // Do not display headings for empty groups
       if (flowersInGroup.length === 0) {
         return;
       }
