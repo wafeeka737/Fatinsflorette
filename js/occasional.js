@@ -176,8 +176,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const flowers = getFilteredFlowers();
     const selectedOccasion = occasionFilter.value;
 
-    // Show every occasion when "All Occasions" is selected.
-    // Otherwise, show only the selected occasion.
     const groups = selectedOccasion === "all"
       ? occasions
       : occasions.filter(occasion =>
@@ -193,7 +191,6 @@ document.addEventListener("DOMContentLoaded", () => {
         flower.occasions.includes(occasion.id)
       );
 
-      // Do not display headings for empty groups
       if (flowersInGroup.length === 0) {
         return;
       }
@@ -286,7 +283,6 @@ if (
   occasionFilter.addEventListener("change", renderFlowers);
   sortFilter.addEventListener("change", renderFlowers);
 
-  // Update cart count and display the flowers
   // Update cart count and display the flowers
 updateCartCount();
 renderFlowers();
