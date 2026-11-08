@@ -1,0 +1,223 @@
+:root {
+    --burgundy: #740043/*#79003d*/;
+    --burgundy-dark: #740043 /*#65002f*/;
+    --blush: #f8e9e6;
+    --rose: #d8c7ca;
+    --rose-button: #a54a70 /* #614457*/ ; 
+    --text: #5d3d48;
+    --white: #fffaf9;
+}
+/* GEN */
+body {
+    margin: 0;
+    padding: 0;
+
+    background-color: var(--background);
+
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text);
+}
+
+/*header */
+
+.header-container{
+    background-color: var(--header);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo img{
+    height: 50px;
+}
+/* nav bar */
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    background-color: var(--header);
+}
+
+.main-nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.main-nav a:hover {
+    color: #f2d2db;
+}
+.header-icons {
+    display: flex;
+    gap: 20px;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+}
+/* check out area main */
+.checkout-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 50px;
+    padding: 50px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+/* left side design */
+.checkout-left {
+    flex: 2;
+}
+h1{
+    color: var(--header);
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+h2{
+    color: var(--header);
+    margin-bottom: 20px;
+}
+
+/* form itself design */
+#checkout-form {
+    width: 100%;
+}
+/* input fields design */
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+width: 100%;
+padding: 14px;
+margin-top: 6px;
+border: none;
+border-radius: 20px;
+background-color: #eadfdf;
+box-sizing: border-box;
+font-family: 'Montserrat', sans-serif;
+}
+
+input[type="radio"] {
+    margin-right: 8px;
+}
+
+/* delivery prices */
+.delivery-prices {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+.delivery-prices p {
+    background-color: white;
+    padding: 12px;
+    border-radius: 12px;
+}
+/* bank details */
+.bank-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 15px;
+}
+.bank-details p {
+    background-color: white;
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+}
+.summary-box {
+    flex: 1;
+    background-color: white;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 20px;
+}
+.summary-box img {
+    width: 220px;
+    border-radius: 15px;
+}
+.summary-row,
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+     margin-bottom: 15px;
+}
+
+/* complete order button */
+#completeOrderBtn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 15px;
+    background-color: var(--button);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#completeOrderBtn:hover {
+    background-color: var(--accent);
+}
+/* footer*/
+footer {
+    background-color: var(--header);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+/* tablet */
+@media (max-width: 992px) {
+    .checkout-section {
+        flex-direction: column;
+    }
+    .summary-box {
+        width: 100%;
+    }
+}
+ /* mobile */
+
+@media (max-width: 768px) {
+    .main-nav {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+    .checkout-section {
+        padding: 20px;
+    }
+    .bank-details {
+        grid-template-columns: 1fr;
+    }
+    .delivery-prices {
+    flex-direction: column;
+    }
+    h1 {
+        font-size: 32px; 
+    }
+}
+@media (max-width: 768px){
+    .header-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .main-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    }
+}
+/* hide payment section by default */
+#paypalSection,
+#bankTransferSection {
+    display: none;
+}
+
+/* hide delivery section*/ 
+#shippingSection,
+#pickupSection {
+    display: none;
+}
