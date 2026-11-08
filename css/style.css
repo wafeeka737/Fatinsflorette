@@ -559,7 +559,7 @@ img {
     padding-top: 15px;
     margin-top: 20px;
     font-size: 10px;
-    color: #725762; /* Text color */
+    color: var(--muted); 
 }
 
 .footer-bottom a {
