@@ -2,6 +2,7 @@
    CHECKOUT PAGE
 ========================================= */
 /* GENERAL */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
 
 body {
     margin: 0;
@@ -135,7 +136,7 @@ input[type="radio"] {
     color: white;
     font-size: 16px;
     font-weight: 600;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     cursor: pointer;
     margin-top: 20px;
 }
