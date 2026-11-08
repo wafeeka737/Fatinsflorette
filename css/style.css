@@ -453,15 +453,13 @@ img {
 
 
 /* Footer columns */
-
 .footer-main {
     display: grid;
-    grid-template-columns: 1.2fr 1fr 1fr 1.2fr;
+    /* This is the magic line that creates the 4 columns */
+    grid-template-columns: 1.5fr 1fr 1fr 1.5fr; 
     gap: 25px;
-
     padding-bottom: 25px;
 }
-
 
 /* Footer brand */
 
