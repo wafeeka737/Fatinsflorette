@@ -888,3 +888,97 @@ img {
         grid-template-columns: 1fr;
     }
 }
+/* =========================================
+   NAVIGATION DROPDOWNS
+========================================= */
+
+/* This keeps the dropdown items hidden and styles the button */
+.nav-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.nav-dropdown > .dropdown-toggle {
+    color: #fff5f7;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.2px;
+    white-space: nowrap;
+    transition: opacity 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.nav-dropdown > .dropdown-toggle:hover {
+    opacity: 0.72;
+}
+
+.nav-dropdown .arrow {
+    font-size: 10px;
+    margin-left: 4px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.nav-dropdown:hover .arrow {
+    transform: rotate(180deg);
+}
+
+/* This is the actual box that drops down */
+.dropdown-menu {
+    display: none; /* HIDES the menu by default */
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 160px;
+    background: var(--burgundy-dark); /* Or try #740043 */
+    border-radius: 8px;
+    padding: 8px 0;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+
+/* This shows the menu when you hover over the parent */
+.nav-dropdown:hover .dropdown-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+/* The individual links inside the dropdown */
+.dropdown-menu a {
+    padding: 10px 20px;
+    color: var(--white);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    transition: background 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+    background: rgba(255, 255, 255, 0.15);
+    opacity: 1;
+}
+
+/* Mobile adjustment so the dropdown works on phones */
+@media (max-width: 850px) {
+    .nav-dropdown {
+        width: 100%;
+    }
+    
+    .dropdown-menu {
+        position: static;
+        transform: none;
+        box-shadow: none;
+        background: rgba(0, 0, 0, 0.15);
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+    }
+    
+    .dropdown-menu a {
+        padding-left: 30px;
+    }
+}
