@@ -56,9 +56,9 @@ img {
 
 /* Existing Fatin's Florette header style */
 .site-header {
-    width: min(100% - 40px, 1400px);
+    width: min(92%, 1650px);
     min-height: 74px;
-    margin: 16px auto 0;
+    margin: 4px auto 0;
     padding: 10px 22px;
     background: var(--burgundy);
     border-radius: 12px 12px 9px 9px;
