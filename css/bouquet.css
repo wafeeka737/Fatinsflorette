@@ -20,21 +20,6 @@ body {
   border-radius: 10px;
 }
 
-/* Existing Fatin's Florette header style */
-.site-header {
-    width: min(100% - 40px, 1400px);
-    min-height: 74px;
-    margin: 16px auto 0;
-    padding: 10px 22px;
-    background: var(--burgundy);
-    border-radius: 12px 12px 9px 9px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 18px;
-    position: relative;
-    z-index: 10
-}
 
 .logo {
     flex: 0 0 auto;
@@ -57,138 +42,89 @@ body {
     font-size: 8px;
     letter-spacing: 1.3px;
     text-transform: uppercase
+
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
 }
 
-.main-nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: clamp(10px, 1.5vw, 22px)
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 11px;
 }
 
-.main-nav>a,
-.dropdown-toggle {
-    color: #fff5f7;
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: .2px;
-    white-space: nowrap;
-    transition: opacity .2s
+.nav-links a:hover {
+  text-decoration: underline;
 }
 
-.main-nav>a:hover,
-.main-nav>a.active,
-.dropdown-toggle:hover,
-.dropdown-toggle.active {
-    opacity: .72
+/* search box with the search icon and the cart icon */
+.search-cart {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 210px;
+  height: 45px;
+  padding: 0 15px;
+  box-sizing: border-box;
+  background-color: #a05a78;
+  border-radius: 6px;
+  color: white;
 }
 
-
-.nav-dropdown {
-    position: relative;
-    display: flex;
-    align-items: center
-}
-
-.dropdown-toggle {
-    display: flex;
-    align-items: center;
-    gap: 5px
-}
-
-.arrow {
-    font-size: 13px;
-    transition: transform .2s
-}
-
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    min-width: 180px;
-    padding: 8px 0;
-    background: var(--white);
-    border: 1px solid var(--rose);
-    border-radius: 8px;
-    box-shadow: 0 8px 20px #0002;
-    z-index: 100
-}
-
-
-.dropdown-menu a {
-    display: block;
-    padding: 10px 15px;
-    color: var(--text);
-    font-size: 12px;
-    white-space: nowrap
-}
-
-.dropdown-menu a:hover {
-    background: var(--blush);
-    color: var(--burgundy)
-}
-
-
-.nav-dropdown:hover .dropdown-menu,
-.nav-dropdown:focus-within .dropdown-menu {
-    display: block
-}
-
-.nav-dropdown:hover .arrow,
-.nav-dropdown:focus-within .arrow {
-    transform: rotate(180deg)
-}
-
-.header-actions {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-shrink: 0
-}
-
-.search-button,
-.cart-link {
-    min-width: 34px;
-    height: 32px;
-    border: 0;
-    background: var(--rose-button);
-    color: white;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 8px
-}
-
-.search-button {
-    border-radius: 7px 0 0 7px;
-    font-size: 22px
+.search-cart input {
+  flex: 1;
+  min-width: 0;
+  padding: 5px;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  color: white;
+  font-family: inherit;
+  font-size: 13px;
 }
 
 .cart-link {
-    border-radius: 0 7px 7px 0;
-    font-size: 12px;
-    gap: 5px
+  display: flex;
+  color: white;
 }
 
-.search-button:hover,
-.cart-link:hover {
-    background: var(--burgundy-dark)
+/* ---------- page ---------- */
+h1 {
+  text-align: center;
+  font-size: 24px;
+  margin: 25px 0;
 }
 
-.menu-toggle {
-    display: none;
-    border: 0;
-    background: transparent;
-    cursor: pointer
+h2 {
+  font-size: 20px;
+  margin: 0 0 15px 0;
 }
 
-.menu-toggle span {
-    display: block;
-    width: 22px;
-    height: 2px;
-    background: white;
-    margin: 4px 0
+h3 {
+  font-size: 15px;
+  margin: 15px 0 8px 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.hint {
+  color: #6b6270;
+  font-size: 13px;
+  margin: 0 0 12px 0;
+}
+
+.error {
+  color: #c0182d;
+  font-size: 13px;
+  margin: 8px 0 0 0;
 }
 
 /* ---------- the 4 steps at the top ---------- */
