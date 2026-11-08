@@ -56,7 +56,7 @@ img {
 
 /* Existing Fatin's Florette header style */
 .site-header {
-    width: 92%;
+    width: min(1320px, 91%);
     max-width: none;
     min-height: 74px;
     margin: 4px auto 0;
