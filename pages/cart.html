@@ -75,46 +75,35 @@
         </div>
     </header>
 
-<!-- Cart section left -->
+<!-- Cart section -->
 <main class="cart-container">
-    <!-- left-->
-     <section class="cart-items">
+
+    <!-- LEFT -->
+    <section class="cart-items">
+
         <h1>Shopping Cart</h1>
-        <!-- products eg placeholder for now-->
-         <div class="cart-item">
-            <img src="../images/logo.png" alt="Sunflower Bouquet">
-            <div class ="item-details">
-                <h2>Sunflower Bouquet</h2>
 
-                <p>
-                    A romantic composition of roses and seasonal blooms
-                    in soft colours, finished with an elegant wrap.
-                </p>
+        <!-- JS inserts cart items here -->
+        <div id="cartItems"></div>
 
-                <p class="item-price"> BND $50.00</p>
-                <div class="quantity-controls">
-                    <!-- template before js<button>-</button>
-                    <span>1</span>
-                    <button>+</button>-->
-                    <!--Now w js form-->
-                    <button id="minusBtn">-</button>
-                    <span id="quantity">1</span>
-                    <button id="plusBtn">+</button>
-                </div>
-                <button id="removeBtn" class="remove-btn">Remove</button>
-            </div> <!-- reminder id for one and class for a lot. so when integrating 
-            with memvber 3 and 4 i need to change it to class. and its gon go from
-            getElementById to query selector or loops -->
-         </div>
-     </section>
+        <!-- Empty cart message -->
+        <div id="emptyCart" style="display:none;">
+            <p>Your cart is currently empty.</p>
+            <a href="catalog.html">Continue Shopping</a>
+        </div>
 
-     <!--Right side-->
-     <aside class="summary-box">
+    </section>
+
+    <!-- RIGHT -->
+    <aside class="summary-box">
+
         <h2>Order Summary</h2>
+
         <hr>
-         <div class="summary-row">
-            <span>Items (1)</span>
-            <span>BND $50.00</span>
+
+        <div class="summary-row">
+            <span id="itemCount">Items (0)</span>
+            <span id="subtotal">BND $0.00</span>
         </div>
 
         <div class="summary-row">
@@ -126,25 +115,87 @@
             <span>Shipping</span>
             <span>BND $3.00</span>
         </div>
+
         <hr>
+
         <div class="summary-total">
             <strong>Total</strong>
-            <strong>BND $55.00</strong>
+            <strong id="totalPrice">BND $0.00</strong>
         </div>
 
         <button id="checkoutBtn">
             Proceed to Checkout
         </button>
-     </aside>
+
+    </aside>
+
 </main>
-<!--FOOTER-->
-<footer class="site-footer">
+ <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="footer-main">
+            <div class="footer-brand">
+                <a href="../index.html" class="footer-logo">Fatin's Florette</a>
+                <p>Flowers for every feeling. Little things make life bloom.</p>
+            </div>
+
+            <div class="footer-links">
+                <h3>Explore</h3>
+                <a href="../index.html">Home</a>
+                <a href="aboutus.html">About Us</a>
+                <!-- FIXED: Using catalog.html -->
+                <a href="catalog.html">Catalogue</a>
+                <a href="occasional.html">Shop by Occasion</a>
+                <a href="subscription.html">Subscription</a>
+            </div>
+
+            <div class="footer-links">
+                <h3>Need Help?</h3>
+                <a href="#">First-Time Visitor Guide</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+
+            <div class="footer-social">
+                <h3>Follow Our Journey</h3>
+                <p>Find us on social media for more floral inspiration.</p>
+                <div class="footer-icons">
+                    <a href="https://instagram.com/fatinsflorette" target="_blank" aria-label="Instagram">
+                        <img src="../pics/ig.png" alt="Instagram">
+                    </a>
+                    <a href="https://tiktok.com/@fatinsflorette" target="_blank" aria-label="TikTok">
+                        <img src="../pics/tt.png" alt="TikTok">
+                    </a>
+                    <a href="https://wa.me/6738633134" target="_blank" aria-label="WhatsApp">
+                        <img src="../pics/wa.png" alt="WhatsApp">
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-map">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.5187098738365!2d114.8646345!3d4.8523594999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x322261498f1d3eef%3A0x6fb80f0e46c2ac8f!2sFatin's%20Florete!5e0!3m2!1sen!2sbn!4v1792552757731!5m2!1sen!2sbn" 
+                    width="100%" height="120" style="border:0; border-radius: 8px;" 
+                    allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+
         <div class="footer-bottom">
             <p>&copy; 2026 Fatin's Florette. All rights reserved.</p>
             <a href="#">Back to top &uarr;</a>
         </div>
     </footer>
 
-<script src="cart.js"></script>
+    <script>
+        const toggle = document.querySelector('.menu-toggle');
+        const nav = document.getElementById('mainNav');
+        if (toggle) {
+            toggle.addEventListener('click', () => {
+                const open = nav.classList.toggle('open');
+                toggle.setAttribute('aria-expanded', open);
+            });
+        }
+    </script>
+<script src="../js/flower.js"></script>
+<script src="../js/cart.js"></script>
 </body>
 </html>
