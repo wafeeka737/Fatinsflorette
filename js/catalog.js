@@ -91,6 +91,13 @@ document.addEventListener("DOMContentLoaded", () => {
                         ${f.name}
                     </a>
 
+                    <button class="heart-button card-heart"
+                            data-favourite="${f.id}"
+                            aria-label="Favourite ${f.name}"
+                            type="button">
+                        ♡
+                    </button>
+
                 </div>
 
                 <p class="flower-description">
@@ -254,45 +261,46 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const shopAllLink = document.getElementById("shop-all-link");
 
-    if (shopAllLink) {
-        shopAllLink.addEventListener("click", function (event) {
-            event.preventDefault();
+        if (shopAllLink) {
+            shopAllLink.addEventListener("click", function (event) {
+                event.preventDefault();
 
-            category.value = "all";
-            color.value = "all";
-            if (searchInput) searchInput.value = "";
+                category.value = "all";
+                color.value = "all";
+                if (searchInput) searchInput.value = "";
 
-            render();
+                render();
 
-            container.scrollIntoView({ behavior: "smooth" });
-        });
-    }
-
+                document.getElementById("catalog-sections")
+                    .scrollIntoView({ behavior: "smooth" });
+            });
+        }
     const petalsLink = document.getElementById("petals-pastries-link");
 
-    if (petalsLink) {
-        petalsLink.addEventListener("click", function (event) {
-            event.preventDefault();
+        if (petalsLink) {
+            petalsLink.addEventListener("click", function (event) {
+                event.preventDefault();
 
-            category.value = "petals-pastries";
-            render();
+                category.value = "petals-pastries";
+                render();
 
-            container.scrollIntoView({ behavior: "smooth" });
-        });
-    }
+                document.getElementById("catalog-sections")
+                    .scrollIntoView({ behavior: "smooth" });
+            });
 
     const basketLink = document.getElementById("basket-series-link");
 
-    if (basketLink) {
-        basketLink.addEventListener("click", function (event) {
-            event.preventDefault();
+        if (basketLink)
+            basketLink.addEventListener("click", function (event) {
+                event.preventDefault();
 
-            category.value = "basket-series";
-            render();
+                category.value = "basket-series";
+                render();
 
-            container.scrollIntoView({ behavior: "smooth" });
-        });
-    }
+                document.getElementById("catalog-sections")
+                    .scrollIntoView({ behavior: "smooth" });
+            });
+        }
 
     // Product card events
     function attachEvents() {
@@ -312,7 +320,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
             });
         });
-    }
 
         // Add to cart
         container.querySelectorAll(".add-to-cart").forEach(button => {
@@ -351,6 +358,46 @@ document.addEventListener("DOMContentLoaded", () => {
                 }, 1100);
             });
         });
+
+        // Favourites
+        container.querySelectorAll("[data-favourite]").forEach(button => {
+            const id = button.dataset.favourite;
+
+            function updateHeart() {
+                const favourites = JSON.parse(
+                    localStorage.getItem("floretteFavourites") || "[]"
+                );
+
+                const active = favourites.includes(id);
+
+                button.textContent = active ? "♥️" : "♡";
+                button.classList.toggle("is-favourite", active);
+            }
+
+            updateHeart();
+
+            button.addEventListener("click", () => {
+                const favourites = JSON.parse(
+                    localStorage.getItem("floretteFavourites") || "[]"
+                );
+
+                const index = favourites.indexOf(id);
+
+                if (index >= 0) {
+                    favourites.splice(index, 1);
+                } else {
+                    favourites.push(id);
+                }
+
+                localStorage.setItem(
+                    "floretteFavourites",
+                    JSON.stringify(favourites)
+                );
+
+                updateHeart();
+            });
+        });
+    }
 
     // Filter and sorting events
     [category, color, sort].forEach(element => {

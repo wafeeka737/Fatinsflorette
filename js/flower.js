@@ -642,6 +642,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
     extras.addEventListener("change", updatePrice);
 
+    // Favourite button
+    let favourites = JSON.parse(
+        localStorage.getItem("floretteFavourites") || "[]"
+    );
+
+    const heart = document.getElementById("favourite-button");
+
+    function drawHeart() {
+        const isFavourite = favourites.includes(flower.id);
+        heart.textContent = isFavourite ? "♥" : "♡";
+        heart.classList.toggle("is-favourite", isFavourite);
+    }
+
+    heart.addEventListener("click", () => {
+        favourites = JSON.parse(
+            localStorage.getItem("floretteFavourites") || "[]"
+        );
+
+        if (favourites.includes(flower.id)) {
+            favourites = favourites.filter(id => id !== flower.id);
+        } else {
+            favourites.push(flower.id);
+        }
+
+        localStorage.setItem(
+            "floretteFavourites",
+            JSON.stringify(favourites)
+        );
+
+        drawHeart();
+    });
+
+    drawHeart();
 
     // Recommended products
     const recommendations = flowers
