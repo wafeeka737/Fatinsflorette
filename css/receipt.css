@@ -1,0 +1,286 @@
+/* =========================================
+   RECEIPT PAGE
+   Uses Fatin's Florette shared colour palette
+========================================= */
+
+:root {
+    --burgundy: #740043;
+    --burgundy-dark: #740043;
+    --blush: #f8e9e6;
+    --rose: #d8c7ca;
+    --rose-button: #a54a70;
+    --text: #5d3d48;
+    --white: #fffaf9;
+}
+
+
+/* GENERAL */
+
+body {
+    margin: 0;
+    padding: 0;
+
+    background-color: #f4f3f3;
+
+    font-family: 'Montserrat', Arial, sans-serif;
+
+    color: var(--text);
+}
+
+
+/* BACK BUTTON */
+
+.back-button {
+    display: inline-block;
+
+    text-decoration: none;
+
+    color: var(--burgundy);
+
+    font-size: 40px;
+
+    margin: 30px;
+}
+
+
+/* CONTAINER */
+
+.receipt-container {
+    max-width: 850px;
+
+    margin: auto;
+
+    padding: 20px 40px 80px;
+}
+
+
+/* SUCCESS ICON */
+
+.success-icon {
+    width: 120px;
+    height: 120px;
+
+    margin: 0 auto 25px;
+
+    border-radius: 50%;
+
+    background-color: var(--rose-button);
+
+    color: var(--white);
+
+    font-size: 70px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+/* TITLE */
+
+h1 {
+    text-align: center;
+
+    font-family: 'Playfair Display', Georgia, serif;
+
+    font-weight: 500;
+
+    color: var(--burgundy);
+
+    margin-bottom: 50px;
+}
+
+
+/* SEPARATION LINES */
+
+hr {
+    border: none;
+
+    border-top: 1px solid var(--rose);
+
+    margin: 40px 0;
+}
+
+
+/* PAYMENT DETAILS */
+
+.payment-details {
+    font-size: 22px;
+
+    line-height: 1.8;
+}
+
+
+/* ITEMS */
+
+.table-header,
+.table-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 25px;
+
+    font-size: 20px;
+}
+
+.table-header {
+    color: var(--burgundy);
+
+    font-weight: 600;
+}
+
+
+/* TOTALS */
+
+.totals div {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 10px;
+
+    font-size: 20px;
+}
+
+.totals strong {
+    color: var(--burgundy);
+
+    font-size: 22px;
+}
+
+
+/* THANK YOU */
+
+.thank-you {
+    text-align: center;
+
+    font-family: 'Playfair Display', Georgia, serif;
+
+    color: var(--burgundy);
+
+    font-size: 28px;
+
+    margin: 70px 0 50px;
+}
+
+
+/* BUTTONS */
+
+#downloadReceiptBtn,
+#backHomeBtn {
+    display: block;
+
+    width: 500px;
+
+    max-width: 90%;
+
+    margin: 15px auto;
+
+    padding: 18px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    font-size: 18px;
+
+    font-family: 'Montserrat', Arial, sans-serif;
+
+    cursor: pointer;
+}
+
+
+/* DOWNLOAD BUTTON */
+
+#downloadReceiptBtn {
+    background-color: var(--rose);
+
+    color: var(--text);
+}
+
+
+/* HOME BUTTON */
+
+#backHomeBtn {
+    background-color: var(--rose-button);
+
+    color: var(--white);
+}
+
+
+/* HOVER */
+
+#downloadReceiptBtn:hover {
+    background-color: var(--blush);
+}
+
+#backHomeBtn:hover {
+    background-color: var(--burgundy-dark);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 992px) {
+
+    .receipt-container {
+        padding: 20px;
+    }
+
+    .payment-details {
+        font-size: 20px;
+    }
+
+    .table-header,
+    .table-row {
+        font-size: 18px;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .success-icon {
+        width: 110px;
+        height: 110px;
+
+        font-size: 65px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .payment-details {
+        font-size: 18px;
+    }
+
+    .table-header,
+    .table-row {
+        font-size: 16px;
+    }
+
+    .totals div {
+        font-size: 16px;
+    }
+
+    .thank-you {
+        font-size: 22px;
+    }
+
+    #downloadReceiptBtn,
+    #backHomeBtn {
+        width: 100%;
+    }
+
+}

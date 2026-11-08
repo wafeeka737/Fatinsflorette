@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Receipt Fatin's Florette</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+      <link rel="stylesheet" href="../css/receipt.css">
+    </head>
+
+    <!--body-->
+    <body>
+        <!--back button-->
+        <a href="checkout.html" class="back-button">
+            ←
+        </a>
+        <main class="receipt-container">
+
+            <!--success icon-->
+            <div class="success-icon">
+                ✓
+            </div>
+
+            <h1>Payment Successful!</h1>
+            <hr>
+            <!--Payment details-->
+            <section class="payment-details">
+                <p>Invoice No : <span id="invoiceNumber"></span></p>
+                <p>Payment Time : <span id ="paymentTime"></span></p>
+                <p>Payment Method : <span id="paymentMethod"></span></p>
+                </section>
+                <hr>
+                <!--Items-->
+             <section class="order-items">
+    <div class="table-header">
+        <span>Items</span>
+        <span>Amount (BND)</span>
+    </div>
+
+    <div id="receiptItems"></div>
+</section>
+                <hr>
+                <!--totals-->
+               <section class="totals">
+
+    <div>
+        <span>Subtotal</span>
+        <span id="receiptSubtotal">BND $0.00</span>
+    </div>
+
+    <div>
+        <span>Card Fee</span>
+        <span id="receiptCardFee">BND $0.00</span>
+    </div>
+
+    <div>
+        <span>Shipping</span>
+        <span id="receiptShipping">BND $0.00</span>
+    </div>
+
+    <div>
+        <strong>Total</strong>
+        <strong id="receiptTotal">BND $0.00</strong>
+    </div>
+
+</section>
+                <hr>
+                <!--thank u for ur patronage-->
+                <p class="thank-you">
+                    Thank you for your order!
+                </p>
+
+                <!--buttons-->
+                <button id="downloadReceiptBtn">
+                    Download Receipt
+                </button>
+                
+                <button id="backHomeBtn">
+                    Back to Home
+                </button>
+        </main>
+        <script src="../js/flower.js"></script>
+<script src="../js/receipt.js"></script>
+    </body>
+</html>
