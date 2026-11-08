@@ -14,31 +14,79 @@
 </head>
 <body>
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Shop by Occasion | Fatin's Florette</title>
+  <!-- HEADER -->
+    <header class="site-header">
 
-    <meta name="description"
-        content="Discover beautiful flowers for birthdays, anniversaries, graduations, weddings and meaningful moments.">
+        <a href="../pages/main.html" class="logo" aria-label="Fatin's Florette Home">
+            <span class="logo-name">Fatin's Florette</span>
+            <span class="logo-tagline">Flowers for every feeling</span>
+        </a>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false"
+            aria-controls="main-navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+        <nav class="main-nav" id="main-navigation">
 
-    <!-- Main stylesheet -->
-    <link rel="stylesheet" href="../css/product.css">
+            <a href="../pages/main.html" class="active">Home</a>
 
-    <!-- Shared flower data -->
-    <script src="../js/flower.js"></script>
+            <a href="../pages/">About Us</a>
 
-</head>
 
+            <div class="nav-dropdown">
+                <a href="../pages/catalog.html" class="dropdown-toggle">
+                    Catalogue <span class="arrow">⌄</span>
+                </a>
+
+                <div class="dropdown-menu">
+                    <a href="../pages/catalog.html">Shop All</a>
+                    <a href="catalog.html?category=petals-pastries">
+                        Petals &amp; Pastries
+                    </a>
+                    <a href="catalog.html?category=basket-series">
+                        Basket Series
+                    </a>
+                </div>
+            </div>
+
+            <a href="../pages/custom.bouquet.html">Build a Bouquet</a>
+
+            <div class="nav-dropdown">
+                <a href="../pages/occasional.html" class="dropdown-toggle active">
+                    Shop by Occasion <span class="arrow">⌄</span>
+                </a>
+
+                <div class="dropdown-menu">
+                    <a href="occasional.html?occasion=birthday">Birthday</a>
+                    <a href="occasional.html?occasion=anniversary">Anniversary</a>
+                    <a href="occasional.html?occasion=graduation">Graduation</a>
+                    <a href="occasional.html?occasion=wedding">Wedding</a>
+                    <a href="occasional.html?occasion=teachers">Teacher's Day</a>
+                    <a href="occasional.html?occasion=mothers">Mother's Day</a>
+                </div>
+            </div>
+
+            <a href="../pages/subscription.html">Subscription</a>
+            <a href="../pages/contact.html">Contact Us</a>
+
+        </nav>
+
+        <div class="header-actions">
+            <button class="search-button" type="button" aria-label="Search flowers"
+                onclick="window.location.href='catalog.html'">
+                ⌕
+            </button>
+
+            <a href="cart.html" class="cart-link" aria-label="Shopping cart">
+                ♡ <span id="cart-count">0</span>
+            </a>
+        </div>
+
+    </header>
 
 <div class="page">
     <h1>Subscription</h1>
