@@ -560,14 +560,8 @@ img {
     color: var(--muted); 
 }
 
-.footer-bottom a {
-    color: var(--burgundy);
-    text-decoration: none;
-    transition: opacity 0.2s ease;
-}
-
 .footer-bottom a:hover {
-    opacity: 0.7;
+    color: var(--burgundy)
 }
 
 
