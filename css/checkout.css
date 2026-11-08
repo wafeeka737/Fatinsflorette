@@ -3,6 +3,7 @@
 ========================================= */
 /* GENERAL */
 
+
 body {
     margin: 0;
     padding: 0;
@@ -62,7 +63,7 @@ input[type="tel"] {
     border-radius: 20px;
     background-color: var(--blush);
     box-sizing: border-box;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     color: var(--text);
 }
 
@@ -135,7 +136,7 @@ input[type="radio"] {
     color: white;
     font-size: 16px;
     font-weight: 600;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     cursor: pointer;
     margin-top: 20px;
 }

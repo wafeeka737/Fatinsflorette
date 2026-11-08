@@ -892,7 +892,6 @@ img {
    NAVIGATION DROPDOWNS
 ========================================= */
 
-/* This keeps the dropdown items hidden and styles the button */
 .nav-dropdown {
     position: relative;
     display: inline-block;
@@ -921,48 +920,48 @@ img {
     transition: transform 0.3s ease;
 }
 
-.nav-dropdown:hover .arrow {
-    transform: rotate(180deg);
-}
-
-/* This is the actual box that drops down */
 .dropdown-menu {
-    display: none; /* HIDES the menu by default */
+    display: none;
     position: absolute;
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
-    min-width: 160px;
-    background: var(--burgundy-dark); /* Or try #740043 */
-    border-radius: 8px;
+    min-width: 180px;
     padding: 8px 0;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    background: var(--white);
+    border: 1px solid var(--rose);
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     z-index: 100;
 }
 
-/* This shows the menu when you hover over the parent */
-.nav-dropdown:hover .dropdown-menu {
-    display: flex;
-    flex-direction: column;
-}
-
-/* The individual links inside the dropdown */
 .dropdown-menu a {
-    padding: 10px 20px;
-    color: var(--white);
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    display: block;
+    padding: 10px 15px;
+    color: var(--text);
+    font-size: 12px;
+    text-transform: none; /* Overrides header uppercase */
+    font-family: 'Montserrat', Arial, sans-serif;
     white-space: nowrap;
-    transition: background 0.2s ease;
+    transition: background 0.2s ease, color 0.2s ease;
 }
 
 .dropdown-menu a:hover {
-    background: rgba(255, 255, 255, 0.15);
-    opacity: 1;
+    background: var(--blush);
+    color: var(--burgundy);
 }
 
-/* Mobile adjustment so the dropdown works on phones */
+.nav-dropdown:hover .dropdown-menu,
+.nav-dropdown:focus-within .dropdown-menu {
+    display: block;
+}
+
+.nav-dropdown:hover .arrow,
+.nav-dropdown:focus-within .arrow {
+    transform: rotate(180deg);
+}
+
+/* Mobile responsive adjustment */
 @media (max-width: 850px) {
     .nav-dropdown {
         width: 100%;
@@ -973,12 +972,20 @@ img {
         transform: none;
         box-shadow: none;
         background: rgba(0, 0, 0, 0.15);
+        border: none;
         display: flex;
         flex-direction: column;
         padding: 0;
     }
     
     .dropdown-menu a {
+        color: var(--white);
         padding-left: 30px;
+    }
+    
+    .dropdown-menu a:hover {
+        background: transparent;
+        color: var(--white);
+        opacity: 0.72;
     }
 }

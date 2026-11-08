@@ -978,14 +978,14 @@ img {
 }
 
 
-.social-icons {
+.footer-icons {
     display: flex;
     gap: 8px;
     margin-top: 12px
 }
 
 
-.social-icons a {
+.footer-icons a {
     display: grid;
     place-items: center;
     width: 29px;
