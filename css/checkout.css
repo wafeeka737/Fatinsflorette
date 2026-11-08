@@ -62,7 +62,7 @@ input[type="tel"] {
     border-radius: 20px;
     background-color: var(--blush);
     box-sizing: border-box;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     color: var(--text);
 }
 
