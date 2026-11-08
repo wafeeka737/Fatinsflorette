@@ -920,57 +920,48 @@ img {
     transition: transform 0.3s ease;
 }
 
-.nav-dropdown:hover .arrow {
-    transform: rotate(180deg);
-}
-
-/* THE DROPDOWN BOX (WHITE BACKGROUND) */
 .dropdown-menu {
     display: none;
     position: absolute;
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
-    min-width: 160px;
-    
-    /* WHITE BACKGROUND */
-    background: #ffffff; 
-    
-    border-radius: 8px;
+    min-width: 180px;
     padding: 8px 0;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); /* Soft shadow */
+    background: var(--white);
+    border: 1px solid var(--rose);
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     z-index: 100;
 }
 
-.nav-dropdown:hover .dropdown-menu {
-    display: flex;
-    flex-direction: column;
-}
-
-/* THE DROPDOWN LINKS (DARK TEXT) */
 .dropdown-menu a {
-    padding: 10px 20px;
-    
-    /* DARK BURGUNDY TEXT */
-    color: #740043; 
-    
-    /* SMALL FONT SIZE */
-    font-size: 10px; 
+    display: block;
+    padding: 10px 15px;
+    color: var(--text);
+    font-size: 12px;
+    text-transform: none; /* Overrides header uppercase */
     font-family: 'Montserrat', Arial, sans-serif;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
     white-space: nowrap;
-    transition: background 0.2s ease;
+    transition: background 0.2s ease, color 0.2s ease;
 }
 
-/* Hover effect for dropdown links */
 .dropdown-menu a:hover {
-    background: #f8e9e6; /* Light blush pink on hover */
-    color: #740043;
+    background: var(--blush);
+    color: var(--burgundy);
 }
 
-/* Mobile adjustment */
+.nav-dropdown:hover .dropdown-menu,
+.nav-dropdown:focus-within .dropdown-menu {
+    display: block;
+}
+
+.nav-dropdown:hover .arrow,
+.nav-dropdown:focus-within .arrow {
+    transform: rotate(180deg);
+}
+
+/* Mobile responsive adjustment */
 @media (max-width: 850px) {
     .nav-dropdown {
         width: 100%;
@@ -980,14 +971,21 @@ img {
         position: static;
         transform: none;
         box-shadow: none;
-        background: transparent; /* Transparent on mobile to match menu */
+        background: rgba(0, 0, 0, 0.15);
+        border: none;
         display: flex;
         flex-direction: column;
         padding: 0;
     }
     
     .dropdown-menu a {
-        color: #fffaf9; /* White text on mobile menu */
+        color: var(--white);
         padding-left: 30px;
+    }
+    
+    .dropdown-menu a:hover {
+        background: transparent;
+        color: var(--white);
+        opacity: 0.72;
     }
 }
