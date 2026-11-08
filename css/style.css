@@ -58,14 +58,17 @@ img {
 .site-header {
     width: min(100% - 40px, 1120px);
     min-height: 74px;
-    margin: 0 auto; /* Removed the top gap */
+    margin: 16px auto 0;
     padding: 10px 22px;
+
     background: var(--burgundy);
-    border-radius: 0 0 12px 12px; /* Changed top radius to 0 to stick to the top */
+    border-radius: 12px 12px 9px 9px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 18px;
+
     position: relative;
     z-index: 10;
 }
@@ -884,95 +887,4 @@ img {
     .footer-main {
         grid-template-columns: 1fr;
     }
-}
-
-/* =========================================
-   NAVIGATION DROPDOWNS (For Header)
-========================================= */
-
-.nav-dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.nav-dropdown .arrow {
-    font-size: 10px;
-    margin-left: 2px;
-    display: inline-block;
-    transition: transform 0.3s ease;
-}
-
-.nav-dropdown:hover .arrow {
-    transform: rotate(180deg);
-}
-
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    min-width: 160px;
-    background: var(--burgundy-dark);
-    border-radius: 8px;
-    padding: 8px 0;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-    z-index: 100;
-}
-
-/* This makes the menu appear when you hover over the Catalog/Occasion link */
-.nav-dropdown:hover .dropdown-menu {
-    display: flex;
-    flex-direction: column;
-}
-
-.dropdown-menu a {
-    padding: 10px 20px;
-    color: var(--white);
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    white-space: nowrap;
-    transition: background 0.2s ease;
-}
-
-.dropdown-menu a:hover {
-    background: rgba(255, 255, 255, 0.15);
-    opacity: 1;
-}
-
-/* Mobile responsive adjustment for dropdowns */
-@media (max-width: 850px) {
-    .nav-dropdown {
-        width: 100%;
-    }
-    
-    .dropdown-menu {
-        position: static;
-        transform: none;
-        box-shadow: none;
-        background: rgba(0, 0, 0, 0.15); /* Darkens the dropdown background on mobile */
-        display: flex;
-        flex-direction: column;
-        padding: 0;
-    }
-    
-    .dropdown-menu a {
-        padding-left: 30px;
-    }
-}
-
-.nav-dropdown > .dropdown-toggle {
-    color: #fff5f7;
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.2px;
-    white-space: nowrap;
-    transition: opacity 0.2s ease;
-    display: inline-flex;
-    align-items: center;
-}
-
-.nav-dropdown > .dropdown-toggle:hover {
-    opacity: 0.72;
 }
