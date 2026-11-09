@@ -102,7 +102,7 @@ body {
 
 .btn-track {
     display: inline-block;
-    background: #f2a49b; /* Soft coral button */
+    background: var(--burgundy, #740043); /* Changed to burgundy */
     color: white;
     padding: 14px 28px;
     border-radius: 30px;
@@ -113,7 +113,7 @@ body {
 }
 
 .btn-track:hover {
-    background: #e08e84;
+    background: var(--burgundy-dark, #5d0036); /* Darker burgundy on hover */
 }
 
 /* ===== RIGHT SIDE (The Receipt Paper) ===== */
