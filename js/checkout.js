@@ -8,6 +8,7 @@ const cart =
         localStorage.getItem("floretteCart")
     ) || [];
 
+
 // Get checkout elements
 const itemCountEl =
     document.getElementById("checkoutItemCount");
@@ -29,7 +30,6 @@ const totalEl =
 let subtotal = 0;
 let totalItems = 0;
 
-let cardFee = 2;
 let shippingFee = 0;
 
 
@@ -46,13 +46,39 @@ cart.forEach(item => {
 
     if (!flower) return;
 
+
+    // Quantity
     const quantity =
         Number(item.quantity || 1);
 
+
+// Gift card price
+let giftCardPrice = 0;
+
+if (item.giftCard === "printed") {
+    giftCardPrice = 2;
+}
+
+
+    // Extra flowers price
+    const extraFlowersPrice =
+        Number(item.extraFlowers || 0);
+
+
+    // Price of ONE customised product
+    const productPrice =
+        Number(flower.price) +
+        giftCardPrice +
+        extraFlowersPrice;
+
+
+    // Add quantity to item count
     totalItems += quantity;
 
+
+    // Add customised product total
     subtotal +=
-        flower.price * quantity;
+        productPrice * quantity;
 
 });
 
@@ -68,6 +94,7 @@ if (itemCountEl) {
 
 }
 
+
 if (subtotalEl) {
 
     subtotalEl.textContent =
@@ -82,29 +109,28 @@ if (subtotalEl) {
 
 function updateTotal() {
 
+    // Total = subtotal + shipping only
     const total =
         subtotal +
-        cardFee +
         shippingFee;
 
+
     // Update shipping
-    shippingFeeEl.textContent =
-        `BND $${shippingFee.toFixed(2)}`;
+    if (shippingFeeEl) {
 
-    // Update card fee display
-    const cardFeeEl =
-        document.getElementById("cardFee");
-
-    if (cardFeeEl) {
-
-        cardFeeEl.textContent =
-            `BND $${cardFee.toFixed(2)}`;
+        shippingFeeEl.textContent =
+            `BND $${shippingFee.toFixed(2)}`;
 
     }
 
+
     // Update total
-    totalEl.textContent =
-        `BND $${total.toFixed(2)}`;
+    if (totalEl) {
+
+        totalEl.textContent =
+            `BND $${total.toFixed(2)}`;
+
+    }
 
 }
 
@@ -138,37 +164,32 @@ function updatePaymentMethod() {
     if (creditCard.checked) {
 
         creditCardSection.style.display = "block";
-        paypalSection.style.display = "none";
-        bankTransferSection.style.display = "none";
 
-        // Card fee
-        cardFee = 2;
+        paypalSection.style.display = "none";
+
+        bankTransferSection.style.display = "none";
 
     }
 
     else if (paypal.checked) {
 
         creditCardSection.style.display = "none";
-        paypalSection.style.display = "block";
-        bankTransferSection.style.display = "none";
 
-        // No card fee
-        cardFee = 0;
+        paypalSection.style.display = "block";
+
+        bankTransferSection.style.display = "none";
 
     }
 
     else if (bankTransfer.checked) {
 
         creditCardSection.style.display = "none";
+
         paypalSection.style.display = "none";
+
         bankTransferSection.style.display = "block";
 
-        // No card fee
-        cardFee = 0;
-
     }
-
-    updateTotal();
 
 }
 
@@ -209,6 +230,7 @@ const pickupSection =
 
 // Default state
 shippingSection.style.display = "none";
+
 pickupSection.style.display = "none";
 
 
@@ -217,11 +239,14 @@ shipping.addEventListener(
     "change",
     function () {
 
-        shippingSection.style.display = "block";
+        shippingSection.style.display =
+            "block";
 
-        pickupSection.style.display = "none";
+        pickupSection.style.display =
+            "none";
 
-        // Reset until area is selected
+
+        // Reset until an area is selected
         shippingFee = 0;
 
         updateTotal();
@@ -235,12 +260,16 @@ pickup.addEventListener(
     "change",
     function () {
 
-        shippingSection.style.display = "none";
+        shippingSection.style.display =
+            "none";
 
-        pickupSection.style.display = "block";
+        pickupSection.style.display =
+            "block";
+
 
         // Pickup is free
         shippingFee = 0;
+
 
         // Uncheck shipping areas
         document
@@ -252,6 +281,7 @@ pickup.addEventListener(
                 option.checked = false;
 
             });
+
 
         updateTotal();
 
@@ -276,7 +306,7 @@ shippingAreas.forEach(option => {
         function () {
 
             shippingFee =
-                Number(this.value);
+                Number(this.value) || 0;
 
             updateTotal();
 
@@ -390,8 +420,10 @@ checkoutForm.addEventListener(
         // =============================
 
         if (
+
             !email.includes("@") ||
             !email.includes(".")
+
         ) {
 
             alert(
@@ -409,6 +441,7 @@ checkoutForm.addEventListener(
 
         const phonePattern =
             /^[+]?[0-9]+$/;
+
 
         if (
             !phonePattern.test(phone)
@@ -428,8 +461,10 @@ checkoutForm.addEventListener(
         // =============================
 
         if (
+
             !shipping.checked &&
             !pickup.checked
+
         ) {
 
             alert(
@@ -441,11 +476,12 @@ checkoutForm.addEventListener(
         }
 
 
-        // If shipping is selected,
-        // customer must choose an area
+        // Shipping requires an area
         if (
+
             shipping.checked &&
             shippingFee === 0
+
         ) {
 
             alert(
@@ -462,6 +498,7 @@ checkoutForm.addEventListener(
         // =============================
 
         let paymentMethod = "";
+
 
         if (creditCard.checked) {
 
@@ -491,6 +528,7 @@ checkoutForm.addEventListener(
 
         let deliveryMethod = "";
 
+
         if (pickup.checked) {
 
             deliveryMethod =
@@ -505,8 +543,13 @@ checkoutForm.addEventListener(
                     'input[name="shippingArea"]:checked'
                 );
 
-            deliveryMethod =
-                selectedArea.dataset.area;
+
+            if (selectedArea) {
+
+                deliveryMethod =
+                    selectedArea.dataset.area;
+
+            }
 
         }
 
@@ -556,47 +599,48 @@ checkoutForm.addEventListener(
         );
 
 
-        // Save payment
+        // Save payment method
         localStorage.setItem(
             "paymentMethod",
             paymentMethod
         );
 
 
-        // Save delivery
+        // Save delivery method
         localStorage.setItem(
             "deliveryMethod",
             deliveryMethod
         );
 
+
+        // Save shipping fee
         localStorage.setItem(
             "shippingFee",
-            shippingFee
+            shippingFee.toFixed(2)
         );
 
 
-        // Save final total
+        // Save subtotal
         localStorage.setItem(
             "orderSubtotal",
             subtotal.toFixed(2)
         );
 
-        localStorage.setItem(
-            "cardFee",
-            cardFee.toFixed(2)
-        );
 
+        // Save final total
         localStorage.setItem(
             "orderTotal",
             (
                 subtotal +
-                cardFee +
                 shippingFee
             ).toFixed(2)
         );
 
 
-        // Success
+        // =============================
+        // SUCCESS
+        // =============================
+
         alert(
             "Order placed successfully!"
         );

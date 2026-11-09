@@ -1,153 +1,214 @@
-console.log("Receipt JS Loaded");
 
-// ============================
-// INVOICE NUMBER
-// ============================
+document.addEventListener("DOMContentLoaded", () => {
 
-const invoiceNumber =
-    "INV-" + Math.floor(Math.random() * 1000000);
-
-document.getElementById("invoiceNumber").textContent =
-    invoiceNumber;
+    console.log("Receipt JS Loaded");
 
 
-// ============================
-// PAYMENT TIME
-// ============================
+    // ============================
+    // BILLING INFORMATION
+    // ============================
 
-const currentTime = new Date();
+    const firstName =
+        localStorage.getItem("firstName") || "";
 
-document.getElementById("paymentTime").textContent =
-    currentTime.toLocaleString();
+    const lastName =
+        localStorage.getItem("lastName") || "";
 
+    const email =
+        localStorage.getItem("email") || "N/A";
 
-// ============================
-// PAYMENT METHOD
-// ============================
+    const phone =
+        localStorage.getItem("phone") || "N/A";
 
-const paymentMethod =
-    localStorage.getItem("paymentMethod");
+    const city =
+        localStorage.getItem("city") || "";
 
-document.getElementById("paymentMethod").textContent =
-    paymentMethod || "Not Selected";
+    const address =
+        localStorage.getItem("address") || "";
 
-
-// ============================
-// LOAD CART
-// ============================
-
-const cart =
-    JSON.parse(
-        localStorage.getItem("floretteCart")
-    ) || [];
-
-const receiptItems =
-    document.getElementById("receiptItems");
+    const zip =
+        localStorage.getItem("zip") || "";
 
 
-// ============================
-// DISPLAY ORDER ITEMS
-// ============================
+    document.getElementById("receipt-name").textContent =
+        `${firstName} ${lastName}`.trim() || "N/A";
 
-cart.forEach(item => {
+    document.getElementById("receipt-email").textContent =
+        email;
 
-    const flower =
-        flowers.find(
-            f => f.id === item.id
-        );
+    document.getElementById("receipt-phone").textContent =
+        phone;
 
-    if (!flower) return;
+    document.getElementById("receipt-address").innerHTML =
+        `${address}<br>${city} ${zip}`.trim();
 
-    const quantity =
-        Number(item.quantity || 1);
 
-    const itemTotal =
-        flower.price * quantity;
+    // ============================
+    // INVOICE NUMBER
+    // ============================
 
-    const itemRow =
-        document.createElement("div");
+    const invoiceNumber =
+        "INV-" + Math.floor(Math.random() * 1000000);
 
-    itemRow.className =
-        "table-row";
+    document.getElementById("receipt-order-number").textContent =
+        invoiceNumber;
 
-    itemRow.innerHTML = `
-        <span>
-            ${flower.name} × ${quantity}
-        </span>
 
-        <span>
-            BND $${itemTotal.toFixed(2)}
-        </span>
-    `;
+    // ============================
+    // PAYMENT TIME
+    // ============================
 
-    receiptItems.appendChild(itemRow);
+    const currentTime = new Date();
+
+    document.getElementById("receipt-date").textContent =
+        currentTime.toLocaleString();
+
+
+    // ============================
+    // PAYMENT METHOD
+    // ============================
+
+    const paymentMethod =
+        localStorage.getItem("paymentMethod");
+
+    document.getElementById("receipt-payment-method").textContent =
+        paymentMethod || "Not Selected";
+
+
+    // ============================
+    // LOAD CART
+    // ============================
+
+    const cart =
+        JSON.parse(
+            localStorage.getItem("floretteCart")
+        ) || [];
+
+    const receiptItems =
+        document.getElementById("receipt-items-container");
+
+
+    // ============================
+    // DISPLAY ORDER ITEMS
+    // ============================
+
+    cart.forEach(item => {
+
+        const flower =
+            flowers.find(
+                f => f.id === item.id
+            );
+
+        if (!flower) return;
+
+        const quantity =
+            Number(item.quantity || 1);
+
+
+        // Base flower price
+        const basePrice =
+            Number(flower.price);
+
+
+        // Gift card price and selection
+        let giftCardPrice = 0;
+        let giftCardLabel = "No Gift Card";
+
+        if (item.giftCard === "printed" || item.giftCard === "2") {
+
+            giftCardPrice = 2;
+            giftCardLabel = "Printed Gift Card";
+
+        }
+
+        else if (item.giftCard === "handwritten") {
+
+            giftCardLabel = "Handwritten Gift Card";
+
+        }
+
+
+        // Extra flowers price
+        const extraFlowersPrice =
+            Number(item.extraFlowers || 0);
+
+
+        // Price per customised bouquet
+        const pricePerItem =
+            basePrice +
+            giftCardPrice +
+            extraFlowersPrice;
+
+
+        // Total for this cart item
+        const itemTotal =
+            pricePerItem * quantity;
+
+
+        // Create receipt item
+        const itemRow =
+            document.createElement("div");
+
+        itemRow.className = "table-row";
+
+        itemRow.innerHTML = `
+            <div class="receipt-item-details">
+
+                <strong>${flower.name} × ${quantity}</strong>
+
+                <p>Base Price: BND $${basePrice.toFixed(2)}</p>
+
+                <p>
+                    Gift Card: ${giftCardLabel}
+                    (+BND $${giftCardPrice.toFixed(2)})
+                </p>
+
+                ${extraFlowersPrice > 0 ? `
+                    <p>
+                        Extra Flowers:
+                        +BND $${extraFlowersPrice.toFixed(2)}
+                    </p>
+                ` : ""}
+
+            </div>
+
+            <span>
+                BND $${itemTotal.toFixed(2)}
+            </span>
+        `;
+
+        receiptItems.appendChild(itemRow);
+
+    });
+
+
+    // ============================
+    // DISPLAY TOTALS
+    // ============================
+
+    const subtotal =
+        Number(
+            localStorage.getItem("orderSubtotal")
+        ) || 0;
+
+    const shippingFee =
+        Number(
+            localStorage.getItem("shippingFee")
+        ) || 0;
+
+    const total =
+        Number(
+            localStorage.getItem("orderTotal")
+        ) || 0;
+
+
+    document.getElementById("receipt-subtotal").textContent =
+        `BND $${subtotal.toFixed(2)}`;
+
+    document.getElementById("receipt-shipping").textContent =
+        `BND $${shippingFee.toFixed(2)}`;
+
+    document.getElementById("receipt-total").textContent =
+        `BND $${total.toFixed(2)}`;
 
 });
-
-
-// ============================
-// DISPLAY TOTALS
-// ============================
-const subtotal =
-    Number(
-        localStorage.getItem("orderSubtotal")
-    ) || 0;
-
-const cardFee =
-    Number(
-        localStorage.getItem("cardFee")
-    ) || 0;
-
-const shippingFee =
-    Number(
-        localStorage.getItem("shippingFee")
-    ) || 0;
-
-const total =
-    Number(
-        localStorage.getItem("orderTotal")
-    ) || 0;
-document.getElementById("receiptSubtotal").textContent =
-    `BND $${subtotal.toFixed(2)}`;
-
-document.getElementById("receiptCardFee").textContent =
-    `BND $${cardFee.toFixed(2)}`;
-
-document.getElementById("receiptShipping").textContent =
-    `BND $${shippingFee.toFixed(2)}`;
-
-document.getElementById("receiptTotal").textContent =
-    `BND $${total.toFixed(2)}`;
-
-
-// ============================
-// DOWNLOAD / PRINT RECEIPT
-// ============================
-
-const downloadReceiptBtn =
-    document.getElementById("downloadReceiptBtn");
-
-downloadReceiptBtn.addEventListener(
-    "click",
-    function () {
-        window.print();
-    }
-);
-
-
-// ============================
-// BACK TO HOME
-// ============================
-
-const backHomeBtn =
-    document.getElementById("backHomeBtn");
-
-backHomeBtn.addEventListener(
-    "click",
-    function () {
-
-        window.location.href =
-            "../index.html";
-
-    }
-);

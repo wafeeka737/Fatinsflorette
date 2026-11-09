@@ -41,11 +41,18 @@ const extras = document.getElementById("extra-flowers");
 const giftCard = document.getElementById("gift-card");
 const price = document.getElementById("product-price");
 
+//ezah - hi mal making changes here
 function updatePrice() {
     const extraPrice = Number(extras.value) || 0;
-    const giftCardPrice = Number(giftCard.value) || 0;
 
-    const total = (Number(flower.price) + extraPrice + giftCardPrice) * quantity;
+    let giftCardPrice = 0;
+
+    if (giftCard.value === "printed") {
+        giftCardPrice = 2;
+    }
+
+    const total =
+        (Number(flower.price) + extraPrice + giftCardPrice) * quantity;
 
     price.textContent = "BND " + total.toFixed(2);
 }
