@@ -6,28 +6,28 @@ let plans = {
   "Fresh Flowers": {
     note: "Regular stock: roses, carnations, gerbera daisies, chrysanthemums, lilies, fillers, tulips and foliage.",
     flowers: [
-      { name: "Red Rose", image: "images/red-rose.png", price: 3.5 },
-      { name: "White Rose", image: "images/white-rose.png", price: 3.5 },
-      { name: "Pink Rose", image: "images/pink-rose.png", price: 3.5 },
-      { name: "Orchid", image: "images/orchid.png", price: 5 },
-      { name: "Chrysanthemum", image: "images/chrysanthemum.png", price: 2.5 },
-      { name: "Tulip", image: "images/tulip.png", price: 2.5 },
-      { name: "Sunflower", image: "images/sunflower.png", price: 3 },
-      { name: "Gerbera Daisy", image: "images/gerbera-daisy.png", price: 2.5 },
-      { name: "Carnation", image: "images/carnation.png", price: 2 },
-      { name: "Lisianthus", image: "images/lisianthus.png", price: 3.5 },
-      { name: "Hydrangea", image: "images/hydrangea.png", price: 4.5 },
-      { name: "Amaryllis", image: "images/amaryllis.png", price: 5 },
-      { name: "Filler", image: "images/filler.png", price: 1.5 },
-      { name: "Lily", image: "images/lily.png", price: 4 }
+      { name: "Red Rose", image: "../images/red-rose.png", price: 3.5 },
+      { name: "White Rose", image: "../images/white-rose.png", price: 3.5 },
+      { name: "Pink Rose", image: "../images/pink-rose.png", price: 3.5 },
+      { name: "Orchid", image: "../images/orchid.png", price: 5 },
+      { name: "Chrysanthemum", image: "../images/chrysanthemum.png", price: 2.5 },
+      { name: "Tulip", image: "../images/tulip.png", price: 2.5 },
+      { name: "Sunflower", image: "../images/sunflower.png", price: 3 },
+      { name: "Gerbera Daisy", image: "../images/gerbera-daisy.png", price: 2.5 },
+      { name: "Carnation", image: "../images/carnation.png", price: 2 },
+      { name: "Lisianthus", image: "../images/lisianthus.png", price: 3.5 },
+      { name: "Hydrangea", image: "../images/hydrangea.png", price: 4.5 },
+      { name: "Amaryllis", image: "../images/amaryllis.png", price: 5 },
+      { name: "Filler", image: "../images/filler.png", price: 1.5 },
+      { name: "Lily", image: "../images/lily.png", price: 4 }
     ]
   },
   "Seasonal Flowers": {
     note: "Seasonal premium stock: peony, ranunculus and dahlia.",
     flowers: [
-      { name: "Peony", image: "images/peony.png", price: 6 },
-      { name: "Dahlia", image: "images/dahlia.png", price: 6 },
-      { name: "Ranunculus", image: "images/ranunculus.png", price: 5.5 }
+      { name: "Peony", image: "../images/peony.png", price: 6 },
+      { name: "Dahlia", image: "../images/dahlia.png", price: 6 },
+      { name: "Ranunculus", image: "../images/ranunculus.png", price: 5.5 }
     ]
   },
   "Dried Flowers": {
