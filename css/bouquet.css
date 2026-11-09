@@ -2,22 +2,76 @@
 
 /* custom bouquet page css */
 
-body {
-  margin: 0;
-  background-color: #f8e8e6;
-  font-family: "Montserrat", Arial, sans-serif;
-  color: #000000;
+:root {
+    --burgundy: #740043;
+    --burgundy-dark: #5d0036;
+    --blush: #f8e9e6;
+    --rose: #d8c7ca;
+    --rose-button: #a54a70;
+    --text: #5d3d48;
+    --white: #fffaf9;
+    --page: #f8f6f5;
+    --line: #e5d8dc;
+    --muted: #8b777e
 }
 
-/* ---------- navbar ---------- */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #6b0040;
-  margin: 15px;
-  padding: 10px 25px;
-  border-radius: 10px;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 24px
+}
+
+body {
+    background: var(--page);
+    color: var(--text);
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.7
+}
+
+a {
+    color: inherit;
+    text-decoration: none
+}
+
+button,
+select,
+input {
+    font: inherit
+}
+
+button {
+    cursor: pointer
+}
+
+
+img {
+    display: block;
+    max-width: 100%
+}
+
+/* Existing Fatin's Florette header style */
+.site-header {
+    width: min(1320px, 91%);
+    max-width: none;
+    min-height: 74px;
+    margin: 4px auto 0;
+    padding: 10px 22px;
+    box-sizing: border-box;
+    background: var(--burgundy);
+    border-radius: 12px 12px 9px 9px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    position: relative;
+    z-index: 10;
 }
 
 .logo {
@@ -34,6 +88,15 @@ body {
     font-size: 20px;
     font-weight: 500
 }
+
+.logo-tagline {
+    margin-top: 4px;
+    color: #f6d8e2;
+    font-size: 8px;
+    letter-spacing: 1.3px;
+    text-transform: uppercase
+}
+
 .main-nav {
     display: flex;
     align-items: center;
@@ -56,6 +119,63 @@ body {
 .dropdown-toggle:hover,
 .dropdown-toggle.active {
     opacity: .72
+}
+
+
+.nav-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 5px
+}
+
+.arrow {
+    font-size: 13px;
+    transition: transform .2s
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 180px;
+    padding: 8px 0;
+    background: var(--white);
+    border: 1px solid var(--rose);
+    border-radius: 8px;
+    box-shadow: 0 8px 20px #0002;
+    z-index: 100
+}
+
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 15px;
+    color: var(--text);
+    font-size: 12px;
+    white-space: nowrap
+}
+
+.dropdown-menu a:hover {
+    background: var(--blush);
+    color: var(--burgundy)
+}
+
+
+.nav-dropdown:hover .dropdown-menu,
+.nav-dropdown:focus-within .dropdown-menu {
+    display: block
+}
+
+.nav-dropdown:hover .arrow,
+.nav-dropdown:focus-within .arrow {
+    transform: rotate(180deg)
 }
 
 .header-actions {
