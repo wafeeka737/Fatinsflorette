@@ -334,18 +334,6 @@ body {
   border-radius: 10px;
 }
 
-.logo {
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  background-color: #f8d9d0;
-  color: #6b0040;
-  font-size: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .nav-links {
   list-style: none;
   display: flex;
