@@ -1,89 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Receipt Fatin's Florette</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipt - Fatin's Florette</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/receipt.css">
+</head>
+<body>
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Optional: Back arrow at the very top left -->
+    <div class="back-nav">
+        <a href="../index.html">&#8592; Back to Home</a>
+    </div>
 
-      <link rel="stylesheet" href="../css/receipt.css">
-    </head>
+    <div class="receipt-page-wrapper">
+        <div class="receipt-card">
+            
+            <!-- LEFT SIDE: Thank you & Billing Info -->
+            <div class="receipt-left">
+                <h1 class="thank-you-title">Thank you for your<br>purchase!</h1>
+                <p class="thank-you-subtitle">Your order will be processed within 24 hours during working days. We will notify you by email once your order has been shipped.</p>
 
-    <!--body-->
-    <body>
-        <!--back button-->
-        <a href="checkout.html" class="back-button">
-            ←
-        </a>
-        <main class="receipt-container">
+                <div class="billing-section">
+                    <h3>Billing Details</h3>
+                    <div class="billing-row">
+                        <span class="billing-label">Name</span>
+                        <span class="billing-value">Jane Smith</span>
+                    </div>
+                    <div class="billing-row">
+                        <span class="billing-label">Address</span>
+                        <span class="billing-value">No. 5, Spg 66-88-13, Kampong<br>Bengkurog BF1920, Brunei</span>
+                    </div>
+                    <div class="billing-row">
+                        <span class="billing-label">Phone</span>
+                        <span class="billing-value">+673 863 3134</span>
+                    </div>
+                    <div class="billing-row">
+                        <span class="billing-label">Email</span>
+                        <span class="billing-value">fatinfth@gmail.com</span>
+                    </div>
+                </div>
 
-            <!--success icon-->
-            <div class="success-icon">
-                ✓
+                <div class="receipt-actions">
+                    <a href="../index.html" class="btn-track">Track Your Order</a>
+                </div>
             </div>
 
-            <h1>Payment Successful!</h1>
-            <hr>
-            <!--Payment details-->
-            <section class="payment-details">
-                <p>Invoice No : <span id="invoiceNumber"></span></p>
-                <p>Payment Time : <span id ="paymentTime"></span></p>
-                <p>Payment Method : <span id="paymentMethod"></span></p>
-                </section>
-                <hr>
-                <!--Items-->
-             <section class="order-items">
-    <div class="table-header">
-        <span>Items</span>
-        <span>Amount (BND)</span>
+            <!-- RIGHT SIDE: The Receipt Paper -->
+            <div class="receipt-right">
+                <div class="receipt-paper">
+                    <!-- The top zig-zag or rounded top -->
+                    <div class="receipt-paper-top"></div>
+                    
+                    <div class="receipt-content">
+                        <h2>Order Summary</h2>
+                        
+                        <div class="receipt-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Date</span>
+                                <span class="meta-value">11/9/2026</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Order Number</span>
+                                <span class="meta-value">INV-823624</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Payment Method</span>
+                                <span class="meta-value">Credit Card</span>
+                            </div>
+                        </div>
+
+                        <div class="receipt-items">
+                            <!-- Item 1 -->
+                            <div class="receipt-item">
+                                <img src="../pics/sunflower.png" alt="Sunflower Bouquet" class="item-img"> <!-- Replace with actual image -->
+                                <div class="item-details">
+                                    <h4>Sunflower Bouquet</h4>
+                                    <p>Qty: 1</p>
+                                </div>
+                                <div class="item-price">BND $50.00</div>
+                            </div>
+                            <!-- Item 2 (Example) -->
+                            <div class="receipt-item">
+                                <img src="../pics/sunflower.png" alt="Rose Bouquet" class="item-img"> <!-- Replace with actual image -->
+                                <div class="item-details">
+                                    <h4>Rose Bouquet</h4>
+                                    <p>Qty: 1</p>
+                                </div>
+                                <div class="item-price">BND $50.00</div>
+                            </div>
+                        </div>
+
+                        <div class="receipt-totals">
+                            <div class="total-row">
+                                <span>Subtotal</span>
+                                <span>BND $100.00</span>
+                            </div>
+                            <div class="total-row">
+                                <span>Shipping</span>
+                                <span>BND $2.00</span>
+                            </div>
+                            <div class="total-row">
+                                <span>Card Fee</span>
+                                <span>BND $0.00</span>
+                            </div>
+                            <div class="total-row grand-total">
+                                <span>Total</span>
+                                <span>BND $102.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- The bottom zig-zag of the receipt -->
+                    <div class="receipt-paper-bottom"></div>
+                </div>
+            </div>
+
+        </div>
     </div>
 
-    <div id="receiptItems"></div>
-</section>
-                <hr>
-                <!--totals-->
-               <section class="totals">
-
-    <div>
-        <span>Subtotal</span>
-        <span id="receiptSubtotal">BND $0.00</span>
-    </div>
-
-    <div>
-        <span>Card Fee</span>
-        <span id="receiptCardFee">BND $0.00</span>
-    </div>
-
-    <div>
-        <span>Shipping</span>
-        <span id="receiptShipping">BND $0.00</span>
-    </div>
-
-    <div>
-        <strong>Total</strong>
-        <strong id="receiptTotal">BND $0.00</strong>
-    </div>
-
-</section>
-                <hr>
-                <!--thank u for ur patronage-->
-                <p class="thank-you">
-                    Thank you for your order!
-                </p>
-
-                <!--buttons-->
-                <button id="downloadReceiptBtn">
-                    Download Receipt
-                </button>
-                
-                <button id="backHomeBtn">
-                    Back to Home
-                </button>
-        </main>
-        <script src="../js/flower.js"></script>
-<script src="../js/receipt.js"></script>
-    </body>
+</body>
 </html>
