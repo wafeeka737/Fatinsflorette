@@ -36,7 +36,7 @@ let flowers = [
   { name: "Chrysanthemum", image: "../images/chrysanthemum.png", shape: "star", colour: "White", price: 2.5 },
   { name: "Tulip", image: "../images/tulip.png", shape: "tulip", colour: "Pink", price: 2.5 },
   { name: "Sunflower", image: "../images/sunflower.png", shape: "sunflower", colour: "Yellow", price: 3 },
-  { name: "Gerbera Daisy", image: "../images/gerbera.png", shape: "gerbera", colour: "Pink", price: 2.5 },
+  { name: "Gerbera Daisy", image: "../images/gerbera-daisy.png", shape: "gerbera", colour: "Pink", price: 2.5 },
   { name: "Carnation", image: "../images/carnation.png", shape: "ruffle", colour: "Pink", price: 2 },
   { name: "Lisianthus", image: "../images/lisianthus.png", shape: "cup", colour: "Purple", price: 3.5 },
   { name: "Hydrangea", image: "../images/hydrangea.png", shape: "cluster", colour: "Blue", price: 4.5 },
