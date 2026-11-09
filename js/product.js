@@ -100,7 +100,6 @@ giftCard.addEventListener("change", updatePrice);
             </article>
         `).join("");
 
-    // Add to Cart
 
 // Add to Cart
 document.getElementById("add-to-cart").addEventListener("click", () => {
@@ -135,9 +134,6 @@ document.getElementById("add-to-cart").addEventListener("click", () => {
         flower.name + " added to your cart.";
 });
 
-
-
-// Buy It Now
 
 // Buy It Now
 document.getElementById("buy-it-now").addEventListener("click", () => {
