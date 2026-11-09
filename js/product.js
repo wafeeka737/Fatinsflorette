@@ -101,15 +101,19 @@ giftCard.addEventListener("change", updatePrice);
         `).join("");
 
     // Add to Cart
+
+// Add to Cart
 document.getElementById("add-to-cart").addEventListener("click", () => {
     const giftCard = document.getElementById("gift-card").value;
     const extraFlowers = Number(extras.value) || 0;
+    const customMessage = giftMessage.value.trim();
     const cart = getCartItems();
 
     const existing = cart.find(item =>
         item.id === flower.id &&
         item.giftCard === giftCard &&
-        Number(item.extraFlowers) === extraFlowers
+        Number(item.extraFlowers) === extraFlowers &&
+        item.customMessage === customMessage
     );
 
     if (existing) {
@@ -119,7 +123,8 @@ document.getElementById("add-to-cart").addEventListener("click", () => {
             id: flower.id,
             quantity,
             giftCard,
-            extraFlowers
+            extraFlowers,
+            customMessage
         });
     }
 
@@ -131,16 +136,21 @@ document.getElementById("add-to-cart").addEventListener("click", () => {
 });
 
 
+
+// Buy It Now
+
 // Buy It Now
 document.getElementById("buy-it-now").addEventListener("click", () => {
     const giftCard = document.getElementById("gift-card").value;
     const extraFlowers = Number(extras.value) || 0;
+    const customMessage = giftMessage.value.trim();
     const cart = getCartItems();
 
     const existing = cart.find(item =>
         item.id === flower.id &&
         item.giftCard === giftCard &&
-        Number(item.extraFlowers) === extraFlowers
+        Number(item.extraFlowers) === extraFlowers &&
+        item.customMessage === customMessage
     );
 
     if (existing) {
@@ -150,7 +160,8 @@ document.getElementById("buy-it-now").addEventListener("click", () => {
             id: flower.id,
             quantity,
             giftCard,
-            extraFlowers
+            extraFlowers,
+            customMessage
         });
     }
 
