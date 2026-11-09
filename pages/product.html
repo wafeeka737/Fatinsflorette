@@ -124,30 +124,49 @@
           </div>
 
           
+
 <div class="product-options">
 
-    <!-- Gift Card -->
-    <label for="gift-card">Gift Card
-        <select id="gift-card">
-            <option value="none">No Gift Card</option>
-            <option value="printed">Printed Gift Card (+BND 2)</option>
-            <option value="handwritten">Handwritten Gift Card</option>
-        </select>
-    </label>
+    <!-- Left column -->
+    <div class="product-option-column">
 
-    <!-- Personalised Message -->
-    <div class="custom-message">
-        <label for="giftMessage">Personalised Message</label>
+        <label for="gift-card">Gift Card
+            <select id="gift-card">
+                <option value="none">No Gift Card</option>
+                <option value="printed">Printed Gift Card (+BND 2)</option>
+                <option value="handwritten">Handwritten Gift Card</option>
+            </select>
+        </label>
 
-        <textarea
-            id="giftMessage"
-            maxlength="200"
-            placeholder="Write your special message here..."></textarea>
+        <div class="custom-message">
+            <label for="giftMessage">Personalised Message</label>
 
-        <small>
-            <span id="messageCount">0</span>/200 characters
-        </small>
+            <textarea
+                id="giftMessage"
+                maxlength="200"
+                placeholder="Write your special message here..."></textarea>
+
+            <small>
+                <span id="messageCount">0</span>/200 characters
+            </small>
+        </div>
+
     </div>
+
+    <!-- Right column -->
+    <div class="product-option-column">
+
+        <label for="extra-flowers">Extra flowers
+            <select id="extra-flowers">
+                <option value="0">No extra flowers (+BND 0)</option>
+                <option value="5">Small addition (+BND 5)</option>
+                <option value="10">Medium addition (+BND 10)</option>
+            </select>
+        </label>
+
+    </div>
+
+</div>
 
     <!-- Extra Flowers -->
     <label for="extra-flowers">Extra flowers

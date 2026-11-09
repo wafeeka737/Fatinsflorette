@@ -787,27 +787,52 @@ img {
 }
 
 
+.product-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    align-items: start;
+}
+
+.product-option-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    min-width: 0;
+}
+
+.product-option-column > label {
+    display: block;
+    width: 100%;
+}
+
 .custom-message {
-    margin-top: 15px;
+    width: 100%;
+}
+
+.custom-message label {
+    display: block;
+    margin-bottom: 8px;
 }
 
 .custom-message textarea {
     width: 100%;
     min-height: 100px;
     padding: 12px;
-    border: 1px solid #e5cfd5;
-    background: #fffaf9;
-    font-family: 'Montserrat', Arial, sans-serif;
-    font-size: 13px;
     box-sizing: border-box;
+    background: #fffaf9;
+    border: 1px solid #e5cfd5;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
     resize: vertical;
 }
 
 .custom-message small {
     display: block;
     text-align: right;
-    font-size: 11px;
     color: #740043;
+    font-size: 11px;
+    margin-top: 5px;
 }
 
 
