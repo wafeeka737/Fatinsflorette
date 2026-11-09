@@ -21,34 +21,33 @@
                 <p class="thank-you-subtitle">Your order will be processed within 24 hours during working days. We will notify you by email once your order has been shipped.</p>
 
                 <div class="billing-section">
-                    <h3>Billing address</h3>
+                    <h3>Billing Details</h3>
                     <div class="billing-row">
                         <span class="billing-label">Name</span>
-                        <span class="billing-value">Jane Smith</span>
+                        <span class="billing-value" id="receipt-name">Loading...</span>
                     </div>
                     <div class="billing-row">
                         <span class="billing-label">Address</span>
-                        <span class="billing-value">No. 5, Spg 66-88-13, Kampong<br>Bengkurog BF1920, Brunei</span>
+                        <span class="billing-value" id="receipt-address">Loading...</span>
                     </div>
                     <div class="billing-row">
                         <span class="billing-label">Phone</span>
-                        <span class="billing-value">+673 863 3134</span>
+                        <span class="billing-value" id="receipt-phone">Loading...</span>
                     </div>
                     <div class="billing-row">
                         <span class="billing-label">Email</span>
-                        <span class="billing-value">fatinfth@gmail.com</span>
+                        <span class="billing-value" id="receipt-email">Loading...</span>
                     </div>
                 </div>
 
                 <div class="receipt-actions">
-                    <a href="../index.html" class="btn-track">Track Your Order</a>
+                    <a href="../index.html" class="btn-track">Back to Home</a>
                 </div>
             </div>
 
             <!-- RIGHT SIDE: The Receipt Paper -->
             <div class="receipt-right">
                 <div class="receipt-paper">
-                    <!-- The top tab effect -->
                     <div class="receipt-paper-top"></div>
                     
                     <div class="receipt-content">
@@ -57,61 +56,42 @@
                         <div class="receipt-meta">
                             <div class="meta-item">
                                 <span class="meta-label">Date</span>
-                                <span class="meta-value">02 May 2023</span>
+                                <span class="meta-value" id="receipt-date">Loading...</span>
                             </div>
                             <div class="meta-item">
                                 <span class="meta-label">Order Number</span>
-                                <span class="meta-value">024-125478956</span>
+                                <span class="meta-value" id="receipt-order-number">Loading...</span>
                             </div>
                             <div class="meta-item">
                                 <span class="meta-label">Payment Method</span>
-                                <span class="meta-value">Mastercard</span>
+                                <span class="meta-value" id="receipt-payment-method">Loading...</span>
                             </div>
                         </div>
 
-                        <div class="receipt-items">
-                            <!-- Item 1 -->
-                            <div class="receipt-item">
-                                <div class="item-placeholder" style="background-image: url('../pics/pop.png');"></div>
-                                <div class="item-details">
-                                    <h4>All In One Chocolate Combo</h4>
-                                    <p>Pack: Medium<br>Qty: 1</p>
-                                </div>
-                                <div class="item-price">$50.00</div>
-                            </div>
-                            
-                            <!-- Item 2 -->
-                            <div class="receipt-item">
-                                <div class="item-placeholder" style="background-image: url('../pics/wedding.png');"></div>
-                                <div class="item-details">
-                                    <h4>Desire Of Hearts</h4>
-                                    <p>Pack: Large<br>Qty: 1</p>
-                                </div>
-                                <div class="item-price">$50.00</div>
-                            </div>
+                        <div class="receipt-items" id="receipt-items-container">
+                            <!-- JS fills this -->
                         </div>
 
                         <div class="receipt-totals">
                             <div class="total-row">
                                 <span>Sub Total</span>
-                                <span>$100.00</span>
+                                <span id="receipt-subtotal">Loading...</span>
                             </div>
                             <div class="total-row">
                                 <span>Shipping</span>
-                                <span>$2.00</span>
+                                <span id="receipt-shipping">Loading...</span>
                             </div>
                             <div class="total-row">
-                                <span>Tax</span>
-                                <span>$5.00</span>
+                                <span>Card Fee</span>
+                                <span id="receipt-card-fee">Loading...</span>
                             </div>
                             <div class="total-row grand-total">
                                 <span>Order Total</span>
-                                <span>$107.00</span>
+                                <span id="receipt-total">Loading...</span>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- The bottom zig-zag of the receipt -->
                     <div class="receipt-paper-bottom"></div>
                 </div>
             </div>
@@ -119,5 +99,96 @@
         </div>
     </div>
 
+    <!-- JavaScript to pull checkout data -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            
+            // 1. Generate Order Number & Date
+            const orderNumber = "INV-" + Math.floor(Math.random() * 900000 + 100000);
+            const today = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+            
+            document.getElementById("receipt-order-number").textContent = orderNumber;
+            document.getElementById("receipt-date").textContent = today;
+
+            // 2. Pull Billing Info saved from checkout.js
+            const firstName = localStorage.getItem("firstName") || "";
+            const lastName = localStorage.getItem("lastName") || "";
+            const email = localStorage.getItem("email") || "N/A";
+            const phone = localStorage.getItem("phone") || "N/A";
+            const city = localStorage.getItem("city") || "";
+            const address = localStorage.getItem("address") || "";
+            const zip = localStorage.getItem("zip") || "";
+
+            document.getElementById("receipt-name").textContent = `${firstName} ${lastName}`;
+            document.getElementById("receipt-email").textContent = email;
+            document.getElementById("receipt-phone").textContent = phone;
+            document.getElementById("receipt-address").innerHTML = `${address},<br>${city} ${zip}`;
+
+            // 3. Pull Payment Method
+            const paymentMethod = localStorage.getItem("paymentMethod") || "Credit Card";
+            document.getElementById("receipt-payment-method").textContent = paymentMethod;
+
+            // 4. Pull Totals
+            const subtotal = parseFloat(localStorage.getItem("orderSubtotal")) || 0;
+            const cardFee = parseFloat(localStorage.getItem("cardFee")) || 0;
+            const shipping = parseFloat(localStorage.getItem("shippingFee")) || 0;
+            const total = parseFloat(localStorage.getItem("orderTotal")) || 0;
+
+            document.getElementById("receipt-subtotal").textContent = `BND $${subtotal.toFixed(2)}`;
+            document.getElementById("receipt-shipping").textContent = `BND $${shipping.toFixed(2)}`;
+            document.getElementById("receipt-card-fee").textContent = `BND $${cardFee.toFixed(2)}`;
+            document.getElementById("receipt-total").textContent = `BND $${total.toFixed(2)}`;
+
+            // 5. Populate Items
+            const cart = JSON.parse(localStorage.getItem("floretteCart")) || [];
+            const itemsContainer = document.getElementById("receipt-items-container");
+            
+            // Check if `flowers` array exists (usually defined in flowers.js)
+            // If not, we'll fallback to just showing the price total for the item
+            const flowersData = typeof flowers !== 'undefined' ? flowers : [];
+
+            itemsContainer.innerHTML = ""; // Clear
+
+            if (cart.length === 0) {
+                itemsContainer.innerHTML = `<p style="font-size:12px; color:#888;">No items found.</p>`;
+            } else {
+                cart.forEach(item => {
+                    // Try to find item name from flowers.js, else use a generic name
+                    let itemName = "Floral Arrangement";
+                    if (flowersData.length > 0) {
+                        const flower = flowersData.find(f => f.id === item.id);
+                        if (flower) itemName = flower.name;
+                    }
+
+                    const qty = Number(item.quantity || 1);
+                    // If we don't have the individual item price here, 
+                    // we can use the flower data price or just show qty.
+                    let itemPrice = 0;
+                    if (flowersData.length > 0) {
+                        const flower = flowersData.find(f => f.id === item.id);
+                        if (flower) itemPrice = flower.price;
+                    }
+                    
+                    const itemTotal = itemPrice * qty;
+
+                    const itemHTML = `
+                        <div class="receipt-item">
+                            <div class="item-details">
+                                <h4>${itemName}</h4>
+                                <p>Qty: ${qty}</p>
+                            </div>
+                            <div class="item-price">
+                                ${itemPrice > 0 ? `BND $${itemTotal.toFixed(2)}` : ''}
+                            </div>
+                        </div>
+                    `;
+                    itemsContainer.innerHTML += itemHTML;
+                });
+            }
+        });
+    </script>
+
+    <!-- You need to include flowers.js so the receipt can look up item names/prices by ID -->
+    <script src="../js/flowers.js"></script>
 </body>
 </html>
