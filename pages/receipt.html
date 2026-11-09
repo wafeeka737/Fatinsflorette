@@ -6,6 +6,9 @@
     <title>Receipt - Fatin's Florette</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/receipt.css">
+    
+    <!-- LOAD FLOWERS DATA FIRST so the receipt can read the names -->
+    <script src="../js/flowers.js"></script>
 </head>
 <body>
 
@@ -68,8 +71,8 @@
                             </div>
                         </div>
 
+                        <!-- JS fills this with the items -->
                         <div class="receipt-items" id="receipt-items-container">
-                            <!-- JS fills this -->
                         </div>
 
                         <div class="receipt-totals">
@@ -110,7 +113,7 @@
             document.getElementById("receipt-order-number").textContent = orderNumber;
             document.getElementById("receipt-date").textContent = today;
 
-            // 2. Pull Billing Info saved from checkout.js
+            // 2. Pull Billing Info
             const firstName = localStorage.getItem("firstName") || "";
             const lastName = localStorage.getItem("lastName") || "";
             const email = localStorage.getItem("email") || "N/A";
@@ -143,32 +146,26 @@
             const cart = JSON.parse(localStorage.getItem("floretteCart")) || [];
             const itemsContainer = document.getElementById("receipt-items-container");
             
-            // Check if `flowers` array exists (usually defined in flowers.js)
-            // If not, we'll fallback to just showing the price total for the item
-            const flowersData = typeof flowers !== 'undefined' ? flowers : [];
-
             itemsContainer.innerHTML = ""; // Clear
 
             if (cart.length === 0) {
                 itemsContainer.innerHTML = `<p style="font-size:12px; color:#888;">No items found.</p>`;
             } else {
                 cart.forEach(item => {
-                    // Try to find item name from flowers.js, else use a generic name
+                    // Find the flower name using the ID from the cart
                     let itemName = "Floral Arrangement";
-                    if (flowersData.length > 0) {
-                        const flower = flowersData.find(f => f.id === item.id);
-                        if (flower) itemName = flower.name;
+                    let itemPrice = 0;
+                    
+                    // flowers is the global variable from flowers.js
+                    if (typeof flowers !== 'undefined') {
+                        const flower = flowers.find(f => f.id === item.id);
+                        if (flower) {
+                            itemName = flower.name;
+                            itemPrice = flower.price;
+                        }
                     }
 
                     const qty = Number(item.quantity || 1);
-                    // If we don't have the individual item price here, 
-                    // we can use the flower data price or just show qty.
-                    let itemPrice = 0;
-                    if (flowersData.length > 0) {
-                        const flower = flowersData.find(f => f.id === item.id);
-                        if (flower) itemPrice = flower.price;
-                    }
-                    
                     const itemTotal = itemPrice * qty;
 
                     const itemHTML = `
@@ -187,8 +184,5 @@
             }
         });
     </script>
-
-    <!-- You need to include flowers.js so the receipt can look up item names/prices by ID -->
-    <script src="../js/flowers.js"></script>
 </body>
 </html>
