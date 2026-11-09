@@ -235,7 +235,6 @@ img {
     padding: 36px max(5%, calc((100% - 1320px)/2)) 18px
 }
 
-
 .footer-main {
     display: grid;
     grid-template-columns: 1.4fr 1fr 1fr 1.3fr;

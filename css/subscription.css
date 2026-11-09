@@ -12,8 +12,6 @@
     --line: #e5d8dc;
     --muted: #8b777e
 }
-
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -631,14 +629,4 @@ select {
   }
 }
 
-/* logo picture: show only the pink circle */
-.logo {
-  overflow: hidden;
-}
 
-.logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transform: scale(1.1);
-}
