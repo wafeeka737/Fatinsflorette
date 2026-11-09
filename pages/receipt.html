@@ -9,10 +9,8 @@
 </head>
 <body>
 
-    <!-- Optional: Back arrow at the very top left -->
-    <div class="back-nav">
-        <a href="../index.html">&#8592; Back to Home</a>
-    </div>
+    <!-- Back Button -->
+    <a href="../index.html" class="back-button">&#8592;</a>
 
     <div class="receipt-page-wrapper">
         <div class="receipt-card">
@@ -23,7 +21,7 @@
                 <p class="thank-you-subtitle">Your order will be processed within 24 hours during working days. We will notify you by email once your order has been shipped.</p>
 
                 <div class="billing-section">
-                    <h3>Billing Details</h3>
+                    <h3>Billing address</h3>
                     <div class="billing-row">
                         <span class="billing-label">Name</span>
                         <span class="billing-value">Jane Smith</span>
@@ -50,7 +48,7 @@
             <!-- RIGHT SIDE: The Receipt Paper -->
             <div class="receipt-right">
                 <div class="receipt-paper">
-                    <!-- The top zig-zag or rounded top -->
+                    <!-- The top tab effect -->
                     <div class="receipt-paper-top"></div>
                     
                     <div class="receipt-content">
@@ -59,55 +57,56 @@
                         <div class="receipt-meta">
                             <div class="meta-item">
                                 <span class="meta-label">Date</span>
-                                <span class="meta-value">11/9/2026</span>
+                                <span class="meta-value">02 May 2023</span>
                             </div>
                             <div class="meta-item">
                                 <span class="meta-label">Order Number</span>
-                                <span class="meta-value">INV-823624</span>
+                                <span class="meta-value">024-125478956</span>
                             </div>
                             <div class="meta-item">
                                 <span class="meta-label">Payment Method</span>
-                                <span class="meta-value">Credit Card</span>
+                                <span class="meta-value">Mastercard</span>
                             </div>
                         </div>
 
                         <div class="receipt-items">
                             <!-- Item 1 -->
                             <div class="receipt-item">
-                                <img src="../pics/sunflower.png" alt="Sunflower Bouquet" class="item-img"> <!-- Replace with actual image -->
+                                <div class="item-placeholder" style="background-image: url('../pics/pop.png');"></div>
                                 <div class="item-details">
-                                    <h4>Sunflower Bouquet</h4>
-                                    <p>Qty: 1</p>
+                                    <h4>All In One Chocolate Combo</h4>
+                                    <p>Pack: Medium<br>Qty: 1</p>
                                 </div>
-                                <div class="item-price">BND $50.00</div>
+                                <div class="item-price">$50.00</div>
                             </div>
-                            <!-- Item 2 (Example) -->
+                            
+                            <!-- Item 2 -->
                             <div class="receipt-item">
-                                <img src="../pics/sunflower.png" alt="Rose Bouquet" class="item-img"> <!-- Replace with actual image -->
+                                <div class="item-placeholder" style="background-image: url('../pics/wedding.png');"></div>
                                 <div class="item-details">
-                                    <h4>Rose Bouquet</h4>
-                                    <p>Qty: 1</p>
+                                    <h4>Desire Of Hearts</h4>
+                                    <p>Pack: Large<br>Qty: 1</p>
                                 </div>
-                                <div class="item-price">BND $50.00</div>
+                                <div class="item-price">$50.00</div>
                             </div>
                         </div>
 
                         <div class="receipt-totals">
                             <div class="total-row">
-                                <span>Subtotal</span>
-                                <span>BND $100.00</span>
+                                <span>Sub Total</span>
+                                <span>$100.00</span>
                             </div>
                             <div class="total-row">
                                 <span>Shipping</span>
-                                <span>BND $2.00</span>
+                                <span>$2.00</span>
                             </div>
                             <div class="total-row">
-                                <span>Card Fee</span>
-                                <span>BND $0.00</span>
+                                <span>Tax</span>
+                                <span>$5.00</span>
                             </div>
                             <div class="total-row grand-total">
-                                <span>Total</span>
-                                <span>BND $102.00</span>
+                                <span>Order Total</span>
+                                <span>$107.00</span>
                             </div>
                         </div>
                     </div>

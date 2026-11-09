@@ -1,286 +1,288 @@
 /* =========================================
-   RECEIPT PAGE
-   Uses Fatin's Florette shared colour palette
+   RECEIPT PAGE DESIGN
 ========================================= */
 
-:root {
-    --burgundy: #740043;
-    --burgundy-dark: #740043;
-    --blush: #f8e9e6;
-    --rose: #d8c7ca;
-    --rose-button: #a54a70;
-    --text: #5d3d48;
-    --white: #fffaf9;
-}
-
-
-/* GENERAL */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
 body {
+    background-color: #fcf6f5; /* Soft beige background from image */
     margin: 0;
     padding: 0;
-
-    background-color: #f4f3f3;
-
     font-family: 'Montserrat', Arial, sans-serif;
-
-    color: var(--text);
+    color: #333;
 }
-
 
 /* BACK BUTTON */
-
 .back-button {
     display: inline-block;
-
     text-decoration: none;
-
-    color: var(--burgundy);
-
-    font-size: 40px;
-
-    margin: 30px;
+    color: var(--burgundy, #740043);
+    font-size: 32px;
+    margin: 30px 40px;
+    transition: transform 0.2s;
 }
 
-
-/* CONTAINER */
-
-.receipt-container {
-    max-width: 850px;
-
-    margin: auto;
-
-    padding: 20px 40px 80px;
+.back-button:hover {
+    transform: translateX(-5px);
 }
 
-
-/* SUCCESS ICON */
-
-.success-icon {
-    width: 120px;
-    height: 120px;
-
-    margin: 0 auto 25px;
-
-    border-radius: 50%;
-
-    background-color: var(--rose-button);
-
-    color: var(--white);
-
-    font-size: 70px;
-
+/* WRAPPER */
+.receipt-page-wrapper {
     display: flex;
-
     justify-content: center;
-
     align-items: center;
+    padding: 20px;
+    min-height: 85vh;
 }
 
-
-/* TITLE */
-
-h1 {
-    text-align: center;
-
-    font-family: 'Playfair Display', Georgia, serif;
-
-    font-weight: 500;
-
-    color: var(--burgundy);
-
-    margin-bottom: 50px;
-}
-
-
-/* SEPARATION LINES */
-
-hr {
-    border: none;
-
-    border-top: 1px solid var(--rose);
-
-    margin: 40px 0;
-}
-
-
-/* PAYMENT DETAILS */
-
-.payment-details {
-    font-size: 22px;
-
-    line-height: 1.8;
-}
-
-
-/* ITEMS */
-
-.table-header,
-.table-row {
+/* MAIN CARD */
+.receipt-card {
     display: flex;
-
-    justify-content: space-between;
-
-    margin-bottom: 25px;
-
-    font-size: 20px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+    width: 100%;
+    max-width: 1050px;
+    overflow: hidden;
 }
 
-.table-header {
-    color: var(--burgundy);
+/* ===== LEFT SIDE (Text & Billing) ===== */
+.receipt-left {
+    flex: 1;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+}
 
+.thank-you-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #111;
+    line-height: 1.2;
+    margin: 0 0 20px 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.thank-you-subtitle {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    max-width: 95%;
+}
+
+.billing-section h3 {
+    font-size: 16px;
     font-weight: 600;
+    color: #111;
+    margin-bottom: 20px;
 }
 
-
-/* TOTALS */
-
-.totals div {
+.billing-row {
     display: flex;
+    margin-bottom: 12px;
+    font-size: 13px;
+}
 
-    justify-content: space-between;
+.billing-label {
+    width: 90px;
+    color: #888;
+    font-weight: 500;
+}
 
-    margin-bottom: 10px;
+.billing-value {
+    color: #333;
+    flex: 1;
+}
 
+.receipt-actions {
+    margin-top: auto;
+    padding-top: 40px;
+}
+
+.btn-track {
+    display: inline-block;
+    background: #f2a49b; /* Soft coral button */
+    color: white;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.btn-track:hover {
+    background: #e08e84;
+}
+
+/* ===== RIGHT SIDE (The Receipt Paper) ===== */
+.receipt-right {
+    flex: 1;
+    background: #f7f2f2; /* Background behind the paper */
+    padding: 60px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.receipt-paper {
+    background: #ffffff;
+    width: 100%;
+    max-width: 380px;
+    position: relative;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.05));
+}
+
+/* Top tab effect */
+.receipt-paper-top {
+    height: 15px;
+    background: #ffffff;
+    border-radius: 8px 8px 0 0;
+    position: absolute;
+    top: -15px;
+    left: 30px;
+    right: 30px;
+    z-index: 1;
+}
+
+/* Zig-Zag bottom edge */
+.receipt-paper-bottom {
+    height: 15px;
+    background: 
+        linear-gradient(-45deg, transparent 50%, #ffffff 50%), 
+        linear-gradient(45deg, transparent 50%, #ffffff 50%);
+    background-position: left bottom;
+    background-repeat: repeat-x;
+    background-size: 15px 15px;
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.receipt-content {
+    padding: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.receipt-content h2 {
     font-size: 20px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 25px;
+    font-family: 'Montserrat', sans-serif;
 }
 
-.totals strong {
-    color: var(--burgundy);
-
-    font-size: 22px;
+.receipt-meta {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 25px;
+    border-bottom: 1px dashed #dcdcdc;
+    margin-bottom: 25px;
 }
 
-
-/* THANK YOU */
-
-.thank-you {
-    text-align: center;
-
-    font-family: 'Playfair Display', Georgia, serif;
-
-    color: var(--burgundy);
-
-    font-size: 28px;
-
-    margin: 70px 0 50px;
+.meta-item {
+    display: flex;
+    flex-direction: column;
 }
 
-
-/* BUTTONS */
-
-#downloadReceiptBtn,
-#backHomeBtn {
-    display: block;
-
-    width: 500px;
-
-    max-width: 90%;
-
-    margin: 15px auto;
-
-    padding: 18px;
-
-    border: none;
-
-    border-radius: 12px;
-
-    font-size: 18px;
-
-    font-family: 'Montserrat', Arial, sans-serif;
-
-    cursor: pointer;
+.meta-label {
+    font-size: 10px;
+    color: #888;
+    margin-bottom: 4px;
 }
 
-
-/* DOWNLOAD BUTTON */
-
-#downloadReceiptBtn {
-    background-color: var(--rose);
-
-    color: var(--text);
+.meta-value {
+    font-size: 12px;
+    font-weight: 700;
+    color: #333;
 }
 
-
-/* HOME BUTTON */
-
-#backHomeBtn {
-    background-color: var(--rose-button);
-
-    color: var(--white);
+.receipt-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
-
-/* HOVER */
-
-#downloadReceiptBtn:hover {
-    background-color: var(--blush);
+.item-placeholder {
+    width: 45px;
+    height: 45px;
+    border-radius: 8px;
+    background-size: cover;
+    background-position: center;
+    margin-right: 15px;
+    background-color: #f0f0f0;
 }
 
-#backHomeBtn:hover {
-    background-color: var(--burgundy-dark);
+.item-details {
+    flex: 1;
 }
 
+.item-details h4 {
+    font-size: 12px;
+    font-weight: 700;
+    color: #333;
+    margin: 0 0 4px 0;
+}
 
-/* =========================================
-   TABLET
-========================================= */
+.item-details p {
+    font-size: 10px;
+    color: #888;
+    margin: 0;
+    line-height: 1.4;
+}
 
-@media (max-width: 992px) {
+.item-price {
+    font-size: 12px;
+    font-weight: 700;
+    color: #333;
+}
 
-    .receipt-container {
-        padding: 20px;
+.receipt-totals {
+    padding-top: 20px;
+    border-top: 1px dashed #dcdcdc;
+    margin-top: 10px;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 12px;
+}
+
+.total-row.grand-total {
+    font-weight: 700;
+    color: #111;
+    font-size: 15px;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed #dcdcdc;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 850px) {
+    .receipt-card {
+        flex-direction: column;
+    }
+    
+    .receipt-right {
+        padding: 40px 20px;
     }
 
-    .payment-details {
-        font-size: 20px;
+    .receipt-left {
+        padding: 40px 30px;
     }
-
-    .table-header,
-    .table-row {
-        font-size: 18px;
-    }
-
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 768px) {
-
-    .success-icon {
-        width: 110px;
-        height: 110px;
-
-        font-size: 65px;
-    }
-
-    h1 {
+    
+    .thank-you-title {
         font-size: 28px;
     }
 
-    .payment-details {
-        font-size: 18px;
+    .back-button {
+        margin: 20px;
     }
-
-    .table-header,
-    .table-row {
-        font-size: 16px;
-    }
-
-    .totals div {
-        font-size: 16px;
-    }
-
-    .thank-you {
-        font-size: 22px;
-    }
-
-    #downloadReceiptBtn,
-    #backHomeBtn {
-        width: 100%;
-    }
-
 }
