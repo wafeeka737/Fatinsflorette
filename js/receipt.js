@@ -79,10 +79,14 @@ document.addEventListener("DOMContentLoaded", () => {
     // LOAD CART
     // ============================
 
-    const cart =
-        JSON.parse(
-            localStorage.getItem("floretteCart")
-        ) || [];
+   // ============================
+// LOAD PURCHASED ITEMS
+// ============================
+// change it here so taht cart loads from floretteOrderItems instead of floretteCart and remove and store receipt//
+const cart =
+    JSON.parse(
+        localStorage.getItem("floretteOrderItems")
+    ) || [];
 
     const receiptItems =
         document.getElementById("receipt-items-container");

@@ -635,7 +635,21 @@ checkoutForm.addEventListener(
                 shippingFee
             ).toFixed(2)
         );
+// =============================
+// SAVE ORDER ITEMS FOR RECEIPT
+// =============================
 
+localStorage.setItem(
+    "floretteOrderItems",
+    localStorage.getItem("floretteCart") || "[]"
+);
+
+
+// =============================
+// CLEAR SHOPPING CART
+// =============================
+
+localStorage.removeItem("floretteCart");
 
         // =============================
         // SUCCESS
