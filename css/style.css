@@ -6,13 +6,16 @@
 /* COLOURS */
 
 :root {
-    --burgundy: #740043/*#79003d*/;
-    --burgundy-dark: #740043 /*#65002f*/;
+    --burgundy: #740043;
+    --burgundy-dark: #5d0036;
     --blush: #f8e9e6;
     --rose: #d8c7ca;
-    --rose-button: #a54a70 /* #614457*/ ; 
+    --rose-button: #a54a70;
     --text: #5d3d48;
     --white: #fffaf9;
+    --page: #f8f6f5;
+    --line: #e5d8dc;
+    --muted: #8b777e; /* Added this */
 }
 
 
