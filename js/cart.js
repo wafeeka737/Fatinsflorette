@@ -1,3 +1,4 @@
+
 // ============================
 // LOAD CART
 // ============================
@@ -16,6 +17,24 @@ const subtotalEl =
 
 const totalPriceEl =
     document.getElementById("totalPrice");
+
+
+// ============================
+// ESCAPE CUSTOMER MESSAGE
+// ============================
+
+function escapeHTML(text) {
+    return String(text).replace(/[&<>"']/g, function (character) {
+        return {
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#039;"
+        }[character];
+    });
+}
+
 
 // ============================
 // GET CART
@@ -50,34 +69,26 @@ function renderCart() {
     cartItemsContainer.innerHTML = "";
 
 
-    // ============================
     // EMPTY CART
-    // ============================
 
     if (cart.length === 0) {
 
         emptyCart.style.display = "block";
 
-        itemCount.textContent =
-            "Items (0)";
+        itemCount.textContent = "Items (0)";
 
-        subtotalEl.textContent =
-            "BND $0.00";
+        subtotalEl.textContent = "BND $0.00";
 
-        totalPriceEl.textContent =
-            "BND $0.00";
+        totalPriceEl.textContent = "BND $0.00";
 
         return;
-
     }
 
 
     emptyCart.style.display = "none";
 
 
-    // ============================
     // CALCULATE CART
-    // ============================
 
     let subtotal = 0;
 
@@ -86,21 +97,18 @@ function renderCart() {
 
     cart.forEach((item, index) => {
 
-
         // Find flower from flower.js
+
         const flower =
-            flowers.find(
-                f => f.id === item.id
-            );
+            flowers.find(f => f.id === item.id);
 
 
         // Skip if flower doesn't exist
+
         if (!flower) return;
 
 
-        // ============================
         // QUANTITY
-        // ============================
 
         const quantity =
             Number(item.quantity || 1);
@@ -108,93 +116,120 @@ function renderCart() {
         totalItems += quantity;
 
 
-        // ============================
         // PRICES
-        // ============================
 
-        // Original flower price
         const basePrice =
             Number(flower.price);
 
 
-        // Gift card price
-       // Gift card price and selection
-let giftCardPrice = 0;
-let giftCardLabel = "No Gift Card";
+        // GIFT CARD PRICE
 
-if (item.giftCard === "printed" || item.giftCard === "2") {
-    giftCardPrice = 2;
-    giftCardLabel = "Printed Gift Card";
-}
-else if (item.giftCard === "handwritten") {
-    giftCardLabel = "Handwritten Gift Card";
-}
+        let giftCardPrice = 0;
+
+        let giftCardLabel = "No Gift Card";
+
+        if (item.giftCard === "printed" || item.giftCard === "2") {
+
+            giftCardPrice = 2;
+
+            giftCardLabel = "Printed Gift Card";
+
+        }
+        else if (item.giftCard === "handwritten") {
+
+            giftCardLabel = "Handwritten Gift Card";
+
+        }
 
 
-        // Extra flowers price
+        // EXTRA FLOWERS PRICE
+
         const extraFlowersPrice =
             Number(item.extraFlowers || 0);
 
 
-        // Price of ONE bouquet
+        // PERSONALised MESSAGE
+
+        const customMessage =
+            String(item.customMessage || "").trim();
+
+
+        // PRICE OF ONE BOUQUET
+
         const pricePerItem =
             basePrice +
             giftCardPrice +
             extraFlowersPrice;
 
 
-        // Total for this cart item
+        // TOTAL FOR THIS CART ITEM
+
         const itemTotal =
             pricePerItem * quantity;
 
 
-        // Add to subtotal
         subtotal += itemTotal;
 
 
-        // ============================
         // CREATE CART ITEM
-        // ============================
 
         const cartItem =
             document.createElement("div");
 
-
-        cartItem.className =
-            "cart-item";
+        cartItem.className = "cart-item";
 
 
         cartItem.innerHTML = `
 
             <img
-                src="${flower.image}"
-                alt="${flower.name}"
+                src="${escapeHTML(flower.image)}"
+                alt="${escapeHTML(flower.name)}"
             >
 
             <div class="item-details">
 
-                <h2>${flower.name}</h2>
+                <h2>${escapeHTML(flower.name)}</h2>
 
                 <p>
-                    ${flower.description}
+                    ${escapeHTML(flower.description || "")}
                 </p>
 
 
-                <!-- Base Price -->
+                <!-- BASE PRICE -->
 
                 <p class="item-price">
                     BND $${basePrice.toFixed(2)} each
                 </p>
 
-<!-- Gift Card -->
 
-<p class="item-option">
-    Gift Card: ${giftCardLabel}
-    (+BND $${giftCardPrice.toFixed(2)})
-</p>
+                <!-- GIFT CARD -->
+
+                <p class="item-option">
+                    Gift Card: ${giftCardLabel}
+                    (+BND $${giftCardPrice.toFixed(2)})
+                </p>
 
 
-                <!-- Extra Flowers -->
+                <!-- PERSONALISED MESSAGE -->
+
+                ${customMessage ? `
+
+                    <div class="cart-personalised-message">
+
+                        <p class="item-option">
+                            <strong>Personalised Message:</strong>
+                        </p>
+
+                        <p class="message-text">
+                            ${escapeHTML(customMessage)}
+                        </p>
+
+                    </div>
+
+                ` : ""}
+
+
+                <!-- EXTRA FLOWERS -->
 
                 ${extraFlowersPrice > 0 ? `
 
@@ -206,7 +241,7 @@ else if (item.giftCard === "handwritten") {
                 ` : ""}
 
 
-                <!-- Price Per Bouquet -->
+                <!-- PRICE PER BOUQUET -->
 
                 ${(giftCardPrice > 0 || extraFlowersPrice > 0) ? `
 
@@ -218,7 +253,7 @@ else if (item.giftCard === "handwritten") {
                 ` : ""}
 
 
-                <!-- Item Total -->
+                <!-- ITEM TOTAL -->
 
                 <p class="item-total">
                     Item Total:
@@ -226,7 +261,7 @@ else if (item.giftCard === "handwritten") {
                 </p>
 
 
-                <!-- Quantity Controls -->
+                <!-- QUANTITY CONTROLS -->
 
                 <div class="quantity-controls">
 
@@ -237,11 +272,7 @@ else if (item.giftCard === "handwritten") {
                         -
                     </button>
 
-
-                    <span>
-                        ${quantity}
-                    </span>
-
+                    <span>${quantity}</span>
 
                     <button
                         class="plus-btn"
@@ -253,7 +284,7 @@ else if (item.giftCard === "handwritten") {
                 </div>
 
 
-                <!-- Remove Button -->
+                <!-- REMOVE BUTTON -->
 
                 <button
                     class="remove-btn"
@@ -267,27 +298,21 @@ else if (item.giftCard === "handwritten") {
         `;
 
 
-        cartItemsContainer.appendChild(
-            cartItem
-        );
+        cartItemsContainer.appendChild(cartItem);
 
     });
 
 
-    // ============================
     // DISPLAY SUMMARY
-    // ============================
 
     itemCount.textContent =
         `Items (${totalItems})`;
 
-
     subtotalEl.textContent =
         `BND $${subtotal.toFixed(2)}`;
 
-
     totalPriceEl.textContent =
-    `BND $${subtotal.toFixed(2)}`;
+        `BND $${subtotal.toFixed(2)}`;
 
 }
 
@@ -296,107 +321,68 @@ else if (item.giftCard === "handwritten") {
 // CART EVENTS
 // ============================
 
-document.addEventListener(
-    "click",
-    function (event) {
+document.addEventListener("click", function (event) {
+
+    // PLUS QUANTITY
+
+    if (event.target.classList.contains("plus-btn")) {
+
+        const index =
+            Number(event.target.dataset.index);
+
+        if (!cart[index]) return;
+
+        cart[index].quantity =
+            Number(cart[index].quantity || 1) + 1;
+
+        saveCart();
+
+        renderCart();
+    }
 
 
-        // ============================
-        // PLUS QUANTITY
-        // ============================
+    // MINUS QUANTITY
 
-        if (
-            event.target.classList.contains(
-                "plus-btn"
-            )
-        ) {
+    if (event.target.classList.contains("minus-btn")) {
 
-            const index =
-                Number(
-                    event.target.dataset.index
-                );
+        const index =
+            Number(event.target.dataset.index);
 
+        if (!cart[index]) return;
+
+        const currentQuantity =
+            Number(cart[index].quantity || 1);
+
+        if (currentQuantity > 1) {
 
             cart[index].quantity =
-                Number(
-                    cart[index].quantity || 1
-                ) + 1;
-
-
-            saveCart();
-
-            renderCart();
+                currentQuantity - 1;
 
         }
 
+        saveCart();
 
-        // ============================
-        // MINUS QUANTITY
-        // ============================
-
-        if (
-            event.target.classList.contains(
-                "minus-btn"
-            )
-        ) {
-
-            const index =
-                Number(
-                    event.target.dataset.index
-                );
-
-
-            const currentQuantity =
-                Number(
-                    cart[index].quantity || 1
-                );
-
-
-            if (currentQuantity > 1) {
-
-                cart[index].quantity =
-                    currentQuantity - 1;
-
-            }
-
-
-            saveCart();
-
-            renderCart();
-
-        }
-
-
-        // ============================
-        // REMOVE ITEM
-        // ============================
-
-        if (
-            event.target.classList.contains(
-                "remove-btn"
-            )
-        ) {
-
-            const index =
-                Number(
-                    event.target.dataset.index
-                );
-
-
-            cart.splice(
-                index,
-                1
-            );
-
-
-            saveCart();
-
-            renderCart();
-
-        }
-
+        renderCart();
     }
-);
+
+
+    // REMOVE ITEM
+
+    if (event.target.classList.contains("remove-btn")) {
+
+        const index =
+            Number(event.target.dataset.index);
+
+        if (!cart[index]) return;
+
+        cart.splice(index, 1);
+
+        saveCart();
+
+        renderCart();
+    }
+
+});
 
 
 // ============================
@@ -404,22 +390,15 @@ document.addEventListener(
 // ============================
 
 const checkoutBtn =
-    document.getElementById(
-        "checkoutBtn"
-    );
-
+    document.getElementById("checkoutBtn");
 
 if (checkoutBtn) {
 
-    checkoutBtn.addEventListener(
-        "click",
-        function () {
+    checkoutBtn.addEventListener("click", function () {
 
-            window.location.href =
-                "checkout.html";
+        window.location.href = "checkout.html";
 
-        }
-    );
+    });
 
 }
 

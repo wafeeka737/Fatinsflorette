@@ -69,6 +69,31 @@
     margin: 12px 0;
 }
 
+
+/* Personalised Gift Message */
+
+.cart-personalised-message {
+    margin: 12px 0;
+    padding: 12px 15px;
+    background: #f8e9e6;
+    border-left: 3px solid #740043;
+}
+
+.cart-personalised-message .item-option {
+    color: #740043;
+    margin-bottom: 5px;
+}
+
+.message-text {
+    color: #5d3d48;
+    font-size: 13px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+    margin: 0;
+    white-space: pre-wrap;
+}
+
+
 /* QUANTITY */
 
 .quantity-controls {
