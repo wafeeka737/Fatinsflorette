@@ -444,11 +444,9 @@ img {
 
 /* Footer */
 .site-footer {
-    width: min(100% - 40px, 1120px);
-    margin: 45px auto 16px;
+    margin-top: 45px;
     background: #f0e9eb;
-    padding: 36px 24px 18px;
-    border-radius: 12px; /* Optional: keeps it rounded like the header */
+    padding: 36px max(5%, calc((100% - 1320px)/2)) 18px
 }
 
 .footer-main {
