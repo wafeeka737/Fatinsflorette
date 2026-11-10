@@ -7,11 +7,13 @@
 body {
     margin: 0;
     padding: 0;
-
     background-color: var(--white);
-
-   font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     color: var(--text);
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
 }
 
 /* CHECKOUT AREA */
