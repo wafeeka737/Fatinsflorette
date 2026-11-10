@@ -267,40 +267,34 @@ function confirmSubscription() {
     lengthText = "1 Year";
   }
 
-  // list of the flowers
-  let flowerText = "";
+  // Save details to localStorage
+  localStorage.setItem("subscriptionType", chosenPlan);
+  localStorage.setItem("deliveryFrequency", document.getElementById("frequency").value);
+  localStorage.setItem("subscriptionLength", lengthText);
+  localStorage.setItem("estimatedTotal", getTotal().toFixed(2));
+  localStorage.setItem("subscriptionFlowers", JSON.stringify(chosenFlowers));
+
+  // 1. Populate the new subscription success card elements
+  document.getElementById("success-sub-type").textContent = chosenPlan;
+  document.getElementById("success-frequency").textContent = document.getElementById("frequency").value;
+  document.getElementById("success-duration").textContent = lengthText;
+  document.getElementById("success-total").textContent = "$" + getTotal().toFixed(2);
+
+  // 2. Populate the flowers list dynamically
+  let flowersContainer = document.getElementById("success-flowers-list");
+  flowersContainer.innerHTML = "";
+  
   for (let i = 0; i < chosenFlowers.length; i++) {
-    flowerText = flowerText + chosenFlowers[i].name + " x " + chosenFlowers[i].qty + "<br>";
+    let p = document.createElement("p");
+    p.className = "flower-item";
+    p.textContent = chosenFlowers[i].name + " x " + chosenFlowers[i].qty;
+    flowersContainer.appendChild(p);
   }
 
-  // put everything together
-  let subscription = {
-    plan: chosenPlan,
-    flowers: chosenFlowers,
-    frequency: document.getElementById("frequency").value,
-    months: months,
-    deliveries: getDeliveries(),
-    pricePerDelivery: Number(getPricePerDelivery().toFixed(2)),
-    estimatedTotal: Number(getTotal().toFixed(2))
-  };
-
-  console.log(subscription);
-
-  // TODO: send "subscription" to the database developer's code
-  // (they will tell us the link / file to send it to)
-
-  // hide the steps and show the thank you message
+  // 3. Hide the steps and show the success card
   document.getElementById("step1").classList.add("hidden");
   document.getElementById("step2").classList.add("hidden");
   document.getElementById("success").classList.remove("hidden");
-
-  document.getElementById("success-text").innerHTML =
-    "We got your subscription request.<br><br>" +
-    "Subscription: " + chosenPlan + "<br>" +
-    "Flowers for each delivery:<br>" + flowerText +
-    "Delivery: " + document.getElementById("frequency").value + "<br>" +
-    "Length: " + lengthText + "<br>" +
-    "<b>Estimated total: $" + getTotal().toFixed(2) + "</b>";
 
   document.getElementById("success").scrollIntoView({ behavior: "smooth" });
 }

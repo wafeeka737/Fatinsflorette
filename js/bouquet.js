@@ -953,7 +953,7 @@ function goToStep(n) {
   }
 
   // the text on the next button
-  let nextTexts = ["", "Next: choose a style", "Next: pick your card", "Next: review", "Save my bouquet"];
+  let nextTexts = ["", "Next: choose a style", "Next: pick your card", "Next: review", "Add to cart"];
   document.getElementById("next-btn").textContent = nextTexts[step];
 
   if (step == 4) {
