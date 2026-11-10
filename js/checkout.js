@@ -44,65 +44,65 @@ let totalItems = 0;
 let shippingFee = 0;
 
 
+
 /// =====================================
 // CALCULATE ORDER
 // =====================================
 
-if (
-    orderType === "customBouquet" &&
-    customBouquetOrder
-) {
+cart.forEach(item => {
 
-    // Custom bouquet direct checkout
+    const quantity =
+        Number(item.quantity || 1);
 
-    totalItems = 1;
 
-    subtotal =
-        Number(
-            customBouquetOrder.estimatedPrice
-        ) || 0;
-
-}
-
-else {
-
-    // Normal shopping cart checkout
-
-    cart.forEach(item => {
-
-        const flower =
-            flowers.find(
-                f => f.id === item.id
-            );
-
-        if (!flower) return;
-
-        const quantity =
-            Number(item.quantity || 1);
-
-        let giftCardPrice = 0;
-
-        if (item.giftCard === "printed") {
-            giftCardPrice = 2;
-        }
-
-        const extraFlowersPrice =
-            Number(item.extraFlowers || 0);
-
-        const productPrice =
-            Number(flower.price) +
-            giftCardPrice +
-            extraFlowersPrice;
+    // CUSTOM BUILD-A-BOUQUET
+    if (item.type === "customBouquet") {
 
         totalItems += quantity;
 
         subtotal +=
-            productPrice * quantity;
+            Number(item.price || 0) * quantity;
 
-    });
+        return;
 
-}
+    }
 
+
+    // NORMAL CATALOGUE FLOWERS
+    const flower =
+        flowers.find(
+            f => f.id === item.id
+        );
+
+    if (!flower) return;
+
+
+    let giftCardPrice = 0;
+
+    if (
+        item.giftCard === "printed" ||
+        item.giftCard === "2"
+    ) {
+        giftCardPrice = 2;
+    }
+
+
+    const extraFlowersPrice =
+        Number(item.extraFlowers || 0);
+
+
+    const productPrice =
+        Number(flower.price) +
+        giftCardPrice +
+        extraFlowersPrice;
+
+
+    totalItems += quantity;
+
+    subtotal +=
+        productPrice * quantity;
+
+});
 
 // =====================================
 // DISPLAY CART SUMMARY
@@ -656,38 +656,25 @@ checkoutForm.addEventListener(
                 shippingFee
             ).toFixed(2)
         );
-// SAVE ORDER ITEMS FOR RECEIPT
-// =============================
 
 // =====================================
 // SAVE ORDER ITEMS FOR RECEIPT
 // =====================================
 
-if (
-    orderType === "customBouquet" &&
-    customBouquetOrder
-) {
+localStorage.setItem(
+    "floretteOrderItems",
+    JSON.stringify(cart)
+);
 
-    localStorage.setItem(
-        "customBouquetReceipt",
-        JSON.stringify(customBouquetOrder)
-    );
 
-    localStorage.setItem(
-        "floretteOrderItems",
-        "[]"
-    );
+// =====================================
+// CLEAR SHOPPING CART
+// =====================================
 
-}
+localStorage.removeItem(
+    "floretteCart"
+);
 
-else {
-
-    localStorage.setItem(
-        "floretteOrderItems",
-        localStorage.getItem("floretteCart") || "[]"
-    );
-
-}
 
 // =============================
 // CLEAR SHOPPING CART
