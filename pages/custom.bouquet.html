@@ -16,6 +16,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/bouquet.css">
+    <link rel="stylesheet" href="../css/product.css">
 
 <body>
 
@@ -79,11 +80,27 @@
 
         </nav>
 
-        <div class="header-actions">
-            <button class="search-button" type="button" aria-label="Search flowers"
-                onclick="window.location.href='catalog.html'">
-                ⌕
-            </button>
+        <!-- Header actions -->
+
+<div class="header-actions">
+
+<div class="search-container">
+
+    <input
+        type="text"
+        id="globalSearch"
+        placeholder="Search anything..."
+    >
+
+    <button
+        class="search-button"
+        type="button"
+        aria-label="Open search"
+        onclick="toggleSearch()">
+        ⌕
+    </button>
+
+    </div>
 
           <a href="../pages/cart.html" class="cart-link" aria-label="Shopping cart">
         <img src="../images/cart.png.png" alt="Cart">
@@ -342,5 +359,6 @@
     </footer>
 
   <script src="../js/bouquet.js"></script>
+  <script src="../js/search.js"></script>
 </body>
 </html>

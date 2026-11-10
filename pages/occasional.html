@@ -88,11 +88,27 @@
 
         </nav>
 
-        <div class="header-actions">
-            <button class="search-button" type="button" aria-label="Search flowers"
-                onclick="window.location.href='catalog.html'">
-                ⌕
-            </button>
+        <!-- Header actions -->
+
+<div class="header-actions">
+
+<div class="search-container">
+
+    <input
+        type="text"
+        id="globalSearch"
+        placeholder="Search anything..."
+    >
+
+    <button
+        class="search-button"
+        type="button"
+        aria-label="Open search"
+        onclick="toggleSearch()">
+        ⌕
+    </button>
+
+    </div>
 
            <a href="../pages/cart.html" class="cart-link" aria-label="Shopping cart">
         <img src="../images/cart.png.png" alt="Cart">
@@ -266,6 +282,7 @@
     <script src="../js/catalog.js"></script>
     <script src="../js/product.js"></script>
     <script src="../js/occasional.js"></script>
+    <script src="../js/search.js"></script>
 
 </body>
 
