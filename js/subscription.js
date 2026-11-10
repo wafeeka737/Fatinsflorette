@@ -46,7 +46,7 @@ let chosenFlowers = [];
 
 // delivery fee for each area (it is charged for every delivery)
 let deliveryFees = {
-  "Brunei Muara": 5-6,
+  "Brunei Muara": 6,
   "Tutong": 5,
   "Kuala Belait": 8,
 };
