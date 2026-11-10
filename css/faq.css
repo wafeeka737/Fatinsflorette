@@ -3,6 +3,12 @@
 ======================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap');
+
+body {
+    font-family: "DM Sans", Arial, sans-serif;
+    color: var(--faq-text);
+}
+
 :root {
     --faq-burgundy: #79003d;
     --faq-rose: #a54a70;
@@ -108,7 +114,7 @@ html {
     padding: 12px 23px;
     border: 1px solid var(--faq-burgundy);
     border-radius: 6px;
-    font-family: "Montserrat", Arial, sans-serif;
+    font-family: "DM Sans", Arial, sans-serif;
     font-size: 13px;
     font-weight: 600;
     text-align: center;
