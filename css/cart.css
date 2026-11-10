@@ -1,6 +1,13 @@
 /* =========================================
    CART PAGE
 ========================================= */
+body {
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+}
 
 .cart-container {
     width: min(100% - 40px, 1120px);
@@ -24,6 +31,8 @@
     color: var(--burgundy);
     font-size: 42px;
     margin-bottom: 25px;
+    font-family: 'Playfair Display', serif;
+    
 }
 
 /* CART ITEM */

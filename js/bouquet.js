@@ -1033,35 +1033,76 @@ function saveBouquet() {
   }
 
   // put everything together
-  let order = {
+  // =====================================
+// CREATE CUSTOM BOUQUET ORDER
+// =====================================
+
+let order = {
+    type: "customBouquet",
+
+    name: "Custom Build-a-Bouquet",
+
     flowers: bouquet.flowers,
+
     totalFlowers: countFlowers(),
+
     wrapper: wrapperText,
+
     ribbon: ribbonText,
+
     card: card.name,
+
     cardPrice: card.price,
+
     cardMessage: message,
-    estimatedPrice: getTotal()
-  };
 
-  console.log(order);
+    price: getTotal(),
 
-  // TODO: send "order" to the database developer's code
-  // (they will tell us the link / file to send it to)
+    quantity: 1
+};
 
-  let successText = "Your bouquet was saved! Total: $" + getTotal().toFixed(2);
-  if (card.id == "none") {
-    successText = successText + " (no card)";
-  } else {
-    successText = successText + " (" + card.name + ")";
-  }
+console.log(order);
 
-  document.getElementById("success").classList.remove("hidden");
-  document.getElementById("success-text").textContent = successText;
-}
+
+// =====================================
+// GET EXISTING CART
+// =====================================
+
+let cart =
+    JSON.parse(
+        localStorage.getItem("floretteCart")
+    ) || [];
+
+
+// =====================================
+// ADD CUSTOM BOUQUET TO CART
+// =====================================
+
+cart.push(order);
+
+
+// =====================================
+// SAVE CART
+// =====================================
+
+localStorage.setItem(
+    "floretteCart",
+    JSON.stringify(cart)
+);
+
+
+// =====================================
+// GO TO CART
+// =====================================
+
+window.location.href =
+    "../pages/cart.html";
+
+} // closes your function here
 
 
 // ---------- start ----------
+
 saveState();
 refreshAll();
 goToStep(1);

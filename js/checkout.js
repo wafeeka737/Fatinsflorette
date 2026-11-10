@@ -8,6 +8,17 @@ const cart =
         localStorage.getItem("floretteCart")
     ) || [];
 
+// =====================================
+// CHECK ORDER TYPE
+// =====================================
+
+const orderType =
+    localStorage.getItem("orderType");
+
+const customBouquetOrder =
+    JSON.parse(
+        localStorage.getItem("customBouquetOrder")
+    );
 
 // Get checkout elements
 const itemCountEl =
@@ -33,12 +44,31 @@ let totalItems = 0;
 let shippingFee = 0;
 
 
-// =====================================
-// CALCULATE CART
+
+/// =====================================
+// CALCULATE ORDER
 // =====================================
 
 cart.forEach(item => {
 
+    const quantity =
+        Number(item.quantity || 1);
+
+
+    // CUSTOM BUILD-A-BOUQUET
+    if (item.type === "customBouquet") {
+
+        totalItems += quantity;
+
+        subtotal +=
+            Number(item.price || 0) * quantity;
+
+        return;
+
+    }
+
+
+    // NORMAL CATALOGUE FLOWERS
     const flower =
         flowers.find(
             f => f.id === item.id
@@ -47,41 +77,32 @@ cart.forEach(item => {
     if (!flower) return;
 
 
-    // Quantity
-    const quantity =
-        Number(item.quantity || 1);
+    let giftCardPrice = 0;
+
+    if (
+        item.giftCard === "printed" ||
+        item.giftCard === "2"
+    ) {
+        giftCardPrice = 2;
+    }
 
 
-// Gift card price
-let giftCardPrice = 0;
-
-if (item.giftCard === "printed") {
-    giftCardPrice = 2;
-}
-
-
-    // Extra flowers price
     const extraFlowersPrice =
         Number(item.extraFlowers || 0);
 
 
-    // Price of ONE customised product
     const productPrice =
         Number(flower.price) +
         giftCardPrice +
         extraFlowersPrice;
 
 
-    // Add quantity to item count
     totalItems += quantity;
 
-
-    // Add customised product total
     subtotal +=
         productPrice * quantity;
 
 });
-
 
 // =====================================
 // DISPLAY CART SUMMARY
@@ -635,21 +656,36 @@ checkoutForm.addEventListener(
                 shippingFee
             ).toFixed(2)
         );
-// =============================
+
+// =====================================
 // SAVE ORDER ITEMS FOR RECEIPT
-// =============================
+// =====================================
 
 localStorage.setItem(
     "floretteOrderItems",
-    localStorage.getItem("floretteCart") || "[]"
+    JSON.stringify(cart)
+);
+
+
+// =====================================
+// CLEAR SHOPPING CART
+// =====================================
+
+localStorage.removeItem(
+    "floretteCart"
 );
 
 
 // =============================
 // CLEAR SHOPPING CART
 // =============================
+if (orderType !== "customBouquet") {
 
-localStorage.removeItem("floretteCart");
+    localStorage.removeItem(
+        "floretteCart"
+    );
+
+}
 
         // =============================
         // SUCCESS

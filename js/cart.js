@@ -20,7 +20,7 @@ const totalPriceEl =
 
 
 // ============================
-// ESCAPE CUSTOMER MESSAGE
+// ESCAPE HTML
 // ============================
 
 function escapeHTML(text) {
@@ -97,18 +97,179 @@ function renderCart() {
 
     cart.forEach((item, index) => {
 
-        // Find flower from flower.js
+
+        // =====================================
+        // CUSTOM BUILD-A-BOUQUET
+        // =====================================
+
+        if (item.type === "customBouquet") {
+
+            const quantity =
+                Number(item.quantity || 1);
+
+            const pricePerItem =
+                Number(item.price || 0);
+
+            const itemTotal =
+                pricePerItem * quantity;
+
+            totalItems += quantity;
+
+            subtotal += itemTotal;
+
+
+            // FLOWER NAME LIST
+
+            const flowerList =
+                Array.isArray(item.flowers)
+                    ? item.flowers.map(flower => {
+
+                        if (typeof flower === "string") {
+                            return flower;
+                        }
+
+                        if (flower && typeof flower === "object") {
+
+                            const name =
+                                flower.name ||
+                                flower.id ||
+                                flower.flowerName ||
+                                "Unknown Flower";
+
+                            const qty =
+                                Number(flower.qty || flower.quantity || 1);
+
+                            return `${name} × ${qty}`;
+
+                        }
+
+                        return "Unknown Flower";
+
+                    }).join(", ")
+                    : "No flowers selected";
+
+
+            // CREATE CART ITEM
+
+            const cartItem =
+                document.createElement("div");
+
+            cartItem.className = "cart-item";
+
+
+            cartItem.innerHTML = `
+
+                <div class="item-details">
+
+                    <h2>
+                        ${escapeHTML(item.name || "Custom Build-a-Bouquet")}
+                    </h2>
+
+
+                    <p class="item-option">
+                        <strong>Flowers (${item.totalFlowers || 0}):</strong>
+                        ${escapeHTML(flowerList)}
+                    </p>
+
+
+                    <p class="item-option">
+                        <strong>Wrapper:</strong>
+                        ${escapeHTML(item.wrapper || "None")}
+                    </p>
+
+
+                    <p class="item-option">
+                        <strong>Ribbon:</strong>
+                        ${escapeHTML(item.ribbon || "None")}
+                    </p>
+
+
+                    <p class="item-option">
+                        <strong>Gift Card:</strong>
+                        ${escapeHTML(item.card || "No Card")}
+                        ${Number(item.cardPrice || 0) > 0
+                            ? `(+BND $${Number(item.cardPrice).toFixed(2)})`
+                            : ""}
+                    </p>
+
+
+                    ${item.cardMessage ? `
+
+                        <div class="cart-personalised-message">
+
+                            <p class="item-option">
+                                <strong>Personalised Message:</strong>
+                            </p>
+
+                            <p class="message-text">
+                                ${escapeHTML(item.cardMessage)}
+                            </p>
+
+                        </div>
+
+                    ` : ""}
+
+
+                    <p class="item-price">
+                        BND $${pricePerItem.toFixed(2)} each
+                    </p>
+
+
+                    <p class="item-total">
+                        Item Total:
+                        BND $${itemTotal.toFixed(2)}
+                    </p>
+
+
+                    <div class="quantity-controls">
+
+                        <button
+                            class="minus-btn"
+                            data-index="${index}"
+                        >
+                            -
+                        </button>
+
+                        <span>${quantity}</span>
+
+                        <button
+                            class="plus-btn"
+                            data-index="${index}"
+                        >
+                            +
+                        </button>
+
+                    </div>
+
+
+                    <button
+                        class="remove-btn"
+                        data-index="${index}"
+                    >
+                        Remove
+                    </button>
+
+                </div>
+
+            `;
+
+
+            cartItemsContainer.appendChild(cartItem);
+
+            return;
+        }
+
+
+        // =====================================
+        // NORMAL CATALOGUE FLOWERS
+        // =====================================
 
         const flower =
             flowers.find(f => f.id === item.id);
 
 
-        // Skip if flower doesn't exist
-
         if (!flower) return;
 
-
-        // QUANTITY
 
         const quantity =
             Number(item.quantity || 1);
@@ -116,25 +277,26 @@ function renderCart() {
         totalItems += quantity;
 
 
-        // PRICES
-
         const basePrice =
             Number(flower.price);
 
-
-        // GIFT CARD PRICE
 
         let giftCardPrice = 0;
 
         let giftCardLabel = "No Gift Card";
 
-        if (item.giftCard === "printed" || item.giftCard === "2") {
+
+        if (
+            item.giftCard === "printed" ||
+            item.giftCard === "2"
+        ) {
 
             giftCardPrice = 2;
 
             giftCardLabel = "Printed Gift Card";
 
         }
+
         else if (item.giftCard === "handwritten") {
 
             giftCardLabel = "Handwritten Gift Card";
@@ -142,19 +304,13 @@ function renderCart() {
         }
 
 
-        // EXTRA FLOWERS PRICE
-
         const extraFlowersPrice =
             Number(item.extraFlowers || 0);
 
 
-        // PERSONALised MESSAGE
-
         const customMessage =
             String(item.customMessage || "").trim();
 
-
-        // PRICE OF ONE BOUQUET
 
         const pricePerItem =
             basePrice +
@@ -162,16 +318,12 @@ function renderCart() {
             extraFlowersPrice;
 
 
-        // TOTAL FOR THIS CART ITEM
-
         const itemTotal =
             pricePerItem * quantity;
 
 
         subtotal += itemTotal;
 
-
-        // CREATE CART ITEM
 
         const cartItem =
             document.createElement("div");
@@ -195,22 +347,16 @@ function renderCart() {
                 </p>
 
 
-                <!-- BASE PRICE -->
-
                 <p class="item-price">
                     BND $${basePrice.toFixed(2)} each
                 </p>
 
-
-                <!-- GIFT CARD -->
 
                 <p class="item-option">
                     Gift Card: ${giftCardLabel}
                     (+BND $${giftCardPrice.toFixed(2)})
                 </p>
 
-
-                <!-- PERSONALISED MESSAGE -->
 
                 ${customMessage ? `
 
@@ -229,8 +375,6 @@ function renderCart() {
                 ` : ""}
 
 
-                <!-- EXTRA FLOWERS -->
-
                 ${extraFlowersPrice > 0 ? `
 
                     <p class="item-option">
@@ -240,8 +384,6 @@ function renderCart() {
 
                 ` : ""}
 
-
-                <!-- PRICE PER BOUQUET -->
 
                 ${(giftCardPrice > 0 || extraFlowersPrice > 0) ? `
 
@@ -253,15 +395,11 @@ function renderCart() {
                 ` : ""}
 
 
-                <!-- ITEM TOTAL -->
-
                 <p class="item-total">
                     Item Total:
                     BND $${itemTotal.toFixed(2)}
                 </p>
 
-
-                <!-- QUANTITY CONTROLS -->
 
                 <div class="quantity-controls">
 
@@ -283,8 +421,6 @@ function renderCart() {
 
                 </div>
 
-
-                <!-- REMOVE BUTTON -->
 
                 <button
                     class="remove-btn"
