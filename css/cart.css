@@ -31,7 +31,8 @@ h1, h2, h3 {
     color: var(--burgundy);
     font-size: 42px;
     margin-bottom: 25px;
-    font-family: 'Montserrat', Arial, sans-serif;
+    font-family: 'Playfair Display', serif;
+    
 }
 
 /* CART ITEM */
