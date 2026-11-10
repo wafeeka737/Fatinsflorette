@@ -41,6 +41,17 @@ const extras = document.getElementById("extra-flowers");
 const giftCard = document.getElementById("gift-card");
 const price = document.getElementById("product-price");
 
+// Gift message and character counter
+const giftMessage = document.getElementById("gift-message");
+const messageCount = document.getElementById("messageCount");
+
+// Automatically count characters when typing
+if (giftMessage && messageCount) {
+    giftMessage.addEventListener("input", () => {
+        messageCount.textContent = giftMessage.value.length;
+    });
+}
+
 //ezah - hi mal making changes here
 function updatePrice() {
     const extraPrice = Number(extras.value) || 0;
@@ -75,9 +86,6 @@ giftCard.addEventListener("change", updatePrice);
         updatePrice();
     });
 
-    extras.addEventListener("change", updatePrice);
-
-
     // Recommendations
     const recommendations = flowers
         .filter(f => f.id !== flower.id)
@@ -103,9 +111,11 @@ giftCard.addEventListener("change", updatePrice);
 
 // Add to Cart
 document.getElementById("add-to-cart").addEventListener("click", () => {
+
     const giftCard = document.getElementById("gift-card").value;
     const extraFlowers = Number(extras.value) || 0;
-    const customMessage = giftMessage.value.trim();
+    const customMessage = giftMessage ? giftMessage.value.trim() : "";
+
     const cart = getCartItems();
 
     const existing = cart.find(item =>
@@ -139,7 +149,7 @@ document.getElementById("add-to-cart").addEventListener("click", () => {
 document.getElementById("buy-it-now").addEventListener("click", () => {
     const giftCard = document.getElementById("gift-card").value;
     const extraFlowers = Number(extras.value) || 0;
-    const customMessage = giftMessage.value.trim();
+    const customMessage = giftMessage ? giftMessage.value.trim() : "";
     const cart = getCartItems();
 
     const existing = cart.find(item =>
