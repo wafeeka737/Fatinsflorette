@@ -98,12 +98,96 @@ const cart =
 
     cart.forEach(item => {
 
-        const flower =
-            flowers.find(
-                f => f.id === item.id
-            );
+// =====================================
+// CUSTOM BUILD-A-BOUQUET
+// =====================================
 
-        if (!flower) return;
+if (item.type === "customBouquet") {
+
+    const quantity =
+        Number(item.quantity || 1);
+
+    const flowerList =
+        Array.isArray(item.flowers)
+            ? item.flowers.map(flower => {
+
+                if (typeof flower === "string") {
+                    return flower;
+                }
+
+                if (flower && typeof flower === "object") {
+
+                    const name =
+                        flower.name ||
+                        flower.id ||
+                        "Unknown Flower";
+
+                    const qty =
+                        Number(flower.qty || flower.quantity || 1);
+
+                    return `${name} × ${qty}`;
+                }
+
+                return "Unknown Flower";
+
+            }).join(", ")
+            : "No flowers selected";
+
+
+    const itemTotal =
+        Number(item.price || 0) * quantity;
+
+
+    const itemRow =
+        document.createElement("div");
+
+    itemRow.className = "table-row";
+
+    itemRow.innerHTML = `
+        <div class="receipt-item-details">
+
+            <strong>${item.name || "Custom Build-a-Bouquet"} × ${quantity}</strong>
+
+            <p>
+                Flowers (${item.totalFlowers || 0}):
+                ${flowerList}
+            </p>
+
+            <p>Wrapper: ${item.wrapper || "None"}</p>
+
+            <p>Ribbon: ${item.ribbon || "None"}</p>
+
+            <p>Gift Card: ${item.card || "None"}</p>
+
+            ${item.cardMessage ? `
+                <p>Message: ${item.cardMessage}</p>
+            ` : ""}
+
+        </div>
+
+        <span>
+            BND $${itemTotal.toFixed(2)}
+        </span>
+    `;
+
+    receiptItems.appendChild(itemRow);
+
+    return;
+
+}
+
+
+// =====================================
+// NORMAL CATALOGUE FLOWERS
+// =====================================
+
+const flower =
+    flowers.find(
+        f => f.id === item.id
+    );
+
+if (!flower) return;
+
 
         const quantity =
             Number(item.quantity || 1);
