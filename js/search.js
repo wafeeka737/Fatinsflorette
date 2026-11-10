@@ -28,7 +28,7 @@ const websitePages = [
 
     {
         title: "Build a Bouquet",
-        url: "../pages/custom.build.html",
+        url: "../pages/custom.bouquet.html",
         description: "Create and customise your own bouquet.",
         keywords: ["build", "customise", "customize", "personalise", "bouquet"]
     },
@@ -88,14 +88,72 @@ function globalSearchFlowers() {
 
     if (!searchInput) return;
 
-    const searchValue = searchInput.value.trim();
+    const searchValue =
+        searchInput.value.trim().toLowerCase();
 
     if (searchValue === "") return;
 
-    window.location.href =
-        "search-results.html?q=" + encodeURIComponent(searchValue);
-}
+    let bestMatch = null;
+    let highestScore = 0;
 
+    websitePages.forEach(page => {
+
+        let score = 0;
+
+        const title = page.title.toLowerCase();
+
+        // Exact page title match
+        if (title === searchValue) {
+            score += 100;
+        }
+
+        // Partial page title match
+        else if (title.includes(searchValue)) {
+            score += 50;
+        }
+
+        // Keyword match
+        page.keywords.forEach(keyword => {
+
+            const word = keyword.toLowerCase();
+
+            if (word === searchValue) {
+                score += 80;
+            }
+
+            else if (word.includes(searchValue)) {
+                score += 40;
+            }
+
+            else if (searchValue.includes(word)) {
+                score += 20;
+            }
+
+        });
+
+        // Description match
+        if (page.description.toLowerCase().includes(searchValue)) {
+            score += 10;
+        }
+
+        if (score > highestScore) {
+            highestScore = score;
+            bestMatch = page;
+        }
+
+    });
+
+    if (bestMatch) {
+
+        window.location.href = bestMatch.url;
+
+    } else {
+
+        alert("Sorry, no matching page found. Please try another search.");
+
+    }
+
+}
 
 // ===================================
 // PRESS ENTER TO SEARCH

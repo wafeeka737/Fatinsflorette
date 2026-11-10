@@ -196,66 +196,6 @@ img {
     padding: 0 8px
 }
 
-.search-container {
-    display: flex;
-    align-items: center;
-    position: relative;
-}
-
-.search-container input {
-    width: 0;
-    opacity: 0;
-    padding: 0;
-    border: none;
-    outline: none;
-    transition: width 0.3s ease, opacity 0.3s ease;
-}
-
-.search-container.active input {
-    width: 190px;
-    opacity: 1;
-    padding: 10px 12px;
-    border: 1px solid #740043;
-    border-radius: 20px;
-}
-
-.search-button {
-    cursor: pointer;
-    border: none;
-    background: transparent;
-    font-size: 25px;
-}/* SEARCH BAR */
-
-.search-container {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-/* Hide search input by default */
-.search-container input {
-    display: none;
-    width: 180px;
-    padding: 9px 12px;
-    border: 1px solid #740043;
-    border-radius: 20px;
-    outline: none;
-    background: white;
-    font-family: 'Montserrat', sans-serif;
-}
-
-/* Show input when activated */
-.search-container.active input {
-    display: block;
-}
-
-.search-button {
-    cursor: pointer;
-    border: none;
-    background: transparent;
-    font-size: 25px;
-}
-
 .cart-link {
     border-radius: 0 7px 7px 0;
     font-size: 12px;
