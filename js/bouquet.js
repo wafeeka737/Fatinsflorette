@@ -1033,33 +1033,76 @@ function saveBouquet() {
   }
 
   // put everything together
-  let order = {
-    flowers: bouquet.flowers,
-    totalFlowers: countFlowers(),
-    wrapper: wrapperText,
-    ribbon: ribbonText,
-    card: card.name,
-    cardPrice: card.price,
-    cardMessage: message,
-    estimatedPrice: getTotal()
-  };
+  // =====================================
+// CREATE CUSTOM BOUQUET ORDER
+// =====================================
 
-  console.log(order);
-  localStorage.setItem(
-    "customBouquetOrder",
-    JSON.stringify(order)
-);
+let order = {
+    type: "customBouquet",
+
+    name: "Custom Build-a-Bouquet",
+
+    flowers: bouquet.flowers,
+
+    totalFlowers: countFlowers(),
+
+    wrapper: wrapperText,
+
+    ribbon: ribbonText,
+
+    card: card.name,
+
+    cardPrice: card.price,
+
+    cardMessage: message,
+
+    price: getTotal(),
+
+    quantity: 1
+};
+
+console.log(order);
+
+
+// =====================================
+// GET EXISTING CART
+// =====================================
+
+let cart =
+    JSON.parse(
+        localStorage.getItem("floretteCart")
+    ) || [];
+
+
+// =====================================
+// ADD CUSTOM BOUQUET TO CART
+// =====================================
+
+cart.push(order);
+
+
+// =====================================
+// SAVE CART
+// =====================================
 
 localStorage.setItem(
-    "orderType",
-    "customBouquet"
+    "floretteCart",
+    JSON.stringify(cart)
 );
 
-window.location.href =
-    "../pages/checkout.html";
 
-}
+// =====================================
+// GO TO CART
+// =====================================
+
+window.location.href =
+    "../pages/cart.html";
+
+} // closes your function here
+
+
 // ---------- start ----------
+
 saveState();
 refreshAll();
 goToStep(1);
