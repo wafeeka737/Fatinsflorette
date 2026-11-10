@@ -1045,19 +1045,31 @@ function saveBouquet() {
   };
 
   console.log(order);
+  localStorage.setItem(
+    "customBouquetOrder",
+    JSON.stringify(order)
+);
+
+localStorage.setItem(
+    "orderType",
+    "customBouquet"
+);
+
+window.location.href =
+    "../pages/checkout.html";
 
   // TODO: send "order" to the database developer's code
   // (they will tell us the link / file to send it to)
 
-  let successText = "Your bouquet was saved! Total: $" + getTotal().toFixed(2);
-  if (card.id == "none") {
-    successText = successText + " (no card)";
-  } else {
-    successText = successText + " (" + card.name + ")";
-  }
+ // let successText = "Your bouquet was saved! Total: $" + getTotal().toFixed(2);
+  //if (card.id == "none") {
+  //  successText = successText + " (no card)";
+  //} else {
+   // successText = successText + " (" + card.name + ")";
+  //}
 
-  document.getElementById("success").classList.remove("hidden");
-  document.getElementById("success-text").textContent = successText;
+  //document.getElementById("success").classList.remove("hidden");
+  //document.getElementById("success-text").textContent = successText;
 }
 
 

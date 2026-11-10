@@ -8,6 +8,17 @@ const cart =
         localStorage.getItem("floretteCart")
     ) || [];
 
+// =====================================
+// CHECK ORDER TYPE
+// =====================================
+
+const orderType =
+    localStorage.getItem("orderType");
+
+const customBouquetOrder =
+    JSON.parse(
+        localStorage.getItem("customBouquetOrder")
+    );
 
 // Get checkout elements
 const itemCountEl =
@@ -33,54 +44,64 @@ let totalItems = 0;
 let shippingFee = 0;
 
 
+/// =====================================
+// CALCULATE ORDER
 // =====================================
-// CALCULATE CART
-// =====================================
 
-cart.forEach(item => {
+if (
+    orderType === "customBouquet" &&
+    customBouquetOrder
+) {
 
-    const flower =
-        flowers.find(
-            f => f.id === item.id
-        );
+    // Custom bouquet direct checkout
 
-    if (!flower) return;
+    totalItems = 1;
 
+    subtotal =
+        Number(
+            customBouquetOrder.estimatedPrice
+        ) || 0;
 
-    // Quantity
-    const quantity =
-        Number(item.quantity || 1);
-
-
-// Gift card price
-let giftCardPrice = 0;
-
-if (item.giftCard === "printed") {
-    giftCardPrice = 2;
 }
 
+else {
 
-    // Extra flowers price
-    const extraFlowersPrice =
-        Number(item.extraFlowers || 0);
+    // Normal shopping cart checkout
 
+    cart.forEach(item => {
 
-    // Price of ONE customised product
-    const productPrice =
-        Number(flower.price) +
-        giftCardPrice +
-        extraFlowersPrice;
+        const flower =
+            flowers.find(
+                f => f.id === item.id
+            );
 
+        if (!flower) return;
 
-    // Add quantity to item count
-    totalItems += quantity;
+        const quantity =
+            Number(item.quantity || 1);
 
+        let giftCardPrice = 0;
 
-    // Add customised product total
-    subtotal +=
-        productPrice * quantity;
+        if (item.giftCard === "printed") {
+            giftCardPrice = 2;
+        }
 
-});
+        const extraFlowersPrice =
+            Number(item.extraFlowers || 0);
+
+        const productPrice =
+            Number(flower.price) +
+            giftCardPrice +
+            extraFlowersPrice;
+
+        totalItems += quantity;
+
+        subtotal +=
+            productPrice * quantity;
+
+    });
+
+}
 
 
 // =====================================
@@ -635,21 +656,49 @@ checkoutForm.addEventListener(
                 shippingFee
             ).toFixed(2)
         );
-// =============================
 // SAVE ORDER ITEMS FOR RECEIPT
 // =============================
 
-localStorage.setItem(
-    "floretteOrderItems",
-    localStorage.getItem("floretteCart") || "[]"
-);
+// =====================================
+// SAVE ORDER ITEMS FOR RECEIPT
+// =====================================
 
+if (
+    orderType === "customBouquet" &&
+    customBouquetOrder
+) {
+
+    localStorage.setItem(
+        "customBouquetReceipt",
+        JSON.stringify(customBouquetOrder)
+    );
+
+    localStorage.setItem(
+        "floretteOrderItems",
+        "[]"
+    );
+
+}
+
+else {
+
+    localStorage.setItem(
+        "floretteOrderItems",
+        localStorage.getItem("floretteCart") || "[]"
+    );
+
+}
 
 // =============================
 // CLEAR SHOPPING CART
 // =============================
+if (orderType !== "customBouquet") {
 
-localStorage.removeItem("floretteCart");
+    localStorage.removeItem(
+        "floretteCart"
+    );
+
+}
 
         // =============================
         // SUCCESS
