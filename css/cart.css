@@ -1,7 +1,13 @@
 /* =========================================
    CART PAGE
 ========================================= */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+body {
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+}
 
 .cart-container {
     width: min(100% - 40px, 1120px);
