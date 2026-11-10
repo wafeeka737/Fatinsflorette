@@ -24,9 +24,12 @@
 
     <!-- Main stylesheet -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/product.css">
+
 
     <!-- Website JavaScript -->
     <script src="js/main.js" defer></script>
+    <script src="js/search.js"></script>
 
 </head>
 
@@ -109,29 +112,27 @@
         <!-- Header actions -->
         <div class="header-actions">
 
-            <!-- Search button -->
-            <button
-                class="search-button"
-                type="button"
-                aria-label="Search the catalogue"
-            >
+            <!-- Header actions -->
 
-                <svg
-                    viewBox="0 0 24 24"
-                    width="21"
-                    height="21"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.7"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
+            <div class="header-actions">
+
+            <div class="search-container">
+
+                <input
+                    type="text"
+                    id="globalSearch"
+                    placeholder="Search anything..."
                 >
-                    <circle cx="10.8" cy="10.8" r="6.8"></circle>
-                    <path d="m16 16 4.5 4.5"></path>
-                </svg>
 
-            </button>
+                <button
+                    class="search-button"
+                    type="button"
+                    aria-label="Open search"
+                    onclick="toggleSearch()">
+                    ⌕
+                </button>
+
+                </div>
 
 
             <!-- Shopping cart -->
@@ -380,6 +381,8 @@
         </div>
 
     </footer>
+
+<script src="../js/search.js"></script>
 
 </body>
 </html>
