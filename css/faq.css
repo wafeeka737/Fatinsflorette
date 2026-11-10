@@ -637,3 +637,48 @@ html {
         padding: 28px 17px;
     }
 }
+
+/* ========================================
+   FIX ALL FAQ SECTION HEADING ALIGNMENTS
+======================================== */
+
+.getting-started .section-heading,
+.flower-quiz-section .section-heading,
+.faq-list-section .section-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto 38px;
+
+    text-align: center;
+}
+
+/* Eyebrow text */
+.getting-started .section-heading .faq-eyebrow,
+.flower-quiz-section .section-heading .faq-eyebrow,
+.faq-list-section .section-heading .faq-eyebrow {
+    display: block;
+    margin: 0 0 10px;
+}
+
+/* Main headings */
+.getting-started .section-heading h2,
+.flower-quiz-section .section-heading h2,
+.faq-list-section .section-heading h2 {
+    display: block;
+    margin: 0 0 18px;
+    text-align: center;
+}
+
+/* Description text */
+.getting-started .section-heading > p:last-child,
+.flower-quiz-section .section-heading > p:last-child,
+.faq-list-section .section-heading > p:last-child {
+    display: block;
+    margin: 0;
+    text-align: center;
+}
