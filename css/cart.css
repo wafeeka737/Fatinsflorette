@@ -3,6 +3,14 @@
 ========================================= */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
+body {
+    background: var(--page);
+    color: var(--text);
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.7
+}
+
 .cart-container {
     width: min(100% - 40px, 1120px);
     margin: 30px auto;
