@@ -98,9 +98,6 @@
 
     </nav>
 
-
-      <!-- Header actions -->
-
     <!-- Header actions -->
 
 <div class="header-actions">
@@ -113,16 +110,17 @@
             placeholder="Search anything..."
         >
 
-        <button class="search-button"
+        <button
+            class="search-button"
             type="button"
-            aria-label="Search website"
-            onclick="globalSearchFlowers()">
+            aria-label="Open search"
+            onclick="toggleSearch()">
             ⌕
         </button>
 
     </div>
 
-    <a href="../pages/cart.html" class="cart-link" aria-label="Shopping cart">
+    <a href="../pages/cart.html" class="cart-link">
         <img src="../images/cart.png.png" alt="Cart">
         <span id="cart-count">0</span>
     </a>

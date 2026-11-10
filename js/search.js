@@ -57,12 +57,37 @@ const websitePages = [
 
 
 // ===================================
+// OPEN AND CLOSE SEARCH BAR
+// ===================================
+
+function toggleSearch() {
+
+    const searchContainer =
+        document.querySelector(".search-container");
+
+    const searchInput =
+        document.getElementById("globalSearch");
+
+    if (!searchContainer || !searchInput) return;
+
+    searchContainer.classList.toggle("active");
+
+    if (searchContainer.classList.contains("active")) {
+        searchInput.focus();
+    } else {
+        searchInput.value = "";
+    }
+}
+
+
+// ===================================
 // SEARCH FUNCTION
 // ===================================
 
 function globalSearchFlowers() {
 
-    const searchInput = document.getElementById("globalSearch");
+    const searchInput =
+        document.getElementById("globalSearch");
 
     if (!searchInput) return;
 
@@ -73,3 +98,27 @@ function globalSearchFlowers() {
     window.location.href =
         "search-results.html?q=" + encodeURIComponent(searchValue);
 }
+
+
+// ===================================
+// PRESS ENTER TO SEARCH
+// ===================================
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    const searchInput =
+        document.getElementById("globalSearch");
+
+    if (searchInput) {
+
+        searchInput.addEventListener("keydown", function(event) {
+
+            if (event.key === "Enter") {
+                globalSearchFlowers();
+            }
+
+        });
+
+    }
+
+});
