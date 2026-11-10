@@ -160,10 +160,26 @@
     </div>
 
     <!-- message after confirmation -->
-    <div id="success" class="hidden">
-      <div class="summary-box" style="text-align: center; max-width: 500px; margin: 0 auto;">
-        <h2 style="color: var(--burgundy); margin-bottom: 10px;">Thank you!</h2>
-        <p id="success-text" style="line-height: 1.8;"></p>
+  <div id="success" class="hidden">
+    <div class="subscription-card">
+      <h2 class="thank-you-title">Thank you!</h2>
+      <p class="subtitle">We got your subscription request.</p>
+
+      <div class="details-group">
+        <p class="detail-line"><strong>Subscription:</strong> <span id="success-sub-type">-</span></p>
+        
+        <p class="detail-heading">Flowers for each delivery:</p>
+        <div id="success-flowers-list" class="flowers-list">
+          <!-- Populated by JavaScript -->
+        </div>
+
+        <p class="detail-line"><strong>Delivery:</strong> <span id="success-frequency">-</span></p>
+        <p class="detail-line"><strong>Length:</strong> <span id="success-duration">-</span></p>
+      </div>
+
+      <div class="estimated-total-row">
+        <span>Estimated total:</span>
+        <strong id="success-total">$0.00</strong>
       </div>
     </div>
   </div>
