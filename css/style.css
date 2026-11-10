@@ -264,7 +264,7 @@ img {
 ========================================= */
 
 .hero {
-    width: min(1320px, 91%);
+    width: min(100% - 40px, 1120px);
     min-height: clamp(360px, 43vw, 500px);
     margin: 0 auto;
 
