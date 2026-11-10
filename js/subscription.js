@@ -248,59 +248,59 @@ function showPrice() {
 
 // when the user clicks "Send Subscription Request & Confirm With Payment"
 function confirmSubscription() {
-  let error = document.getElementById("step2-error");
-  error.textContent = "";
+let error = document.getElementById("step2-error");
+error.textContent = "";
 
-  // check again, in case the user took out all the flowers
-  if (chosenPlan == "" || chosenFlowers.length == 0) {
-    error.textContent = "Please go back and add at least one flower.";
-    return;
-  }
+// check again, in case the user took out all the flowers
+if (chosenPlan == "" || chosenFlowers.length == 0) {
+error.textContent = "Please go back and add at least one flower.";
+return;
+}
 
-  // text for the length, like "1 Year" or "6 months"
-  let months = Number(document.getElementById("length").value);
-  let lengthText = months + " months";
-  if (months == 1) {
-    lengthText = "1 month";
-  }
-  if (months == 12) {
-   lengthText = "1 Year";
-  }
+// text for the length, like "1 Year" or "6 months"
+let months = Number(document.getElementById("length").value);
+let lengthText = months + " months";
+if (months == 1) {
+lengthText = "1 month";
+}
+if (months == 12) {
+lengthText = "1 Year";
+}
 
-  // list of the flowers
-  let flowerText = "";
-  for (let i = 0; i < chosenFlowers.length; i++) {
-    flowerText = flowerText + chosenFlowers[i].name + " x " + chosenFlowers[i].qty + "<br>";
-  }
+// list of the flowers
+let flowerText = "";
+for (let i = 0; i < chosenFlowers.length; i++) {
+flowerText = flowerText + chosenFlowers[i].name + " x " + chosenFlowers[i].qty + "<br>";
+}
 
-  // put everything together
-  let subscription = {
-    plan: chosenPlan,
-    flowers: chosenFlowers,
-    frequency: document.getElementById("frequency").value,
-    months: months,
-    deliveries: getDeliveries(),
-    pricePerDelivery: Number(getPricePerDelivery().toFixed(2)),
-    estimatedTotal: Number(getTotal().toFixed(2))
-  };
+// put everything together
+let subscription = {
+plan: chosenPlan,
+flowers: chosenFlowers,
+frequency: document.getElementById("frequency").value,
+months: months,
+deliveries: getDeliveries(),
+pricePerDelivery: Number(getPricePerDelivery().toFixed(2)),
+estimatedTotal: Number(getTotal().toFixed(2))
+};
 
-  console.log(subscription);
+choosePlanonsole.log(subscription);
 
-  // TODO: send "subscription" to the database developer's code
-  // (they will tell us the link / file to send it to)
+// TODO: send "subscription" to the database developer's code
+// (they will tell us the link / file to send it to)
 
-  // hide the steps and show the thank you message
-  document.getElementById("step1").classList.add("hidden");
-  document.getElementById("step2").classList.add("hidden");
-  document.getElementById("success").classList.remove("hidden");
+// hide the steps and show the thank you message
+document.getElementById("step1").classList.add("hidden");
+document.getElementById("step2").classList.add("hidden");
+document.getElementById("success").classList.remove("hidden");
 
-  document.getElementById("success-text").innerHTML =
-    "We got your subscription request.<br><br>" +
-    "Subscription: " + chosenPlan + "<br>" +
-    "Flowers for each delivery:<br>" + flowerText +
-    "Delivery: " + document.getElementById("frequency").value + "<br>" +
-    "Length: " + lengthText + "<br>" +
-    "<b>Estimated total: $" + getTotal().toFixed(2) + "</b>";
+document.getElementById("success-text").innerHTML =
+"We got your subscription request.<br><br>" +
+"Subscription: " + chosenPlan + "<br>" +
+"Flowers for each delivery:<br>" + flowerText +
+"Delivery: " + document.getElementById("frequency").value + "<br>" +
+"Length: " + lengthText + "<br>" +
+"<b>Estimated total: $" + getTotal().toFixed(2) + "</b>";
 
-  document.getElementById("success").scrollIntoView({ behavior: "smooth" });
+document.getElementById("success").scrollIntoView({ behavior: "smooth" });
 }
