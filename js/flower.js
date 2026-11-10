@@ -1,6 +1,6 @@
 const flowers = [
   {
-    id: "Fresh-Lily-bouquet",
+    id: "fresh-Lily-bouquet",
     name: "Fresh Lily Bouquet",
     price: 35,
     category: "fresh",
@@ -10,7 +10,7 @@ const flowers = [
     tags: ["best-seller"],
   },
   {
-    id: "Sunflower-bouquet",
+    id: "sunflower-bouquet",
     name: "Sunflower Bouquet",
     price: 50,
     category: "fresh",
@@ -21,7 +21,7 @@ const flowers = [
     occasions: ["graduation"]
   },
   {
-    id: "Rose-bouquet",
+    id: "rose-bouquet",
     name: "Rose Bouquet",
     price: 45,
     category: "fresh",
@@ -96,7 +96,7 @@ const flowers = [
     tags: ["dried"],
   },
   {
-    id: "Sunset",
+    id: "sunset",
     name: "Sunset",
     price: 40,
     category: "dried",
@@ -116,7 +116,7 @@ const flowers = [
     tags: ["artificial", "basket series"],
   },
   {
-    id: "Lilac-letters",
+    id: "lilac-letters",
     name: "Lilac Letters",
     price: 50,
     category: "artificial",
@@ -212,7 +212,7 @@ const flowers = [
     tags: ["Petals & Pastries"],
   },
   {
-    id: "Lilac-butter",
+    id: "lilac-butter",
     name: "Lilac Butter",
     price: 38,
     category: "petals-pastries",
@@ -223,7 +223,7 @@ const flowers = [
     occasions: ["birthday"]
   },
   {
-    id: "Blossom",
+    id: "blossom",
     name: "Blossom",
     price: 100,
     category: "basket-series",
@@ -234,7 +234,7 @@ const flowers = [
     occasions: ["anniversary"]
   },
   {
-    id: "Mariposa",
+    id: "mariposa",
     name: "Mariposa",
     price: 95,
     category: "basket-series",
@@ -245,7 +245,7 @@ const flowers = [
     occasions: ["birthday"]
   },
   {
-    id: "Golden-Hour",
+    id: "golden-Hour",
     name: "Golden Hour",
     price: 50,
     category: "fresh",
@@ -267,7 +267,7 @@ const flowers = [
     occasions: ["teachers", "mothers"]
   },
   {
-    id: "Ever-After",
+    id: "ever-After",
     name: "Ever After",
     price: 65,
     category: "fresh",
@@ -289,7 +289,7 @@ const flowers = [
     occasions: ["mothers"]
   },
   {
-    id: "Love-in-bloom",
+    id: "love-in-bloom",
     name: "Love In Bloom",
     price: 65,
     category: "fresh",
@@ -300,7 +300,7 @@ const flowers = [
     occasions: ["wedding"]
   },
   {
-    id: "Pure-Serenity",
+    id: "pure-Serenity",
     name: "Pure Serenity",
     price: 100,
     category: "fresh",
@@ -311,7 +311,7 @@ const flowers = [
     occasions: ["wedding"]
   },
   {
-    id: "Blue-Serenity",
+    id: "blue-Serenity",
     name: "Blue Serenity",
     price: 95,
     category: "fresh",
@@ -322,7 +322,7 @@ const flowers = [
     occasions: ["wedding"]
   },
   {
-    id: "Cotton-Candy",
+    id: "cotton-Candy",
     name: "Cotton Candy",
     price: 100,
     category: "basket-series",
@@ -332,7 +332,7 @@ const flowers = [
     tags: ["basket series"]
   },
   {
-    id: "Lune-Bleue",
+    id: "lune-Bleue",
     name: "Lune Bleue",
     price: 40,
     category: "dried",
@@ -342,7 +342,7 @@ const flowers = [
     tags: ["dried"],
   },
   {
-    id: "Satin-Bloom",
+    id: "satin-Bloom",
     name: "Satin Bloom",
     price: 85,
     category: "fresh",
@@ -364,7 +364,7 @@ const flowers = [
     occasions: ["wedding"]
   },
   {
-    id: "Mixed-roses",
+    id: "mixed-roses",
     name: "Mixed Roses",
     price: 65,
     category: "fresh",
@@ -385,7 +385,7 @@ const flowers = [
     tags: ["best-seller"],
   },
   {
-    id: "Blanc de Rose",
+    id: "blanc de Rose",
     name: "Blanc de Rose",
     price: 50,
     category: "fresh",
@@ -427,7 +427,7 @@ const flowers = [
     occasions: ["wedding"]
   },
   {
-    id: "Maison-Rosé",
+    id: "maison-Rosé",
     name: "Maison Rosé",
     price: 65,
     category: "fresh",
@@ -471,7 +471,7 @@ const flowers = [
     occasions: ["anniversary", "mothers","graduation"]
   },
   {
-    id: "Petal-Poetry",
+    id: "petal-Poetry",
     name: "Petal Poetry",
     price: 90,
     category: "dried",
@@ -481,7 +481,7 @@ const flowers = [
     tags: ["dried"]
   },
   {
-    id: "Sunset-Serenade",
+    id: "sunset-Serenade",
     name: "Sunset Serenade",
     price: 45,
     category: "fresh",
@@ -492,7 +492,7 @@ const flowers = [
     occasions: ["mothers", "anniversary"]
   },
   {
-    id: "Confetti",
+    id: "confetti",
     name: "Confetti",
     price: 90,
     category: "dried",
@@ -503,7 +503,7 @@ const flowers = [
     occasions: ["mothers"]
   },
   {
-    id: "Lavender-Muse",
+    id: "lavender-Muse",
     name: "Lavender Muse",
     price: 45,
     category: "fresh",
@@ -514,7 +514,7 @@ const flowers = [
     occasions: ["wedding"]
   },
   {
-    id: "Serene-Blush",
+    id: "serene-Blush",
     name: "Serene Blush",
     price: 45,
     category: "fresh",
@@ -525,7 +525,7 @@ const flowers = [
     occasions: ["graduation"]
   },
   {
-    id: "Buttercup-Dreams",
+    id: "buttercup-Dreams",
     name: "Buttercup Dreams",
     price: 45,
     category: "fresh",
@@ -535,7 +535,7 @@ const flowers = [
     tags: ["fresh"]
   },
   {
-    id: "Fleur-de-Nuit",
+    id: "fleur-de-Nuit",
     name: "Fleur de Nuit",
     price: 55,
     category: "fresh",
