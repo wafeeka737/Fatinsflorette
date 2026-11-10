@@ -26,17 +26,18 @@ app.get("/", (req, res) => {
     res.send("Server is Working!");
 });
 
-// product link (& catalog)
-app.get("/products/:id", (req, res) => {
-    
-    const productID = req.params.id;
+// catalog link
+app.get("/products", (req, res) => {
 
     const sql = `
-        SELECT * 
-        FROM product 
-        WHERE Product_ID = ?`;
+        SELECT
+            Product_ID AS id,
+            Product_Name AS name,
+            Price AS price,
+            Description AS description
+        FROM product`;
 
-    db.query(sql, [productId], (err, result) => {
+    db.query(sql, (err, result) => {
         if (err) {
             return res.status(500).json(err);
         }
@@ -46,8 +47,31 @@ app.get("/products/:id", (req, res) => {
 
 });
 
+// product link
+app.get("/products/:id", (req, res) => {
+
+    const productId = req.params.id;
+
+    const sql = `
+        SELECT
+            Product_ID AS id,
+            Product_Name AS name,
+            Price AS price,
+            Description AS description
+        FROM product
+        WHERE Product_ID = ?`;
+
+    db.query(sql, [productId], (err, result) => {
+        if (err) {
+            return res.status(500).json(err);
+        }
+
+        res.json(result[0]);
+    });
+});
+
 // subscription link
-app.get("/subscriptions", (req, res) => {
+app.post("/subscriptions", (req, res) => {
 
     const {
         Customer_ID,
@@ -97,7 +121,7 @@ app.get("/subscriptions", (req, res) => {
 });
 
 // bouquet link
-app.get("/custombouquets", (req, res) => {
+app.post("/custombouquets", (req, res) => {
 
      const {
         Customer_ID,
@@ -106,7 +130,7 @@ app.get("/custombouquets", (req, res) => {
         Ribbon_Color,
         Card_Type,
         Total_Price,
-        Created_Date
+        flowers
     } = req.body;
 
     const bouquetSql = `
@@ -119,7 +143,7 @@ app.get("/custombouquets", (req, res) => {
             Total_Price,
             Created_Date
         )     
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW())`;
+        VALUES (?, ?, ?, ?, ?, ?, NOW())`;
     
      db.query(
         bouquetSql, 
@@ -129,8 +153,7 @@ app.get("/custombouquets", (req, res) => {
             Ribbon_Type, 
             Ribbon_Color, 
             Card_Type, 
-            Total_Price, 
-            Created_Date
+            Total_Price
         ], 
         (err, bouquetResult) => {
 
@@ -149,6 +172,7 @@ app.get("/custombouquets", (req, res) => {
             }
 
             let completed = 0;
+            let hasError = false;
 
             flowers.forEach((flower) => {
                 const flowerSql = `
@@ -163,13 +187,16 @@ app.get("/custombouquets", (req, res) => {
                 db.query(
                     flowerSql,
                     [
-                        customBouquetId,
+                        customBouquetID,
                         flower.Product_ID,
                         flower.Quantity
                     ],
                     (err) => {
                         
+                        if (hasError) return;
+
                         if (err) {
+                            hasError = true;
                             return res.status(500).json(err);
                         }
 
@@ -186,7 +213,7 @@ app.get("/custombouquets", (req, res) => {
 });   
 
 // cart link
-app.get("/cart", (req, res) => {
+app.post("/cart", (req, res) => {
 
     const {
         Customer_ID,
@@ -222,7 +249,7 @@ app.get("/cart", (req, res) => {
                 VALUES (?, ?, ?)`;
             
             db.query(
-                itemSql,
+                cartItemSql,
                 [
                     cartId,
                     Product_ID,
@@ -251,7 +278,8 @@ app.post("/orders", (req, res) => {
         Shipping_Fee,
         Subtotal,
         Total_Amount,
-        Order_Status
+        Order_Status,
+        orderItems
     } = req.body;
 
     const orderSql = `
@@ -271,13 +299,12 @@ app.post("/orders", (req, res) => {
         orderSql,
         [
             Customer_ID,
-            Order_Date,
             Payment_Method,
             Delivery_Method,
             Shipping_Fee,
             Subtotal,
             Total_Amount,
-            Order_Status
+            Order_Status,
         ],
         (err, orderResult) => {
             if (err) {
@@ -295,10 +322,11 @@ app.post("/orders", (req, res) => {
             }
 
             let completed = 0;
+            let hasError = false;
 
             orderItems.forEach((item) => {
                 const orderItemSql = `
-                    INSERT INTO order_item (
+                    INSERT INTO OrderItem (
                         Order_ID,
                         Product_ID,
                         Quantity,
@@ -307,7 +335,7 @@ app.post("/orders", (req, res) => {
                     )     
                     VALUES (?, ?, ?, ?, ?)`;
             });
-
+            
             db.query(
                 orderItemSql,
                 [
@@ -318,7 +346,11 @@ app.post("/orders", (req, res) => {
                     item.Subtotal
                 ],
                 (err) => {
+
+                    if (hasError) return;
+
                     if (err) {
+                        hasError = true;
                         return res.status(500).json(err);
                     }
 
