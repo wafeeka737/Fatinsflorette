@@ -953,7 +953,7 @@ function goToStep(n) {
   }
 
   // the text on the next button
-  let nextTexts = ["", "Next: choose a style", "Next: pick your card", "Next: review", "Save my bouquet"];
+  let nextTexts = ["", "Next: choose a style", "Next: pick your card", "Next: review", "Proceed to checkout"];
   document.getElementById("next-btn").textContent = nextTexts[step];
 
   if (step == 4) {
@@ -1045,21 +1045,9 @@ function saveBouquet() {
   };
 
   console.log(order);
-  localStorage.setItem(
-    "customBouquetOrder",
-    JSON.stringify(order)
-);
 
-localStorage.setItem(
-    "orderType",
-    "customBouquet"
-);
-
-window.location.href =
-    "../pages/checkout.html";
 
 }
-
 
 // ---------- start ----------
 saveState();
