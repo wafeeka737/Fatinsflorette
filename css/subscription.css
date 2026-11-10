@@ -23,11 +23,14 @@ html {
 }
 
 body {
-    background: var(--page);
-    color: var(--text);
-    font-family: 'Montserrat', Arial, sans-serif;
-    font-size: 14px;
-    line-height: 1.7
+  margin: 0;
+  background-color: #f8f6f5;
+  font-family: "Montserrat", Arial, sans-serif;
+  color: #000000;
+  /* Add these three lines */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
 }
 
 a {
@@ -381,6 +384,8 @@ body {
   padding: 30px 20px 60px 20px;
   max-width: 800px;
   margin: 0 auto;
+  width: 100%;
+  flex: 1; /* THIS pushes the footer to the bottom */
 }
 
 h1 {

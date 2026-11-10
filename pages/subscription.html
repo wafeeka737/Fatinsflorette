@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -5,22 +6,19 @@
 
     <title>Fatin's Florette | Flowers for Every Feeling</title>
 
-    <meta
-        name="description"
-        content="Discover beautiful floral arrangements, bouquets and flower experiences at Fatin's Florette."
-    >
-   <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Discover beautiful floral arrangements, bouquets and flower experiences at Fatin's Florette.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/subscription.css">
-
+</head>
 
 <body>
 
     <!-- ================= HEADER ================= -->
     <header class="site-header">
-
         <!-- Logo -->
         <a href="../pages/main.html" class="logo" aria-label="Fatin's Florette Home">
             <span class="logo-name">Fatin's Florette</span>
@@ -28,285 +26,194 @@
         </a>
 
         <!-- Mobile menu button -->
-        <button
-            class="menu-toggle"
-            type="button"
-            aria-label="Open navigation menu"
-            aria-expanded="false"
-            aria-controls="main-navigation"
-        >
+        <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="main-navigation">
             <span></span>
             <span></span>
             <span></span>
         </button>
 
+        <!-- Navigation -->
+        <nav class="main-nav" id="main-navigation">
+            <a href="../index.html" class="active">Home</a>
+            <a href="../pages/aboutus.html">About Us</a>
 
-     <!-- Navigation -->
-        
-<nav class="main-nav" id="main-navigation">
+            <!-- Catalogue dropdown -->
+            <div class="nav-dropdown">
+                <a href="../pages/catalog.html" class="dropdown-toggle">
+                    Catalogue <span class="arrow">⌄</span>
+                </a>
+                <div class="dropdown-menu">
+                    <a href="#shop-all" id="shop-all-link">Shop All</a>
+                    <a href="#petals-pastries" id="petals-pastries-link">Petals & Pastries</a>      
+                    <a href="#basket-series" id="basket-series-link">Basket Series</a>
+                </div>
+            </div>
 
-    <a href="../index.html" class="active">Home</a>
+            <a href="../pages/custom.bouquet.html">Build a Bouquet</a>
 
-    <a href="../pages/aboutus.html">About Us</a>
+            <!-- Shop by Occasion dropdown -->
+            <div class="nav-dropdown">
+                <a href="../pages/occasional.html" class="dropdown-toggle">
+                    Shop by Occasion <span class="arrow">⌄</span>
+                </a>
+                <div class="dropdown-menu">
+                    <a href="occasional.html">Birthday</a>
+                    <a href="occasion-sort.html">Anniversary</a>
+                    <a href="occasional.html">Graduation</a>
+                    <a href="occasional.html">Wedding</a>
+                    <a href="occasional.html">Sympathy & Condolences</a>
+                </div>
+            </div>
 
-
-    <!-- Catalogue dropdown -->
-    
-<div class="nav-dropdown">
-    <a href="../pages/catalog.html" class="dropdown-toggle">
-        Catalogue <span class="arrow">⌄</span>
-    </a>
-
-    <div class="dropdown-menu">
-        <a href="#shop-all" id="shop-all-link">
-        Shop All
-        </a>
-        <a href="#petals-pastries" id="petals-pastries-link">
-        Petals & Pastries
-        </a>      
-        <a href="#basket-series" id="basket-series-link">
-        Basket Series
-        </a>
-    </div>
-</div>
-
-
-     <a href="../pages/custom.bouquet.html">Build a Bouquet</a>
-
-    <!-- Shop by Occasion dropdown -->
-    <div class="nav-dropdown">
-        <a href="../pages/occasional.html" class="dropdown-toggle">
-    Shop by Occasion <span class="arrow">⌄</span>
-        </a>
-
-        <div class="dropdown-menu">
-            <a href="occasional.html">Birthday</a>
-            <a href="occasion-sort.html">Anniversary</a>
-            <a href="occasional.html">Graduation</a>
-            <a href="occasional.html">Wedding</a>
-            <a href="occasional.html">Sympathy & Condolences</a>
-        </div>
-    </div>
-
-      <a href="../pages/subscription.html">Subscription</a>
-      <a href="../pages/contact.html">Contact Us</a>
-
-    </nav>
+            <a href="../pages/subscription.html">Subscription</a>
+            <a href="../pages/contact.html">Contact Us</a>
+        </nav>
 
         <div class="header-actions">
-            <button class="search-button" type="button" aria-label="Search flowers"
-                onclick="window.location.href='catalog.html'">
-                ⌕
-            </button>
-
+            <button class="search-button" type="button" aria-label="Search flowers" onclick="window.location.href='catalog.html'">⌕</button>
             <a href="../pages/cart.html" class="cart-link" aria-label="Shopping cart">
-        <img src="../images/cart.png.png" alt="Cart">
-     <span id="cart-count">0</span>
-</a>
-
+                <img src="../images/cart.png.png" alt="Cart">
+                <span id="cart-count">0</span>
+            </a>
+        </div>
     </header>
 
-    <div class="page">
-    <h1>Subscription</h1>
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="page">
+        
+        <!-- STEP 1: choose the flower subscription and add flowers -->
+        <div id="step1">
+            <h2>Choose your flower subscription</h2>
 
-    <!-- STEP 1: choose the flower subscription and add flowers -->
-    <div id="step1">
-      <h2>Choose your flower subscription</h2>
+            <div class="button-row">
+                <button class="option-btn plan-btn" onclick="choosePlan('Fresh Flowers', this)">FRESH FLOWERS</button>
+                <button class="option-btn plan-btn" onclick="choosePlan('Seasonal Flowers', this)">SEASONAL FLOWERS</button>
+                <button class="option-btn plan-btn" onclick="choosePlan('Dried Flowers', this)">DRIED FLOWERS</button>
+            </div>
 
-      <div class="button-row">
-        <button class="option-btn plan-btn" onclick="choosePlan('Fresh Flowers', this)">FRESH FLOWERS</button>
-        <button class="option-btn plan-btn" onclick="choosePlan('Seasonal Flowers', this)">SEASONAL FLOWERS</button>
-        <button class="option-btn plan-btn" onclick="choosePlan('Dried Flowers', this)">DRIED FLOWERS</button>
-      </div>
+            <!-- this part shows after a plan is clicked -->
+            <div id="flower-area" class="hidden">
+                <p class="plan-note" id="plan-note"></p>
+                <div class="flower-grid" id="flower-grid"></div>
 
-      <!-- this part shows after a plan is clicked -->
-      <div id="flower-area" class="hidden">
-        <p class="plan-note" id="plan-note"></p>
-        <div class="flower-grid" id="flower-grid"></div>
+                <h3>Your flowers (for each delivery)</h3>
+                <div class="selected-flowers" id="selected-flowers"></div>
+                <p class="price-text" id="delivery-price"></p>
+            </div>
 
-        <h3>Your flowers (for each delivery)</h3>
-        <div class="selected-flowers" id="selected-flowers"></div>
-        <p class="price-text" id="delivery-price"></p>
-      </div>
+            <p class="error" id="step1-error"></p>
+            <button class="continue-btn" onclick="continueStep1()">Continue</button>
+        </div>
 
-      <p class="error" id="step1-error"></p>
-      <button class="continue-btn" onclick="continueStep1()">Continue</button>
-    </div>
-
-    <!-- STEP 2: delivery, duration and price -->
-    <div id="step2" class="hidden">
-      <h3>Select Delivery Area</h3>
-      <select id="area" onchange="showPrice()"></select>
-      <h3>Select Frequency</h3>
-      <select id="frequency" onchange="showPrice()">
-        <option value="Every week">Every week</option>
-        <option value="Every month" selected>Every month</option>
-      </select>
-
-      <h3>Select Length of Subscription</h3>
-      <select id="length" onchange="showPrice()">
-        <option value="1">1 Month</option>
-        <option value="3">3 Months</option>
-        <option value="6">6 Months</option>
-        <option value="12" selected>1 Year - Most Popular</option>
-      </select>
-
-      <h2>Total Amount</h2>
-      <div class="summary-box" id="price-box"></div>
-
-      <p class="error" id="step2-error"></p>
-
-      <button class="continue-btn" onclick="confirmSubscription()">Send Subscription Request</button>
-    </div>
-
-       <!-- message after confirmation (UPGRADED DESIGN) -->
-    <div id="success" class="hidden">
-        <div class="success-card">
+        <!-- STEP 2: delivery, duration and price -->
+        <div id="step2" class="hidden">
+            <h3>Select Delivery Area</h3>
+            <select id="area" onchange="showPrice()"></select>
             
-            <!-- Success Icon -->
-            <div class="success-icon">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M20 6L9 17l-5-5"></path>
-                </svg>
-            </div>
+            <h3>Select Frequency</h3>
+            <select id="frequency" onchange="showPrice()">
+                <option value="Every week">Every week</option>
+                <option value="Every month" selected>Every month</option>
+            </select>
 
-            <h1 class="success-title">Thank you for subscribing!</h1>
-            <p class="success-subtitle">Please screenshot this page and WhatsApp it to us to complete your order.</p>
+            <h3>Select Length of Subscription</h3>
+            <select id="length" onchange="showPrice()">
+                <option value="1">1 Month</option>
+                <option value="3">3 Months</option>
+                <option value="6">6 Months</option>
+                <option value="12" selected>1 Year - Most Popular</option>
+            </select>
 
-            <!-- The dynamic text from your JS goes here -->
-            <div class="order-details-box">
-                <p id="success-text" style="font-size: 13px; line-height: 1.8; color: #725762; margin: 0;"></p>
-            </div>
+            <h2>Total Amount</h2>
+            <div class="summary-box" id="price-box"></div>
 
-            <!-- Call to Action -->
-            <div class="confirmation-action">
-                <a href="https://wa.me/6738845089" target="_blank" class="whatsapp-btn">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 8px;">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path>
+            <p class="error" id="step2-error"></p>
+            <button class="continue-btn" onclick="confirmSubscription()">Send Subscription Request</button>
+        </div>
+
+        <!-- STEP 3: message after confirmation (UPGRADED DESIGN) -->
+        <div id="success" class="hidden">
+            <div class="success-card">
+                <div class="success-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 6L9 17l-5-5"></path>
                     </svg>
-                    Confirm on WhatsApp
-                </a>
+                </div>
+
+                <h1 class="success-title">Thank you for subscribing!</h1>
+                <p class="success-subtitle">Please screenshot this page and WhatsApp it to us to complete your order.</p>
+
+                <div class="order-details-box">
+                    <p id="success-text" style="font-size: 13px; line-height: 1.8; color: #725762; margin: 0;"></p>
+                </div>
+
+                <div class="confirmation-action">
+                    <a href="https://wa.me/6738845089" target="_blank" class="whatsapp-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 8px;">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path>
+                        </svg>
+                        Confirm on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main> <!-- END OF .page DIV -->
+
+    <!-- ================= FOOTER (MOVED OUTSIDE .page) ================= -->
+    <footer class="site-footer">
+        <div class="footer-main">
+            <!-- Brand -->
+            <div class="footer-brand">
+                <a href="../pages/main.html" class="footer-logo">Fatin's Florette</a>
+                <p>Flowers for every feeling.<br>Little things make life bloom.</p>
             </div>
 
-        </div>
-    </div>
- <script src="../js/subscription.js"></script>
-
-    <!-- ================= FOOTER ================= -->
-
-<footer class="site-footer">
-
-    <div class="footer-main">
-
-        <!-- Brand -->
-        <div class="footer-brand">
-
-            <a href="../pages/main.html" class="footer-logo">
-                Fatin's Florette
-            </a>
-
-            <p>
-                Flowers for every feeling.
-                Little things make life bloom.
-            </p>
-
-        </div>
-
-        <!-- Explore Links -->
-        <div class="footer-links">
-
-            <h3>Explore</h3>
-
-            <a href="../index.html">Home</a>
-            <a href="../pages/aboutus.html">About Us</a>
-            <a href="../pages/catalog.html">Catalogue</a>
-            <a href="../pages/occasional.html">Shop by Occasion</a>
-            <a href="../pages/subscription.html">Subscription</a>
-
-        </div>
-
-        <!-- Help Links -->
-        <div class="footer-links">
-
-            <h3>Need Help?</h3>
-
-            <a href="../pages/faq.html">First-Time Visitor Guide</a>
-            <a href="../pages/contact.html">Contact Us</a>
-
-        </div>
-
-        <!-- Social Media + Map -->
-        <div class="footer-social">
-
-            <h3>Follow Our Journey</h3>
-
-            <p>
-                Find us on social media for more floral inspiration.
-            </p>
-
-            <div class="footer-icons">
-
-                <a
-                    href="https://instagram.com/fatinsflorette" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Instagram"
-                >
-                    <img src="../images/ig.png" alt="Instagram">
-                </a>
-
-                <a
-                    href="https://tiktok.com/@fatinsflorette"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="TikTok"
-                >
-                    <img src="../images/tt.png" alt="TikTok">
-                </a>
-
-                <a
-                    href="https://wa.me/6738633134" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="WhatsApp"
-                >
-                    <img src="../images/wa.png" alt="WhatsApp">
-                </a>
-
+            <!-- Explore Links -->
+            <div class="footer-links">
+                <h3>Explore</h3>
+                <a href="../index.html">Home</a>
+                <a href="../pages/aboutus.html">About Us</a>
+                <a href="../pages/catalog.html">Catalogue</a>
+                <a href="../pages/occasional.html">Shop by Occasion</a>
+                <a href="../pages/subscription.html">Subscription</a>
             </div>
 
-            <!-- Google Maps -->
-            <div class="footer-map">
-
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.5187098738365!2d114.8646345!3d4.8523594999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x322261498f1d3eef%3A0x6fb80f0e46c2ac8f!2sFatin's%20Florete!5e0!3m2!1sen!2sbn!4v1792552757731!5m2!1sen!2sbn"
-                    width="250"
-                    height="150"
-                    style="border: 0; border-radius: 8px;"
-                    allowfullscreen
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                    title="Fatin's Florette location on Google Maps">
-                </iframe>
-
+            <!-- Help Links -->
+            <div class="footer-links">
+                <h3>Need Help?</h3>
+                <a href="../pages/faq.html">First-Time Visitor Guide</a>
+                <a href="../pages/contact.html">Contact Us</a>
             </div>
 
+            <!-- Social Media + Map -->
+            <div class="footer-social">
+                <h3>Follow Our Journey</h3>
+                <p>Find us on social media for more floral inspiration.</p>
+                <div class="footer-icons">
+                    <a href="https://instagram.com/fatinsflorette" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <img src="../images/ig.png" alt="Instagram">
+                    </a>
+                    <a href="https://tiktok.com/@fatinsflorette" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                        <img src="../images/tt.png" alt="TikTok">
+                    </a>
+                    <a href="https://wa.me/6738633134" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                        <img src="../images/wa.png" alt="WhatsApp">
+                    </a>
+                </div>
+
+                <div class="footer-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.5187098738365!2d114.8646345!3d4.8523594999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x322261498f1d3eef%3A0x6fb80f0e46c2ac8f!2sFatin's%20Florete!5e0!3m2!1sen!2sbn!4v1792552757731!5m2!1sen!2sbn" width="250" height="150" style="border: 0; border-radius: 8px;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Fatin's Florette location on Google Maps"></iframe>
+                </div>
+            </div>
         </div>
 
-    </div>
-
-    <!-- Copyright -->
-    <div class="footer-bottom">
-
-        <p>
-            &copy; 2026 Fatin's Florette. All rights reserved.
-        </p>
-
-        <a href="#top">Back to top &uarr;</a>
-
-    </div>
-
+        <!-- Copyright -->
+        <div class="footer-bottom">
+            <p>&copy; 2026 Fatin's Florette. All rights reserved.</p>
+            <a href="#top">Back to top &uarr;</a>
+        </div>
     </footer>
 
+    <script src="../js/subscription.js"></script>
 </body>
 </html>
