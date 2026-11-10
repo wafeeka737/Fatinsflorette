@@ -246,7 +246,7 @@ function showPrice() {
 
 // ---------- CONFIRM THE SUBSCRIPTION ----------
 
-// when the user clicks "Send Subscription Request & Confirm With Payment"
+// when the user clicks "Send Subscription Request"
 function confirmSubscription() {
   let error = document.getElementById("step2-error");
   error.textContent = "";
