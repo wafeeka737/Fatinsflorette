@@ -246,7 +246,7 @@ function showPrice() {
 // ---------- CONFIRM THE SUBSCRIPTION ----------
 
 // when the user clicks "Send Subscription Request"
-async function confirmSubscription() {
+function confirmSubscription() {
   let error = document.getElementById("step2-error");
   error.textContent = "";
 
@@ -266,68 +266,40 @@ async function confirmSubscription() {
     lengthText = "1 Year";
   }
 
-  // Map chosen plan to your database Category_ID (1: Fresh, 2: Seasonal, 3: Dried)
-  let categoryIdMap = {
-    "Fresh Flowers": 1,
-    "Seasonal Flowers": 2,
-    "Dried Flowers": 3
-  };
-
-  // Build the payload matching your backend req.body expectation
-  let subscriptionPayload = {
-    Customer_ID: 1, // Change to your actual logged-in user's ID if dynamic
-    Category_ID: categoryIdMap[chosenPlan] || 1,
-    Frequency: document.getElementById("frequency").value,
-    Duration: lengthText,
-    Start_Date: new Date().toISOString().split('T')[0], // Defaults to today's date
-    Notes: "Flowers: " + chosenFlowers.map(f => f.name + " (x" + f.qty + ")").join(", "),
-    Subscription_Status: "Active",
-    Total_Price: Number(getTotal().toFixed(2))
-  };
-
-  try {
-    // Send data to your Node.js/Express backend
-    let response = await fetch('http://localhost:5000/subscriptions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(subscriptionPayload)
-    });
-
-    let result = await response.json();
-
-    if (!response.ok) {
-      error.textContent = "Failed to save subscription to database.";
-      return;
-    }
-
-    console.log(result.message);
-
-    // list of the flowers for the success screen
-    let flowerText = "";
-    for (let i = 0; i < chosenFlowers.length; i++) {
-      flowerText = flowerText + chosenFlowers[i].name + " x " + chosenFlowers[i].qty + "<br>";
-    }
-
-    // hide the steps and show the thank you message
-    document.getElementById("step1").classList.add("hidden");
-    document.getElementById("step2").classList.add("hidden");
-    document.getElementById("success").classList.remove("hidden");
-
-    document.getElementById("success-text").innerHTML =
-      "We got your subscription request and saved it to the database!<br><br>" +
-      "Subscription: " + chosenPlan + "<br>" +
-      "Flowers for each delivery:<br>" + flowerText +
-      "Delivery: " + document.getElementById("frequency").value + "<br>" +
-      "Length: " + lengthText + "<br>" +
-      "<b>Estimated total: $" + getTotal().toFixed(2) + "</b>";
-
-    document.getElementById("success").scrollIntoView({ behavior: "smooth" });
-
-  } catch (err) {
-    console.error("Network error:", err);
-    error.textContent = "Could not connect to the server. Make sure your backend is running.";
+  // list of the flowers
+  let flowerText = "";
+  for (let i = 0; i < chosenFlowers.length; i++) {
+    flowerText = flowerText + chosenFlowers[i].name + " x " + chosenFlowers[i].qty + "<br>";
   }
-}
 
+  // put everything together
+  let subscription = {
+    plan: chosenPlan,
+    flowers: chosenFlowers,
+    frequency: document.getElementById("frequency").value,
+    months: months,
+    deliveries: getDeliveries(),
+    pricePerDelivery: Number(getPricePerDelivery().toFixed(2)),
+    estimatedTotal: Number(getTotal().toFixed(2))
+  };
+
+  console.log(subscription);
+
+  // TODO: send "subscription" to the database developer's code
+  // (they will tell us the link / file to send it to)
+
+  // hide the steps and show the thank you message
+  document.getElementById("step1").classList.add("hidden");
+  document.getElementById("step2").classList.add("hidden");
+  document.getElementById("success").classList.remove("hidden");
+
+  document.getElementById("success-text").innerHTML =
+    "We got your subscription request.<br><br>" +
+    "Subscription: " + chosenPlan + "<br>" +
+    "Flowers for each delivery:<br>" + flowerText +
+    "Delivery: " + document.getElementById("frequency").value + "<br>" +
+    "Length: " + lengthText + "<br>" +
+    "<b>Estimated total: $" + getTotal().toFixed(2) + "</b>";
+
+  document.getElementById("success").scrollIntoView({ behavior: "smooth" });
+}
