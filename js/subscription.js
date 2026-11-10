@@ -46,10 +46,9 @@ let chosenFlowers = [];
 
 // delivery fee for each area (it is charged for every delivery)
 let deliveryFees = {
-  "Brunei Muara": 6,
-  "Tutong": 10,
-  "Kuala Belait": 12,
-  "Temburong": 15
+  "Brunei Muara": 5-6,
+  "Tutong": 5,
+  "Kuala Belait": 8,
 };
 
 // puts the areas and their fees in the dropdown
