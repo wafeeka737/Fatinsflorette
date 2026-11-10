@@ -2,11 +2,16 @@
    FATIN'S FLORETTE - FAQ / SHOPPER GUIDE
 ======================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap');
-
 body {
-    font-family: "DM Sans", Arial, sans-serif;
-    color: var(--faq-text);
+    font-family: 'DM Sans', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+button, a {
+    font-family: 'DM Sans', sans-serif;
 }
 
 :root {
@@ -114,7 +119,7 @@ html {
     padding: 12px 23px;
     border: 1px solid var(--faq-burgundy);
     border-radius: 6px;
-    font-family: "DM Sans", Arial, sans-serif;
+    font-family: "Montserrat", Arial, sans-serif;
     font-size: 13px;
     font-weight: 600;
     text-align: center;
