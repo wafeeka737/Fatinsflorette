@@ -28,7 +28,7 @@ const websitePages = [
 
     {
         title: "Build a Bouquet",
-        url: "custom.bouquet.html",
+        url: "custom.build.html",
         description: "Create and customise your own bouquet.",
         keywords: ["build", "customise", "customize", "personalise", "bouquet"]
     },

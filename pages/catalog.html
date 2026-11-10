@@ -101,17 +101,33 @@
 
       <!-- Header actions -->
 
-    <div class="header-actions">
-            <button class="search-button" type="button" aria-label="Search flowers"
-                onclick="window.location.href='catalog.html'">
-                ⌕
-            </button>
+    <!-- Header actions -->
 
-           <a href="../pages/cart.html" class="cart-link" aria-label="Shopping cart">
+<div class="header-actions">
+
+    <div class="search-container">
+
+        <input
+            type="text"
+            id="globalSearch"
+            placeholder="Search anything..."
+        >
+
+        <button class="search-button"
+            type="button"
+            aria-label="Search website"
+            onclick="globalSearchFlowers()">
+            ⌕
+        </button>
+
+    </div>
+
+    <a href="../pages/cart.html" class="cart-link" aria-label="Shopping cart">
         <img src="../images/cart.png.png" alt="Cart">
-     <span id="cart-count">0</span>
-</a>
-        </div>
+        <span id="cart-count">0</span>
+    </a>
+
+</div>
   </header>
 
   <main class="catalog-page">
