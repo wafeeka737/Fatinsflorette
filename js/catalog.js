@@ -1,4 +1,10 @@
-document.addEventListener("DOMContentLoaded", () => {
+
+document.addEventListener("DOMContentLoaded", async () => {
+
+    // =====================================
+    // GET HTML ELEMENTS
+    // =====================================
+
     const container = document.getElementById("catalog-sections");
     const category = document.getElementById("category-filter");
     const color = document.getElementById("color-filter");
@@ -12,7 +18,16 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    // Catalogue sections
+    // Get existing flower information from flowers.js
+    const localFlowers = window.flowers || [];
+
+    // This will contain the combined database and local data
+    let flowers = [];
+
+    // =====================================
+    // CATALOGUE SECTIONS
+    // =====================================
+
     const sectionDefs = [
         {
             id: "best-sellers",
@@ -49,129 +64,240 @@ document.addEventListener("DOMContentLoaded", () => {
             title: "Basket Series",
             test: f => f.category === "basket-series"
         }
-        
     ];
 
-    // Sort products using fixed prices
+    // =====================================
+    // LOAD PRODUCTS FROM DATABASE
+    // =====================================
+
+
+async function initializeCatalog() {
+    try {
+        const response = await fetch("http://localhost:5000/products");
+
+        if (!response.ok) {
+            throw new Error("Unable to retrieve products.");
+        }
+
+        const databaseProducts = await response.json();
+
+        // Keep ALL local flowers and their original images
+        flowers = localFlowers.map(localFlower => {
+
+            // Find matching product in database
+            const databaseFlower = databaseProducts.find(
+                dbFlower =>
+                    String(dbFlower.id).trim() ===
+                    String(localFlower.id).trim()
+            );
+
+            return {
+                ...localFlower,
+
+                // Update information from database if available
+                name: databaseFlower?.name || localFlower.name,
+
+                price: databaseFlower?.price ?? localFlower.price,
+
+                description:
+                    databaseFlower?.description ||
+                    localFlower.description,
+
+                // Always keep the local image
+                image: localFlower.image
+            };
+        });
+
+        render();
+
+    } catch (error) {
+        console.error("Database connection failure:", error);
+
+        // Still display local products if database is unavailable
+        flowers = [...localFlowers];
+
+        render();
+    }
+}
+
+
+    // =====================================
+    // SORT PRODUCTS
+    // =====================================
+
     function sortList(list) {
+
         const result = [...list];
 
         if (sort.value === "low-high") {
-            result.sort((a, b) => Number(a.price) - Number(b.price));
+            result.sort(
+                (a, b) => Number(a.price) - Number(b.price)
+            );
         }
 
         if (sort.value === "high-low") {
-            result.sort((a, b) => Number(b.price) - Number(a.price));
+            result.sort(
+                (a, b) => Number(b.price) - Number(a.price)
+            );
         }
 
         if (sort.value === "name") {
-            result.sort((a, b) => a.name.localeCompare(b.name));
+            result.sort(
+                (a, b) => a.name.localeCompare(b.name)
+            );
         }
 
         return result;
     }
 
-    // Product card
-    function card(f) {
-        return `
-            <article class="flower-card">
+    // =====================================
+    // PRODUCT CARD
+    // =====================================
 
-                <a class="flower-card-image"
+    
+function card(f) {
+
+    return `
+        <article class="flower-card">
+
+            <a class="flower-card-image"
+               href="product.html?flower=${encodeURIComponent(f.id)}">
+
+                <img src="${f.image}"
+                     alt="${f.name}"
+                     loading="lazy">
+
+            </a>
+
+            <div class="flower-title-row">
+
+                <a class="flower-name"
                    href="product.html?flower=${encodeURIComponent(f.id)}">
 
-                    <img src="${f.image}"
-                         alt="${f.name}"
-                         loading="lazy">
+                    ${f.name}
+
                 </a>
 
-                <div class="flower-title-row">
+                <button class="heart-button card-heart"
+                        data-favourite="${f.id}"
+                        aria-label="Favourite ${f.name}"
+                        type="button">
 
-                    <a class="flower-name"
-                       href="product.html?flower=${encodeURIComponent(f.id)}">
-                        ${f.name}
-                    </a>
+                    ♡
 
-                    <button class="heart-button card-heart"
-                            data-favourite="${f.id}"
-                            aria-label="Favourite ${f.name}"
-                            type="button">
-                        ♡
-                    </button>
+                </button>
 
-                </div>
+            </div>
 
-                <p class="flower-description">
-                    ${f.tagline || ""}
-                </p>
+            <p class="flower-price">
+                BND ${Number(f.price).toFixed(2)}
+            </p>
 
-                <p class="flower-price">
-                    BND ${Number(f.price).toFixed(2)}
-                </p>
+            <div class="flower-actions">
 
-                <div class="flower-actions">
+                <button class="button button-outline add-to-cart"
+                        data-id="${f.id}"
+                        type="button">
 
-                    <button class="button button-outline add-to-cart"
-                            data-id="${f.id}"
-                            type="button">
-                        ADD TO CART
-                    </button>
+                    ADD TO CART
 
-                    <a class="button button-rose"
-                       href="product.html?flower=${encodeURIComponent(f.id)}">
-                        VIEW →
-                    </a>
+                </button>
 
-                </div>
+                <a class="button button-rose"
+                   href="product.html?flower=${encodeURIComponent(f.id)}">
 
-            </article>
-        `;
-    }
+                    VIEW →
 
-    // Filter products
-    function filteredProducts() {
-    let list = [...flowers];
+                </a>
 
-    // Filter by navigation category
-    if (category.value === "best-seller") {
-        list = list.filter(f => f.tags?.includes("best-seller"));
+            </div>
 
-    } else if (category.value === "seasonal") {
-        list = list.filter(f => f.tags?.includes("seasonal"));
-
-    } else if (category.value === "petals-pastries") {
-        list = list.filter(f => f.category === "petals-pastries");
-
-    } else if (category.value === "basket-series") {
-        list = list.filter(f => f.category === "basket-series");
-
-    } else if (category.value === "all") {
-        list = [...flowers];
-
-    } else {
-        list = list.filter(f => f.category === category.value);
-    }
-
-    // Filter by colour
-    if (color.value !== "all") {
-        list = list.filter(f => f.color === color.value);
-    }
-
-    // Filter by search
-    const term = (searchInput?.value || "").trim().toLowerCase();
-
-    if (term) {
-        list = list.filter(f =>
-            `${f.name} ${f.tagline} ${f.category} ${f.color}`
-                .toLowerCase()
-                .includes(term)
-        );
-    }
-
-    return sortList(list);
+        </article>
+    `;
 }
 
-    // Render catalogue
+    // =====================================
+    // FILTER PRODUCTS
+    // =====================================
+
+    function filteredProducts() {
+
+        let list = [...flowers];
+
+        // Category filter
+        if (category.value === "best-seller") {
+
+            list = list.filter(
+                f => f.tags?.includes("best-seller")
+            );
+
+        } else if (category.value === "seasonal") {
+
+            list = list.filter(
+                f => f.tags?.includes("seasonal")
+            );
+
+        } else if (category.value === "petals-pastries") {
+
+            list = list.filter(
+                f => f.category === "petals-pastries"
+            );
+
+        } else if (category.value === "basket-series") {
+
+            list = list.filter(
+                f => f.category === "basket-series"
+            );
+
+        } else if (category.value === "all") {
+
+            list = [...flowers];
+
+        } else {
+
+            list = list.filter(
+                f => (f.category || "fresh") === category.value
+            );
+        }
+
+        // Colour filter
+        if (color.value !== "all") {
+
+            list = list.filter(
+                f => f.color?.toLowerCase() === color.value.toLowerCase()
+            );
+        }
+
+        // Search filter
+        const term = (searchInput?.value || "")
+            .trim()
+            .toLowerCase();
+
+        if (term) {
+
+            list = list.filter(f => {
+
+                const searchableText = `
+                    ${f.name || ""}
+                    ${f.tagline || ""}
+                    ${f.description || ""}
+                    ${f.category || ""}
+                    ${f.color || ""}
+                `.toLowerCase();
+
+                return searchableText.includes(term);
+            });
+        }
+
+        return sortList(list);
+    }
+
+    // =====================================
+    // RENDER CATALOGUE
+    // =====================================
+
     function render() {
+
         container.innerHTML = "";
 
         const list = filteredProducts();
@@ -181,41 +307,66 @@ document.addEventListener("DOMContentLoaded", () => {
             color.value !== "all" ||
             (searchInput?.value || "").trim() !== "";
 
+        // Filtered catalogue view
         if (isFiltered) {
-            const selectedOption = category.options[category.selectedIndex];
-            const title = selectedOption ? selectedOption.text : "Our Products";
+
+            const selectedOption =
+                category.options[category.selectedIndex];
+
+            const title = selectedOption
+                ? selectedOption.text
+                : "Our Products";
 
             const section = document.createElement("section");
+
             section.className = "catalog-section";
 
             section.innerHTML = `
                 <div class="section-heading">
+
                     <div>
                         <p class="eyebrow">FATINS FLORETTE</p>
-                        <h2>${title === "All bouquets" ? "Our Products" : title}</h2>
+
+                        <h2>
+                            ${title === "All bouquets"
+                                ? "Our Products"
+                                : title}
+                        </h2>
                     </div>
 
                     <span class="result-count">
                         ${list.length} products
                     </span>
+
                 </div>
 
                 ${
                     list.length
-                        ? `<div class="flower-grid">${list.map(card).join("")}</div>`
-                        : `<p class="no-results">No flowers found. Try another filter.</p>`
+                        ? `<div class="flower-grid">
+                            ${list.map(card).join("")}
+                           </div>`
+
+                        : `<p class="no-results">
+                            No flowers found. Try another filter.
+                           </p>`
                 }
             `;
 
             container.appendChild(section);
 
         } else {
+
+            // Default catalogue sections
             sectionDefs.forEach(def => {
-                const products = sortList(list.filter(def.test));
+
+                const products = sortList(
+                    list.filter(def.test)
+                );
 
                 if (!products.length) return;
 
                 const section = document.createElement("section");
+
                 section.className = "catalog-section";
                 section.id = def.id;
 
@@ -233,14 +384,18 @@ document.addEventListener("DOMContentLoaded", () => {
                                     data-direction="-1"
                                     type="button"
                                     aria-label="Scroll left">
+
                                 ←
+
                             </button>
 
                             <button class="slider-arrow"
                                     data-direction="1"
                                     type="button"
                                     aria-label="Scroll right">
+
                                 →
+
                             </button>
 
                         </div>
@@ -259,154 +414,151 @@ document.addEventListener("DOMContentLoaded", () => {
         attachEvents();
     }
 
-    const shopAllLink = document.getElementById("shop-all-link");
+    // =====================================
+    // SLIDER, CART AND FAVOURITE EVENTS
+    // =====================================
 
-        if (shopAllLink) {
-            shopAllLink.addEventListener("click", function (event) {
-                event.preventDefault();
-
-                category.value = "all";
-                color.value = "all";
-                if (searchInput) searchInput.value = "";
-
-                render();
-
-                document.getElementById("catalog-sections")
-                    .scrollIntoView({ behavior: "smooth" });
-            });
-        }
-    const petalsLink = document.getElementById("petals-pastries-link");
-
-        if (petalsLink) {
-            petalsLink.addEventListener("click", function (event) {
-                event.preventDefault();
-
-                category.value = "petals-pastries";
-                render();
-
-                document.getElementById("catalog-sections")
-                    .scrollIntoView({ behavior: "smooth" });
-            });
-
-    const basketLink = document.getElementById("basket-series-link");
-
-        if (basketLink)
-            basketLink.addEventListener("click", function (event) {
-                event.preventDefault();
-
-                category.value = "basket-series";
-                render();
-
-                document.getElementById("catalog-sections")
-                    .scrollIntoView({ behavior: "smooth" });
-            });
-        }
-
-    // Product card events
     function attachEvents() {
 
         // Slider arrows
-        container.querySelectorAll(".slider-arrow").forEach(button => {
-            button.addEventListener("click", () => {
-                const slider = button
-                    .closest(".catalog-section")
-                    .querySelector(".flower-slider");
+        container.querySelectorAll(".slider-arrow")
+            .forEach(button => {
 
-                if (!slider) return;
+                button.addEventListener("click", () => {
 
-                slider.scrollBy({
-                    left: Number(button.dataset.direction) * slider.clientWidth * 0.8,
-                    behavior: "smooth"
+                    const slider = button
+                        .closest(".catalog-section")
+                        .querySelector(".flower-slider");
+
+                    if (!slider) return;
+
+                    slider.scrollBy({
+                        left:
+                            Number(button.dataset.direction) *
+                            slider.clientWidth * 0.8,
+
+                        behavior: "smooth"
+                    });
                 });
             });
-        });
 
         // Add to cart
-        container.querySelectorAll(".add-to-cart").forEach(button => {
-            button.addEventListener("click", () => {
-                const flower = getFlowerById(button.dataset.id);
+        container.querySelectorAll(".add-to-cart")
+            .forEach(button => {
 
-                if (!flower) return;
+                button.addEventListener("click", () => {
 
-                const cart = getCartItems();
+                    const flower = flowers.find(
+                        f => String(f.id) === String(button.dataset.id)
+                    );
 
-                const existing = cart.find(item =>
-                    item.id === flower.id &&
-                    !item.giftCard &&
-                    !Number(item.extraFlowers)
-                );
+                    if (!flower) return;
 
-                if (existing) {
-                    existing.quantity = Number(existing.quantity || 1) + 1;
-                } else {
-                    cart.push({
-                        id: flower.id,
-                        quantity: 1,
-                        giftCard: "",
-                        extraFlowers: 0
-                    });
-                }
+                    const cart = getCartItems();
 
-                saveCartItems(cart);
-                updateCartCount();
+                    const existing = cart.find(item =>
+                        item.id === flower.id &&
+                        !item.giftCard &&
+                        !Number(item.extraFlowers) &&
+                        !item.customMessage
+                    );
 
-                const originalText = button.textContent;
-                button.textContent = "ADDED ✓";
+                    if (existing) {
 
-                setTimeout(() => {
-                    button.textContent = originalText;
-                }, 1100);
+                        existing.quantity =
+                            Number(existing.quantity || 1) + 1;
+
+                    } else {
+
+                        cart.push({
+                            id: flower.id,
+                            quantity: 1,
+                            giftCard: "",
+                            extraFlowers: 0,
+                            customMessage: ""
+                        });
+                    }
+
+                    saveCartItems(cart);
+                    updateCartCount();
+
+                    const originalText = button.textContent;
+
+                    button.textContent = "ADDED ✓";
+
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                    }, 1100);
+
+                });
             });
-        });
 
-        // Favourites
-        container.querySelectorAll("[data-favourite]").forEach(button => {
-            const id = button.dataset.favourite;
+        // Favourite buttons
+        container.querySelectorAll("[data-favourite]")
+            .forEach(button => {
 
-            function updateHeart() {
-                const favourites = JSON.parse(
-                    localStorage.getItem("floretteFavourites") || "[]"
-                );
+                const id = button.dataset.favourite;
 
-                const active = favourites.includes(id);
+                function updateHeart() {
 
-                button.textContent = active ? "♥️" : "♡";
-                button.classList.toggle("is-favourite", active);
-            }
+                    const favourites = JSON.parse(
+                        localStorage.getItem("floretteFavourites") || "[]"
+                    );
 
-            updateHeart();
+                    const active = favourites.includes(id);
 
-            button.addEventListener("click", () => {
-                const favourites = JSON.parse(
-                    localStorage.getItem("floretteFavourites") || "[]"
-                );
+                    button.textContent = active ? "♥" : "♡";
 
-                const index = favourites.indexOf(id);
-
-                if (index >= 0) {
-                    favourites.splice(index, 1);
-                } else {
-                    favourites.push(id);
+                    button.classList.toggle(
+                        "is-favourite",
+                        active
+                    );
                 }
-
-                localStorage.setItem(
-                    "floretteFavourites",
-                    JSON.stringify(favourites)
-                );
 
                 updateHeart();
+
+                button.addEventListener("click", () => {
+
+                    const favourites = JSON.parse(
+                        localStorage.getItem("floretteFavourites") || "[]"
+                    );
+
+                    const index = favourites.indexOf(id);
+
+                    if (index >= 0) {
+                        favourites.splice(index, 1);
+                    } else {
+                        favourites.push(id);
+                    }
+
+                    localStorage.setItem(
+                        "floretteFavourites",
+                        JSON.stringify(favourites)
+                    );
+
+                    updateHeart();
+                });
             });
-        });
     }
 
-    // Filter and sorting events
+    // =====================================
+    // FILTER AND SORT EVENTS
+    // =====================================
+
     [category, color, sort].forEach(element => {
+
         element.addEventListener("change", render);
+
     });
 
-    // Search toggle
+    // =====================================
+    // SEARCH BAR
+    // =====================================
+
     if (searchToggle && searchPanel && searchInput) {
+
         searchToggle.addEventListener("click", () => {
+
             searchPanel.hidden = !searchPanel.hidden;
 
             if (!searchPanel.hidden) {
@@ -417,5 +569,86 @@ document.addEventListener("DOMContentLoaded", () => {
         searchInput.addEventListener("input", render);
     }
 
-    render();
+    // =====================================
+    // SHOP ALL LINK
+    // =====================================
+
+    const shopAllLink =
+        document.getElementById("shop-all-link");
+
+    if (shopAllLink) {
+
+        shopAllLink.addEventListener("click", event => {
+
+            event.preventDefault();
+
+            category.value = "all";
+            color.value = "all";
+
+            if (searchInput) {
+                searchInput.value = "";
+            }
+
+            render();
+
+            container.scrollIntoView({
+                behavior: "smooth"
+            });
+        });
+    }
+
+    // =====================================
+    // PETALS & PASTRIES LINK
+    // =====================================
+
+    const petalsLink =
+        document.getElementById("petals-pastries-link");
+
+    if (petalsLink) {
+
+        petalsLink.addEventListener("click", event => {
+
+            event.preventDefault();
+
+            category.value = "petals-pastries";
+            color.value = "all";
+
+            render();
+
+            container.scrollIntoView({
+                behavior: "smooth"
+            });
+        });
+    }
+
+    // =====================================
+    // BASKET SERIES LINK
+    // =====================================
+
+    const basketLink =
+        document.getElementById("basket-series-link");
+
+    if (basketLink) {
+
+        basketLink.addEventListener("click", event => {
+
+            event.preventDefault();
+
+            category.value = "basket-series";
+            color.value = "all";
+
+            render();
+
+            container.scrollIntoView({
+                behavior: "smooth"
+            });
+        });
+    }
+
+    // =====================================
+    // START CATALOGUE
+    // =====================================
+
+    initializeCatalog();
+
 });
