@@ -196,9 +196,36 @@ img {
     padding: 0 8px
 }
 
+/* SEARCH BAR */
+
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Hide search input by default */
+.search-container input {
+    display: none;
+    width: 180px;
+    padding: 9px 12px;
+    border: 1px solid #740043;
+    border-radius: 20px;
+    outline: none;
+    background: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Show input when activated */
+.search-container.active input {
+    display: block;
+}
+
 .search-button {
-    border-radius: 7px 0 0 7px;
-    font-size: 22px
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    font-size: 25px;
 }
 
 .cart-link {

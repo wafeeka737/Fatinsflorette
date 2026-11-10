@@ -12,10 +12,11 @@
 
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/cart.css">
+    <link rel="stylesheet" href="../css/product.css">
 </head>
 <body>
 
-    <!-- ===== HEADER ===== -->
+    <!--HEADEr-->
     <header class="site-header">
         <a href="../index.html" class="logo">
             <span class="logo-name">Fatin's Florette</span>
@@ -56,13 +57,27 @@
             <a href="../pages/contact.html">Contact Us</a>
         </nav>
 
-        <div class="header-actions">
-            <button class="search-button" aria-label="Search">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="11" cy="11" r="7"></circle>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-            </button>
+       <!-- Header actions -->
+
+<div class="header-actions">
+
+<div class="search-container">
+
+    <input
+        type="text"
+        id="globalSearch"
+        placeholder="Search anything..."
+    >
+
+    <button
+        class="search-button"
+        type="button"
+        aria-label="Open search"
+        onclick="toggleSearch()">
+        ⌕
+    </button>
+
+    </div>
             <a href="../pages/cart.html" class="cart-link" aria-label="Shopping Cart">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="9" cy="21" r="1"></circle>
@@ -126,7 +141,7 @@
     </aside>
 
 </main>
- <!-- ===== FOOTER ===== -->
+ <!-- FOOTER -->
     <footer class="site-footer">
         <div class="footer-main">
             <div class="footer-brand">
@@ -192,5 +207,6 @@
     </script>
 <script src="../js/flower.js"></script>
 <script src="../js/cart.js"></script>
+<script src="../js/search.js"></script>
 </body>
 </html>

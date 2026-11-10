@@ -12,6 +12,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/contact.css">
+    <link rel="stylesheet" href="../css/product.css">
 </head>
 <body>
 
@@ -55,13 +56,27 @@
             <a href="contact.html" class="active">Contact Us</a>
         </nav>
 
-        <div class="header-actions">
-            <button class="search-button" aria-label="Search">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="11" cy="11" r="7"></circle>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-            </button>
+       <!-- Header actions -->
+
+<div class="header-actions">
+
+<div class="search-container">
+
+    <input
+        type="text"
+        id="globalSearch"
+        placeholder="Search anything..."
+    >
+
+    <button
+        class="search-button"
+        type="button"
+        aria-label="Open search"
+        onclick="toggleSearch()">
+        ⌕
+    </button>
+
+    </div>
                        <a href="cart.html" class="cart-link" aria-label="Shopping Cart" style="position: relative;">
                 <!-- Replace the SVG with your image -->
                 <img src="../images/cart.png.png" alt="Shopping Cart" class="cart-icon-img">
@@ -196,13 +211,14 @@
                         <img src="../pics/wa.png" alt="WhatsApp">
                     </a>
                 </div>
-            </div>
+           
 
             <!-- MAP IS NOW ITS OWN COLUMN -->
             <div class="footer-map">
                 <iframe 
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.5187098738365!2d114.8646345!3d4.8523594999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x322261498f1d3eef%3A0x6fb80f0e46c2ac8f!2sFatin's%20Florete!5e0!3m2!1sen!2sbn!4v1792552757731!5m2!1sen!2sbn" 
                     allowfullscreen="" loading="lazy">
+            </div>
                 </iframe>
             </div>
         </div>
@@ -223,5 +239,6 @@
             });
         }
     </script>
+    <script src="../js/search.js"></script>
 </body>
 </html>

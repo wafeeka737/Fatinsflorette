@@ -167,11 +167,6 @@ img {
     padding: 0 8px
 }
 
-.search-button {
-    border-radius: 7px 0 0 7px;
-    font-size: 22px
-}
-
 .cart-link {
     border-radius: 0 7px 7px 0;
     font-size: 12px;
