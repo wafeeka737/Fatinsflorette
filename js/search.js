@@ -7,49 +7,49 @@ const websitePages = [
 
     {
         title: "Home",
-        url: "index.html",
+        url: "../index.html",
         description: "Welcome to Fatin's Florette. Flowers for every feeling.",
         keywords: ["home", "welcome", "flowers", "florette"]
     },
 
     {
         title: "About Us",
-        url: "aboutus.html",
+        url: "../pages/aboutus.html",
         description: "Learn more about Fatin's Florette.",
         keywords: ["about", "about us", "story", "business"]
     },
 
     {
         title: "Catalogue",
-        url: "catalog.html",
+        url: "../pages/catalog.html",
         description: "Explore our bouquets and flower collections.",
         keywords: ["catalogue", "flowers", "bouquets", "occasional", "lilies", "sunflowers", "dried flowers"]
     },
 
     {
         title: "Build a Bouquet",
-        url: "custom.build.html",
+        url: "../pages/custom.build.html",
         description: "Create and customise your own bouquet.",
         keywords: ["build", "customise", "customize", "personalise", "bouquet"]
     },
 
     {
         title: "FAQ",
-        url: "faq.html",
+        url: "../pages/faq.html",
         description: "Find answers to frequently asked questions.",
         keywords: ["faq", "delivery", "payment", "shipping", "order", "refund", "questions"]
     },
 
     {
         title: "Contact Us",
-        url: "contact.html",
+        url: "../contact/contact.html",
         description: "Get in touch with Fatin's Florette.",
         keywords: ["contact", "email", "phone", "message", "help"]
     },
 
     {
         title: "Subscription",
-        url: "subscription.html",
+        url: "../subscription/subscription.html",
         description: "Discover our flower subscription service.",
         keywords: ["subscription", "monthly flowers", "flower delivery"]
     }
