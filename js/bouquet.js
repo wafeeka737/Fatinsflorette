@@ -1058,16 +1058,6 @@ localStorage.setItem(
 window.location.href =
     "../pages/checkout.html";
 
-
-  let successText = "Your bouquet was saved! Total: $" + getTotal().toFixed(2);
-  if (card.id == "none") {
-    successText = successText + " (no card)";
-  } else {
-    successText = successText + " (" + card.name + ")";
-  }
-
-  document.getElementById("success").classList.remove("hidden");
-  document.getElementById("success-text").textContent = successText;
 }
 
 
