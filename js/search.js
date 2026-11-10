@@ -68,8 +68,6 @@ function toggleSearch() {
     const searchInput =
         document.getElementById("globalSearch");
 
-    if (!searchContainer || !searchInput) return;
-
     searchContainer.classList.toggle("active");
 
     if (searchContainer.classList.contains("active")) {
@@ -78,7 +76,6 @@ function toggleSearch() {
         searchInput.value = "";
     }
 }
-
 
 // ===================================
 // SEARCH FUNCTION
