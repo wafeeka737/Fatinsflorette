@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
-
 :root {
     --burgundy: #740043;
     --burgundy-dark: #5d0036;
@@ -12,6 +10,7 @@
     --line: #e5d8dc;
     --muted: #8b777e
 }
+
 * {
     box-sizing: border-box;
     margin: 0;
