@@ -1,5 +1,13 @@
-
 document.addEventListener("DOMContentLoaded", async () => {
+
+    // =====================================
+    // CHECK THAT THIS IS THE PRODUCT PAGE
+    // =====================================
+
+    const productMain = document.querySelector(".product-main");
+
+    // Do not run product-page code on other pages.
+    if (!productMain) return;
 
     // =====================================
     // GET PRODUCT ID FROM URL
@@ -10,15 +18,14 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const localFlowers = window.flowers || [];
 
-    const productMain = document.querySelector(".product-main");
-
     function showNotFoundError() {
-        if (productMain) {
-            productMain.innerHTML = `
-                <p>Flower not found. Please return to the catalogue.</p>
-                <a href="catalog.html">Return to catalogue</a>
-            `;
-        }
+        productMain.innerHTML = `
+            <div class="product-error">
+                <h2>Flower not found</h2>
+                <p>Please return to the catalogue and select a flower.</p>
+                <a href="catalog.html">Return to Catalogue</a>
+            </div>
+        `;
     }
 
     if (!flowerId) {
@@ -27,19 +34,19 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     // =====================================
-    // FIND PRODUCT IN LOCAL FLOWERS.JS
+    // FIND PRODUCT IN LOCAL FLOWER DATA
     // =====================================
 
     const localFlower = localFlowers.find(
         f => String(f.id).trim() === String(flowerId).trim()
     );
 
-    let flower = localFlower;
-
-    if (!flower) {
+    if (!localFlower) {
         showNotFoundError();
         return;
     }
+
+    let flower = { ...localFlower };
 
     // =====================================
     // GET PRODUCT INFORMATION FROM DATABASE
@@ -61,23 +68,35 @@ document.addEventListener("DOMContentLoaded", async () => {
                 ...localFlower,
                 ...databaseFlower,
 
-                // Always keep local image and extra information
+                // Preserve local image and category information.
                 image: localFlower.image,
                 category: localFlower.category,
                 color: localFlower.color,
                 tags: localFlower.tags,
                 occasions: localFlower.occasions,
 
+                // Keep local information if the database fields are empty.
+                name: databaseFlower.name || localFlower.name,
+
+                price: Number.isFinite(Number(databaseFlower.price))
+                    ? Number(databaseFlower.price)
+                    : localFlower.price,
+
                 description:
                     databaseFlower.description ||
-                    localFlower.description
+                    localFlower.description,
+
+                tagline:
+                    databaseFlower.tagline ||
+                    localFlower.tagline ||
+                    ""
             };
         }
 
     } catch (error) {
         console.warn(
             "Database unavailable. Using local flower information.",
-            error
+            error.message
         );
     }
 
@@ -94,7 +113,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     const productDescription = document.getElementById("product-description");
     const tagline = document.getElementById("product-tagline");
 
-    if (breadcrumb) breadcrumb.textContent = flower.name;
+    if (breadcrumb) {
+        breadcrumb.textContent = flower.name;
+    }
 
     if (productImage) {
         productImage.src = flower.image;
@@ -107,10 +128,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     if (productCategory) {
         productCategory.textContent =
-            (flower.category || "fresh").toUpperCase() + " FLOWERS";
+            `${(flower.category || "fresh").toUpperCase()} FLOWERS`;
     }
 
-    if (productName) productName.textContent = flower.name;
+    if (productName) {
+        productName.textContent = flower.name;
+    }
 
     if (productDescription) {
         productDescription.textContent =
@@ -128,56 +151,69 @@ document.addEventListener("DOMContentLoaded", async () => {
     let quantity = 1;
 
     const quantityText = document.getElementById("quantity");
+    const quantityMinus = document.getElementById("quantity-minus");
+    const quantityPlus = document.getElementById("quantity-plus");
+
     const extras = document.getElementById("extra-flowers");
     const giftCardSelect = document.getElementById("gift-card");
     const price = document.getElementById("product-price");
 
+    function getExtraPrice() {
+        return extras ? Number(extras.value) || 0 : 0;
+    }
+
     function getGiftCardPrice() {
         if (!giftCardSelect) return 0;
 
+        // Only printed gift cards cost BND 2.
         return giftCardSelect.value === "printed" ? 2 : 0;
     }
 
     function updatePrice() {
-        const extraPrice = extras
-            ? Number(extras.value) || 0
-            : 0;
-
-        const giftCardPrice = getGiftCardPrice();
+        const basePrice = Number(flower.price) || 0;
 
         const total = (
-            Number(flower.price) +
-            extraPrice +
-            giftCardPrice
+            basePrice +
+            getExtraPrice() +
+            getGiftCardPrice()
         ) * quantity;
 
         if (price) {
-            price.textContent = "BND " + total.toFixed(2);
+            price.textContent = `BND ${total.toFixed(2)}`;
         }
     }
 
-    extras?.addEventListener("change", updatePrice);
-    giftCardSelect?.addEventListener("change", updatePrice);
+    if (quantityMinus) {
+        quantityMinus.addEventListener("click", () => {
+            quantity = Math.max(1, quantity - 1);
 
-    document.getElementById("quantity-minus")?.addEventListener("click", () => {
-        quantity = Math.max(1, quantity - 1);
+            if (quantityText) {
+                quantityText.textContent = quantity;
+            }
 
-        if (quantityText) {
-            quantityText.textContent = quantity;
-        }
+            updatePrice();
+        });
+    }
 
-        updatePrice();
-    });
+    if (quantityPlus) {
+        quantityPlus.addEventListener("click", () => {
+            quantity = Math.min(20, quantity + 1);
 
-    document.getElementById("quantity-plus")?.addEventListener("click", () => {
-        quantity = Math.min(20, quantity + 1);
+            if (quantityText) {
+                quantityText.textContent = quantity;
+            }
 
-        if (quantityText) {
-            quantityText.textContent = quantity;
-        }
+            updatePrice();
+        });
+    }
 
-        updatePrice();
-    });
+    if (extras) {
+        extras.addEventListener("change", updatePrice);
+    }
+
+    if (giftCardSelect) {
+        giftCardSelect.addEventListener("change", updatePrice);
+    }
 
     updatePrice();
 
@@ -203,9 +239,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     let favourites = [];
 
     try {
-        favourites = JSON.parse(
+        const savedFavourites = JSON.parse(
             localStorage.getItem("floretteFavourites") || "[]"
         );
+
+        favourites = Array.isArray(savedFavourites)
+            ? savedFavourites
+            : [];
+
     } catch (error) {
         favourites = [];
     }
@@ -218,7 +259,16 @@ document.addEventListener("DOMContentLoaded", async () => {
             const isFavourite = favourites.includes(flower.id);
 
             heart.textContent = isFavourite ? "♥" : "♡";
-            heart.classList.toggle("is-favourite", isFavourite);
+
+            heart.classList.toggle(
+                "is-favourite",
+                isFavourite
+            );
+
+            heart.setAttribute(
+                "aria-pressed",
+                String(isFavourite)
+            );
         }
 
         heart.addEventListener("click", () => {
@@ -231,10 +281,14 @@ document.addEventListener("DOMContentLoaded", async () => {
                 favourites.push(flower.id);
             }
 
-            localStorage.setItem(
-                "floretteFavourites",
-                JSON.stringify(favourites)
-            );
+            try {
+                localStorage.setItem(
+                    "floretteFavourites",
+                    JSON.stringify(favourites)
+                );
+            } catch (error) {
+                console.error("Unable to save favourites:", error);
+            }
 
             drawHeart();
         });
@@ -259,13 +313,15 @@ document.addEventListener("DOMContentLoaded", async () => {
             recommendations.map(f => `
                 <article class="recommendation-card">
 
-                    <a class="recommendation-image"
-                       href="product.html?flower=${encodeURIComponent(f.id)}">
-
-                        <img src="${f.image}"
-                             alt="${f.name}"
-                             loading="lazy">
-
+                    <a
+                        class="recommendation-image"
+                        href="product.html?flower=${encodeURIComponent(f.id)}"
+                    >
+                        <img
+                            src="${f.image}"
+                            alt="${f.name}"
+                            loading="lazy"
+                        >
                     </a>
 
                     <div class="recommendation-meta">
@@ -288,38 +344,56 @@ document.addEventListener("DOMContentLoaded", async () => {
     // ADD TO CART
     // =====================================
 
+    const addToCartButton = document.getElementById("add-to-cart");
+    const cartMessage = document.getElementById("cart-message");
+
     function addProductToCart() {
 
         const giftCard = giftCardSelect
             ? giftCardSelect.value
             : "none";
 
-        const extraFlowers = extras
-            ? Number(extras.value) || 0
-            : 0;
+        const extraFlowers = getExtraPrice();
 
         const customMessage = giftMessage
             ? giftMessage.value.trim()
             : "";
+
+        // These helper functions must exist in flower.js.
+        if (
+            typeof getCartItems !== "function" ||
+            typeof saveCartItems !== "function"
+        ) {
+            console.error(
+                "Cart functions are missing. Check flower.js."
+            );
+
+            if (cartMessage) {
+                cartMessage.textContent =
+                    "Sorry, your cart could not be updated. Please try again.";
+            }
+
+            return false;
+        }
 
         const cart = getCartItems();
 
         const existing = cart.find(item =>
             item.id === flower.id &&
             item.giftCard === giftCard &&
-            Number(item.extraFlowers) === extraFlowers &&
+            Number(item.extraFlowers || 0) === extraFlowers &&
             (item.customMessage || "") === customMessage
         );
 
         if (existing) {
-
             existing.quantity =
                 Number(existing.quantity || 1) + quantity;
-
         } else {
-
             cart.push({
                 id: flower.id,
+                name: flower.name,
+                price: Number(flower.price),
+                image: flower.image,
                 quantity: quantity,
                 giftCard: giftCard,
                 extraFlowers: extraFlowers,
@@ -328,32 +402,39 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
         saveCartItems(cart);
-        updateCartCount();
 
-        const cartMessage =
-            document.getElementById("cart-message");
+        if (typeof updateCartCount === "function") {
+            updateCartCount();
+        }
 
         if (cartMessage) {
             cartMessage.textContent =
-                flower.name + " added to your cart.";
+                `${flower.name} added to your cart!`;
         }
+
+        return true;
     }
 
-    document.getElementById("add-to-cart")?.addEventListener(
-        "click",
-        addProductToCart
-    );
+    if (addToCartButton) {
+        addToCartButton.addEventListener("click", () => {
+            addProductToCart();
+        });
+    }
 
     // =====================================
     // BUY IT NOW
     // =====================================
 
-    document.getElementById("buy-it-now")?.addEventListener(
-        "click",
-        () => {
-            addProductToCart();
-            window.location.href = "cart.html";
-        }
-    );
+    const buyNowButton = document.getElementById("buy-it-now");
+
+    if (buyNowButton) {
+        buyNowButton.addEventListener("click", () => {
+            const added = addProductToCart();
+
+            if (added) {
+                window.location.href = "cart.html";
+            }
+        });
+    }
 
 });

@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Get existing flower information from flowers.js
     const localFlowers = window.flowers || [];
 
-    // This will contain the combined database and local data
+
     let flowers = [];
 
     // =====================================
@@ -94,7 +94,6 @@ async function initializeCatalog() {
             return {
                 ...localFlower,
 
-                // Update information from database if available
                 name: databaseFlower?.name || localFlower.name,
 
                 price: databaseFlower?.price ?? localFlower.price,
@@ -103,7 +102,6 @@ async function initializeCatalog() {
                     databaseFlower?.description ||
                     localFlower.description,
 
-                // Always keep the local image
                 image: localFlower.image
             };
         });
@@ -177,15 +175,6 @@ function card(f) {
                     ${f.name}
 
                 </a>
-
-                <button class="heart-button card-heart"
-                        data-favourite="${f.id}"
-                        aria-label="Favourite ${f.name}"
-                        type="button">
-
-                    ♡
-
-                </button>
 
             </div>
 

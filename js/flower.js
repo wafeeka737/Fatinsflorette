@@ -1,3 +1,7 @@
+// ============================================
+// FATIN'S FLORETTE - FLOWER DATA
+// ============================================
+
 const flowers = [
   {
     id: "fresh-Lily-bouquet",
@@ -48,7 +52,7 @@ const flowers = [
     price: 45,
     category: "fresh",
     color: "purple",
-    description: "	Lovely lilac roses come together in a graceful arrangement, adding a soft and charming touch to any occasion.",
+    description: "Lovely lilac roses come together in a graceful arrangement, adding a soft and charming touch to any occasion.",
     image: "../images/fresh purple bouquet.jpeg",
     tags: ["best-seller"],
   },
@@ -65,7 +69,7 @@ const flowers = [
   },
   {
     id: "pastel-poetry",
-    name: " Pastel Poetry",
+    name: "Pastel Poetry",
     price: 70,
     category: "fresh",
     color: "pink",
@@ -91,7 +95,7 @@ const flowers = [
     price: 50,
     category: "dried",
     color: "pink",
-    description: "	A lovely arrangement of dried flowers in soft, warm tones, creating a charming keepsake that lasts beyond the occasion.",
+    description: "A lovely arrangement of dried flowers in soft, warm tones, creating a charming keepsake that lasts beyond the occasion.",
     image: "../images/dried flowers 5.jpeg",
     tags: ["dried"],
   },
@@ -101,7 +105,7 @@ const flowers = [
     price: 40,
     category: "dried",
     color: "mixed",
-    description: "	Warm golden grasses and dried blooms come together in a natural arrangement, bringing a cosy and rustic touch to any space.",
+    description: "Warm golden grasses and dried blooms come together in a natural arrangement, bringing a cosy and rustic touch to any space.",
     image: "../images/dried flowers 6.jpeg",
     tags: ["dried"],
   },
@@ -141,7 +145,7 @@ const flowers = [
     name: "Sweet On You",
     price: 50,
     category: "petals-pastries",
-    color:"purple",
+    color: "purple",
     description: "A sweet combination of beautiful blooms and delicious treats, thoughtfully put together to make someone's day extra special.",
     image: "../images/cake in bloom.jpeg",
     tags: ["Petals & Pastries"],
@@ -152,8 +156,8 @@ const flowers = [
     name: "Sunday Coffee",
     price: 50,
     category: "petals-pastries",
-    color:"purple",
-    description: "	A cosy pairing of lovely flowers and a coffee-inspired treat, perfect for slow mornings and thoughtful surprises.",
+    color: "purple",
+    description: "A cosy pairing of lovely flowers and a coffee-inspired treat, perfect for slow mornings and thoughtful surprises.",
     image: "../images/petals and pastries 2.jpeg",
     tags: ["Petals & Pastries"],
     occasions: ["birthday", "anniversary"]
@@ -163,8 +167,8 @@ const flowers = [
     name: "Yellow Bloom",
     price: 50,
     category: "petals-pastries",
-    color:"purple",
-    description: "	Bright yellow blooms paired with a delightful treat, creating a cheerful gift filled with sunshine and sweetness.",
+    color: "purple",
+    description: "Bright yellow blooms paired with a delightful treat, creating a cheerful gift filled with sunshine and sweetness.",
     image: "../images/petals and pastries 3.jpeg",
     tags: ["Petals & Pastries"],
     occasions: ["birthday"]
@@ -174,7 +178,7 @@ const flowers = [
     name: "Bloom Sip",
     price: 38,
     category: "petals-pastries",
-    color:"purple",
+    color: "purple",
     description: "A lovely floral and beverage pairing, perfect for sharing a little happiness with someone special.",
     image: "../images/petals and pastries 15.jpeg",
     tags: ["Petals & Pastries"],
@@ -185,17 +189,17 @@ const flowers = [
     name: "Just-Because",
     price: 38,
     category: "petals-pastries",
-    color:"Red",
+    color: "red",
     description: "A sweet little surprise featuring beautiful blooms and treats, because sometimes you don't need a reason to make someone smile.",
     image: "../images/petals and pastries 8.jpeg",
     tags: ["Petals & Pastries"],
   },
-   {
+  {
     id: "for-you",
     name: "For You",
     price: 38,
     category: "petals-pastries",
-    color:"pink",
+    color: "pink",
     description: "A thoughtful combination of flowers and sweet treats, made to remind someone just how special they are.",
     image: "../images/petals and pastries 7.jpeg",
     tags: ["Petals & Pastries"],
@@ -206,8 +210,8 @@ const flowers = [
     name: "Bloom & Butter",
     price: 38,
     category: "petals-pastries",
-    color:"Green",
-    description: "	A charming floral and pastry pairing, bringing together the beauty of fresh blooms and the sweetness of a little treat.",
+    color: "green",
+    description: "A charming floral and pastry pairing, bringing together the beauty of fresh blooms and the sweetness of a little treat.",
     image: "../images/petals and pastries 12.jpeg",
     tags: ["Petals & Pastries"],
   },
@@ -216,8 +220,8 @@ const flowers = [
     name: "Lilac Butter",
     price: 38,
     category: "petals-pastries",
-    color:"purple",
-    description: "	Soft lilac-inspired blooms paired with a delightful treat, creating a sweet and thoughtful gift for any occasion.",
+    color: "purple",
+    description: "Soft lilac-inspired blooms paired with a delightful treat, creating a sweet and thoughtful gift for any occasion.",
     image: "../images/petals and pastries 13.jpeg",
     tags: ["Petals & Pastries"],
     occasions: ["birthday"]
@@ -227,8 +231,8 @@ const flowers = [
     name: "Blossom",
     price: 100,
     category: "basket-series",
-    color:"pink",
-    description: "	A lovely basket filled with delicate blooms, bringing a romantic and graceful touch to special celebrations.",
+    color: "pink",
+    description: "A lovely basket filled with delicate blooms, bringing a romantic and graceful touch to special celebrations.",
     image: "../images/basket fresh flowers 3.jpeg",
     tags: ["basket series"],
     occasions: ["anniversary"]
@@ -238,8 +242,8 @@ const flowers = [
     name: "Mariposa",
     price: 95,
     category: "basket-series",
-    color:"pink",
-    description: "	A charming floral basket featuring soft pink tones, perfect for making birthdays feel a little more special.",
+    color: "pink",
+    description: "A charming floral basket featuring soft pink tones, perfect for making birthdays feel a little more special.",
     image: "../images/basket fresh flowers 4.jpeg",
     tags: ["basket series"],
     occasions: ["birthday"]
@@ -249,8 +253,8 @@ const flowers = [
     name: "Golden Hour",
     price: 50,
     category: "fresh",
-    color:"yellow",
-    description: "	A gentle blend of pastel blooms creates a soft and dreamy bouquet, perfect for birthdays and thoughtful surprises.",
+    color: "yellow",
+    description: "A gentle blend of pastel blooms creates a soft and dreamy bouquet, perfect for birthdays and thoughtful surprises.",
     image: "../images/sunflower 4.jpeg",
     tags: ["Petals & Pastries"],
     occasions: ["graduation"]
@@ -260,8 +264,8 @@ const flowers = [
     name: "Carnation Bouquet",
     price: 50,
     category: "fresh",
-    color:"mixed",
-    description: "	Delicate carnations are arranged into a lovely bouquet, making it a thoughtful gift for mothers, teachers, and loved ones.",
+    color: "mixed",
+    description: "Delicate carnations are arranged into a lovely bouquet, making it a thoughtful gift for mothers, teachers, and loved ones.",
     image: "../images/fresh flower bouquet 4.jpeg",
     tags: ["Petals & Pastries"],
     occasions: ["teachers", "mothers"]
@@ -271,8 +275,8 @@ const flowers = [
     name: "Ever After",
     price: 65,
     category: "fresh",
-    color:"white",
-    description: "	An elegant bridal bouquet featuring delicate blooms, beautifully arranged for a timeless and romantic wedding look.",
+    color: "white",
+    description: "An elegant bridal bouquet featuring delicate blooms, beautifully arranged for a timeless and romantic wedding look.",
     image: "../images/bridal bouquet 2.jpeg",
     tags: ["wedding"],
     occasions: ["wedding"]
@@ -282,8 +286,8 @@ const flowers = [
     name: "Mixed-Purple-Bouquet",
     price: 50,
     category: "fresh",
-    color:"purple",
-    description: "	A charming mix of purple blooms creates a graceful bouquet filled with colour and elegance.",
+    color: "purple",
+    description: "A charming mix of purple blooms creates a graceful bouquet filled with colour and elegance.",
     image: "../images/fresh flower bouquet 7.jpeg",
     tags: ["best-seller"],
     occasions: ["mothers"]
@@ -293,8 +297,8 @@ const flowers = [
     name: "Love In Bloom",
     price: 65,
     category: "fresh",
-    color:"white",
-    description: "	A romantic arrangement of fresh flowers, thoughtfully styled to complement a beautiful wedding celebration.",
+    color: "white",
+    description: "A romantic arrangement of fresh flowers, thoughtfully styled to complement a beautiful wedding celebration.",
     image: "../images/bridal bouquet 4.jpeg",
     tags: ["best-seller"],
     occasions: ["wedding"]
@@ -304,8 +308,8 @@ const flowers = [
     name: "Pure Serenity",
     price: 100,
     category: "fresh",
-    color:"white",
-    description: "	Soft white blooms come together in an elegant arrangement, creating a graceful and timeless bridal bouquet.",
+    color: "white",
+    description: "Soft white blooms come together in an elegant arrangement, creating a graceful and timeless bridal bouquet.",
     image: "../images/bridal bouquet 5.jpeg",
     tags: ["wedding"],
     occasions: ["wedding"]
@@ -315,8 +319,8 @@ const flowers = [
     name: "Blue Serenity",
     price: 95,
     category: "fresh",
-    color:"blue",
-    description: "	Beautiful blue and white blooms create a dreamy arrangement, perfect for adding a unique touch to a wedding.",
+    color: "blue",
+    description: "Beautiful blue and white blooms create a dreamy arrangement, perfect for adding a unique touch to a wedding.",
     image: "../images/bridal bouquet 6.jpeg",
     tags: ["wedding"],
     occasions: ["wedding"]
@@ -326,7 +330,7 @@ const flowers = [
     name: "Cotton Candy",
     price: 100,
     category: "basket-series",
-    color:"yellow",
+    color: "yellow",
     description: "A sweet arrangement of soft yellow blooms presented in a beautiful basket, bringing warmth and happiness to any space.",
     image: "../images/basket fresh flowers 5.jpeg",
     tags: ["basket series"]
@@ -336,8 +340,8 @@ const flowers = [
     name: "Lune Bleue",
     price: 40,
     category: "dried",
-    color:"blue",
-    description: "	Soft blue dried flowers create a dreamy arrangement, offering a unique and lasting gift for someone special.",
+    color: "blue",
+    description: "Soft blue dried flowers create a dreamy arrangement, offering a unique and lasting gift for someone special.",
     image: "../images/dried flowers 8.jpeg",
     tags: ["dried"],
   },
@@ -346,8 +350,8 @@ const flowers = [
     name: "Satin Bloom",
     price: 85,
     category: "fresh",
-    color:"white",
-    description: "	A graceful arrangement of soft blooms, bringing a delicate and elegant touch to anniversaries and special celebrations.",
+    color: "white",
+    description: "A graceful arrangement of soft blooms, bringing a delicate and elegant touch to anniversaries and special celebrations.",
     image: "../images/fresh flower bouquet 8.jpeg",
     tags: ["anniversary"],
     occasions: ["anniversary"]
@@ -357,8 +361,8 @@ const flowers = [
     name: "White Rose",
     price: 65,
     category: "fresh",
-    color:"white",
-    description: "white",
+    color: "white",
+    description: "White roses arranged in a beautiful bridal bouquet.",
     image: "../images/bridal bouquet 8.jpeg",
     tags: ["wedding"],
     occasions: ["wedding"]
@@ -368,8 +372,8 @@ const flowers = [
     name: "Mixed Roses",
     price: 65,
     category: "fresh",
-    color:"red",
-    description: "white",
+    color: "red",
+    description: "A beautiful arrangement of mixed roses for a wedding celebration.",
     image: "../images/bridal bouquet 9.jpeg",
     tags: ["wedding"],
     occasions: ["wedding"]
@@ -379,7 +383,7 @@ const flowers = [
     name: "Blue Reverie",
     price: 40,
     category: "dried",
-    color:"blue",
+    color: "blue",
     description: "A delicate blend of blue dried blooms creates a calming arrangement, perfect for adding a soft touch to your home.",
     image: "../images/dried flowers 10.jpeg",
     tags: ["best-seller"],
@@ -389,8 +393,8 @@ const flowers = [
     name: "Blanc de Rose",
     price: 50,
     category: "fresh",
-    color:"mixed",
-    description: "	A lovely combination of fresh blooms arranged in a soft and elegant style, perfect for showing love and appreciation.",
+    color: "mixed",
+    description: "A lovely combination of fresh blooms arranged in a soft and elegant style, perfect for showing love and appreciation.",
     image: "../images/fresh flower bouquet 9.jpeg",
     tags: ["fresh"],
     occasions: ["mothers"]
@@ -400,8 +404,8 @@ const flowers = [
     name: "Sundaze",
     price: 52,
     category: "artificial",
-    color:"yellow",
-    description: "	Bright yellow artificial blooms bring a little sunshine into any space, making a lovely long-lasting decorative piece.",
+    color: "yellow",
+    description: "Bright yellow artificial blooms bring a little sunshine into any space, making a lovely long-lasting decorative piece.",
     image: "../images/artificial flower 3.jpeg",
     tags: ["artificial"]
   },
@@ -410,7 +414,7 @@ const flowers = [
     name: "Orange Roses",
     price: 50,
     category: "fresh",
-    color:"yellow",
+    color: "yellow",
     description: "Warm orange roses bring a cheerful and vibrant touch to this bouquet, making it a lovely way to brighten someone's day.",
     image: "../images/fresh flower bouquet 10.jpeg",
     tags: ["fresh"]
@@ -420,7 +424,7 @@ const flowers = [
     name: "Purple Dusk",
     price: 45,
     category: "dried",
-    color:"pruple",
+    color: "purple",
     description: "Deep purple tones give this dried arrangement a charming and elegant look, perfect for those who love something different.",
     image: "../images/bridal bouquet 10.jpeg",
     tags: ["wedding"],
@@ -431,19 +435,19 @@ const flowers = [
     name: "Maison Rosé",
     price: 65,
     category: "fresh",
-    color:"white",
-    description: " 	An elegant arrangement of delicate blooms, designed with a romantic finish for a beautiful wedding celebration.",
+    color: "white",
+    description: "An elegant arrangement of delicate blooms, designed with a romantic finish for a beautiful wedding celebration.",
     image: "../images/bridal bouquet 11.jpeg",
     tags: ["wedding"],
     occasions: ["wedding"]
   },
   {
     id: "wedding-lily",
-    name: "wedding lily",
+    name: "Wedding Lily",
     price: 65,
     category: "fresh",
-    color:"purple",
-    description: "	Beautiful lilies create a graceful and sophisticated bridal bouquet, perfect for a timeless wedding look.",
+    color: "purple",
+    description: "Beautiful lilies create a graceful and sophisticated bridal bouquet, perfect for a timeless wedding look.",
     image: "../images/bridal bouquet 12.jpeg",
     tags: ["wedding"],
     occasions: ["wedding"]
@@ -453,8 +457,8 @@ const flowers = [
     name: "For The Gents",
     price: 85,
     category: "fresh",
-    color:"blue",
-    description: "	A stylish arrangement of blue-toned blooms, offering a thoughtful and unique floral gift for someone special.",
+    color: "blue",
+    description: "A stylish arrangement of blue-toned blooms, offering a thoughtful and unique floral gift for someone special.",
     image: "../images/fresh flower bouquet 11.jpeg",
     tags: ["anniversary"],
     occasions: ["anniversary"]
@@ -464,19 +468,19 @@ const flowers = [
     name: "For The Lads",
     price: 50,
     category: "fresh",
-    color:"blue",
+    color: "blue",
     description: "A charming arrangement of fresh flowers, bringing a lovely touch of colour and appreciation to any celebration.",
     image: "../images/fresh flower bouquet 13.jpeg",
     tags: ["fresh"],
-    occasions: ["anniversary", "mothers","graduation"]
+    occasions: ["anniversary", "mothers", "graduation"]
   },
   {
     id: "petal-Poetry",
     name: "Petal Poetry",
     price: 90,
     category: "dried",
-    color:"mixed",
-    description: "home",
+    color: "mixed",
+    description: "A beautiful dried flower arrangement for your home.",
     image: "../images/dried flowers 12.jpeg",
     tags: ["dried"]
   },
@@ -485,8 +489,8 @@ const flowers = [
     name: "Sunset Serenade",
     price: 45,
     category: "fresh",
-    color:"mixed",
-    description: "	A warm mix of colourful blooms creates a cheerful arrangement, perfect for celebrating mothers and loved ones.",
+    color: "mixed",
+    description: "A warm mix of colourful blooms creates a cheerful arrangement, perfect for celebrating mothers and loved ones.",
     image: "../images/fresh flower bouquet 14.jpeg",
     tags: ["fresh"],
     occasions: ["mothers", "anniversary"]
@@ -496,8 +500,8 @@ const flowers = [
     name: "Confetti",
     price: 90,
     category: "dried",
-    color:"mixed",
-    description: "	A colourful mix of dried blooms arranged in a charming basket, making a lovely decorative gift for any occasion.",
+    color: "mixed",
+    description: "A colourful mix of dried blooms arranged in a charming basket, making a lovely decorative gift for any occasion.",
     image: "../images/basket .jpeg",
     tags: ["basket-series"],
     occasions: ["mothers"]
@@ -507,8 +511,8 @@ const flowers = [
     name: "Lavender Muse",
     price: 45,
     category: "fresh",
-    color:"purple",
-    description: "	Soft lavender-toned blooms create a romantic and graceful arrangement, perfect for a dreamy wedding celebration.",
+    color: "purple",
+    description: "Soft lavender-toned blooms create a romantic and graceful arrangement, perfect for a dreamy wedding celebration.",
     image: "../images/bridal bouquet 2.jpeg",
     tags: ["wedding"],
     occasions: ["wedding"]
@@ -518,7 +522,7 @@ const flowers = [
     name: "Serene Blush",
     price: 45,
     category: "fresh",
-    color:"pink",
+    color: "pink",
     description: "Delicate blush flowers come together in a soft and elegant bouquet, making it a lovely gift for graduation day.",
     image: "../images/fresh flower bouquet 6.jpeg",
     tags: ["graduation"],
@@ -529,7 +533,7 @@ const flowers = [
     name: "Buttercup Dreams",
     price: 45,
     category: "fresh",
-    color:"yellow",
+    color: "yellow",
     description: "Bright yellow blooms create a cheerful arrangement filled with warmth, happiness, and a little sunshine.",
     image: "../images/fresh yellow theme.jpeg",
     tags: ["fresh"]
@@ -539,199 +543,360 @@ const flowers = [
     name: "Fleur de Nuit",
     price: 55,
     category: "fresh",
-    color:"purple",
+    color: "purple",
     description: "Rich purple blooms create a striking and elegant arrangement, perfect for adding a touch of charm to any occasion.",
     image: "../images/fresh purple theme.jpeg",
     tags: ["best-seller"]
-  },
+  }
 ];
 
 window.flowers = flowers;
 
+
+// ============================================
+// FLOWER HELPER FUNCTIONS
+// ============================================
+
 function getFlowerById(id) {
-    return flowers.find(flower => flower.id === id);
+  return flowers.find(flower => flower.id === id);
 }
 
 function getCartItems() {
   try {
-    return JSON.parse(localStorage.getItem("floretteCart")) || [];
-  } catch (e) {
+    const items = JSON.parse(localStorage.getItem("floretteCart"));
+    return Array.isArray(items) ? items : [];
+  } catch (error) {
     return [];
   }
 }
 
 function saveCartItems(items) {
-  localStorage.setItem("floretteCart", JSON.stringify(items));
+  try {
+    localStorage.setItem("floretteCart", JSON.stringify(items));
+  } catch (error) {
+    console.error("Unable to save the cart:", error);
+  }
 }
 
 function updateCartCount() {
-  const el = document.getElementById("cart-count");
-  if (!el) return;
+  const cartCount = document.getElementById("cart-count");
 
-  el.textContent = getCartItems().reduce(
+  if (!cartCount) return;
+
+  const totalItems = getCartItems().reduce(
     (sum, item) => sum + Number(item.quantity || 1),
     0
   );
+
+  cartCount.textContent = totalItems;
 }
+
+
+// ============================================
+// MOBILE NAVIGATION
+// ============================================
 
 document.addEventListener("DOMContentLoaded", () => {
-    const params = new URLSearchParams(location.search);
-    const flower = getFlowerById(params.get("flower"));
+  const menuToggle = document.querySelector(".menu-toggle");
+  const mainNav = document.querySelector(".main-nav");
 
-    // Check whether the selected flower exists
-    if (!flower) {
-        document.querySelector(".product-main").innerHTML =
-            "<p>Flower not found. Please return to the catalogue.</p>";
-        return;
-    }
+  if (menuToggle && mainNav) {
+    menuToggle.setAttribute("aria-expanded", "false");
 
-    // Display the selected flower's information
-    document.title = flower.name + " | Fatin's Florette";
+    menuToggle.addEventListener("click", event => {
+      event.preventDefault();
+      event.stopPropagation();
 
-    document.getElementById("breadcrumb-name").textContent =
-        flower.name;
+      const isOpen = mainNav.classList.toggle("nav-open");
 
-    const productImage = document.getElementById("product-image");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+    });
 
-    // Product page is inside the pages folder
+    // Close the mobile menu when a normal navigation link is selected.
+    // Dropdown links still navigate normally.
+    mainNav.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        mainNav.classList.remove("nav-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    // Close the menu when the user taps outside it.
+    document.addEventListener("click", event => {
+      if (
+        mainNav.classList.contains("nav-open") &&
+        !mainNav.contains(event.target) &&
+        !menuToggle.contains(event.target)
+      ) {
+        mainNav.classList.remove("nav-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
+  updateCartCount();
+});
+
+
+// ============================================
+// PRODUCT PAGE
+// This section runs only when product elements exist.
+// ============================================
+
+document.addEventListener("DOMContentLoaded", () => {
+  const productMain = document.querySelector(".product-main");
+
+  // Prevent product-page code from breaking the catalogue,
+  // homepage, occasion page, or other pages.
+  if (!productMain) return;
+
+  const params = new URLSearchParams(window.location.search);
+  const flowerId = params.get("flower");
+  const flower = getFlowerById(flowerId);
+
+  // Check whether the selected flower exists.
+  if (!flower) {
+    productMain.innerHTML = `
+      <div class="product-error">
+        <h2>Flower not found</h2>
+        <p>Please return to the catalogue and select a flower.</p>
+        <a href="catalog.html">Back to Catalogue</a>
+      </div>
+    `;
+    return;
+  }
+
+  // Helper for safely finding product page elements.
+  function getElement(id) {
+    return document.getElementById(id);
+  }
+
+  // Display the selected flower's information.
+  document.title = flower.name + " | Fatin's Florette";
+
+  const breadcrumbName = getElement("breadcrumb-name");
+  const productImage = getElement("product-image");
+  const productCategory = getElement("product-category");
+  const productName = getElement("product-name");
+  const productDescription = getElement("product-description");
+
+  if (breadcrumbName) breadcrumbName.textContent = flower.name;
+
+  if (productImage) {
     productImage.src = flower.image;
     productImage.alt = flower.name;
+  }
 
-    document.getElementById("product-category").textContent =
-        flower.category.toUpperCase() + " FLOWERS";
+  if (productCategory) {
+    productCategory.textContent = flower.category.toUpperCase() + " FLOWERS";
+  }
 
-    document.getElementById("product-name").textContent =
-        flower.name;
+  if (productName) productName.textContent = flower.name;
 
-    document.getElementById("product-description").textContent =
-        flower.description || "Please contact us for more details.";
+  if (productDescription) {
+    productDescription.textContent =
+      flower.description || "Please contact us for more details.";
+  }
 
-    // Quantity and price
-    let quantity = 1;
+  // --------------------------------------------
+  // QUANTITY AND PRICE
+  // --------------------------------------------
 
-    const quantityText = document.getElementById("quantity");
-    const extras = document.getElementById("extra-flowers");
-    const price = document.getElementById("product-price");
+  let quantity = 1;
 
-    function updatePrice() {
-    const extraPrice = Number(extras.value) || 0;
-    const giftCardPrice = Number(giftCard.value) || 0;
+  const quantityText = getElement("quantity");
+  const extras = getElement("extra-flowers");
+  const price = getElement("product-price");
+  const giftCardSelect = getElement("gift-card");
 
-    const total = (
-        Number(flower.price) +
-        extraPrice +
-        giftCardPrice
-    ) * quantity;
+  function updatePrice() {
+    const extraPrice = extras ? Number(extras.value) || 0 : 0;
 
-    price.textContent = "BND " + total.toFixed(2);
-}
+    // Only the printed gift card costs BND 2.
+    // "none" and "handwritten" do not add a charge.
+    let giftCardPrice = 0;
 
-    updatePrice();
-
-    document.getElementById("quantity-minus").addEventListener("click", () => {
-        quantity = Math.max(1, quantity - 1);
-        quantityText.textContent = quantity;
-        updatePrice();
-    });
-
-    document.getElementById("quantity-plus").addEventListener("click", () => {
-        quantity = Math.min(20, quantity + 1);
-        quantityText.textContent = quantity;
-        updatePrice();
-    });
-
-    extras.addEventListener("change", updatePrice);
-
-    // Favourite button
-    let favourites = JSON.parse(
-        localStorage.getItem("floretteFavourites") || "[]"
-    );
-
-    const heart = document.getElementById("favourite-button");
-
-    function drawHeart() {
-        const isFavourite = favourites.includes(flower.id);
-        heart.textContent = isFavourite ? "♥" : "♡";
-        heart.classList.toggle("is-favourite", isFavourite);
+    if (giftCardSelect && giftCardSelect.value === "printed") {
+      giftCardPrice = 2;
     }
 
+    const total =
+      (Number(flower.price) + extraPrice + giftCardPrice) * quantity;
+
+    if (price) {
+      price.textContent = "BND " + total.toFixed(2);
+    }
+  }
+
+  updatePrice();
+
+  const quantityMinus = getElement("quantity-minus");
+  const quantityPlus = getElement("quantity-plus");
+
+  if (quantityMinus) {
+    quantityMinus.addEventListener("click", () => {
+      quantity = Math.max(1, quantity - 1);
+
+      if (quantityText) quantityText.textContent = quantity;
+
+      updatePrice();
+    });
+  }
+
+  if (quantityPlus) {
+    quantityPlus.addEventListener("click", () => {
+      quantity = Math.min(20, quantity + 1);
+
+      if (quantityText) quantityText.textContent = quantity;
+
+      updatePrice();
+    });
+  }
+
+  if (extras) {
+    extras.addEventListener("change", updatePrice);
+  }
+
+  if (giftCardSelect) {
+    giftCardSelect.addEventListener("change", updatePrice);
+  }
+
+
+  // --------------------------------------------
+  // FAVOURITE BUTTON
+  // --------------------------------------------
+
+  let favourites = [];
+
+  try {
+    const savedFavourites = JSON.parse(
+      localStorage.getItem("floretteFavourites") || "[]"
+    );
+
+    favourites = Array.isArray(savedFavourites) ? savedFavourites : [];
+  } catch (error) {
+    favourites = [];
+  }
+
+  const heart = getElement("favourite-button");
+
+  function drawHeart() {
+    if (!heart) return;
+
+    const isFavourite = favourites.includes(flower.id);
+
+    heart.textContent = isFavourite ? "♥" : "♡";
+    heart.classList.toggle("is-favourite", isFavourite);
+    heart.setAttribute("aria-pressed", String(isFavourite));
+  }
+
+  if (heart) {
     heart.addEventListener("click", () => {
-        favourites = JSON.parse(
-            localStorage.getItem("floretteFavourites") || "[]"
-        );
+      if (favourites.includes(flower.id)) {
+        favourites = favourites.filter(id => id !== flower.id);
+      } else {
+        favourites.push(flower.id);
+      }
 
-        if (favourites.includes(flower.id)) {
-            favourites = favourites.filter(id => id !== flower.id);
-        } else {
-            favourites.push(flower.id);
-        }
-
+      try {
         localStorage.setItem(
-            "floretteFavourites",
-            JSON.stringify(favourites)
+          "floretteFavourites",
+          JSON.stringify(favourites)
         );
+      } catch (error) {
+        console.error("Unable to save favourites:", error);
+      }
 
-        drawHeart();
+      drawHeart();
     });
+  }
 
-    drawHeart();
+  drawHeart();
 
-    // Recommended products
+
+  // --------------------------------------------
+  // RECOMMENDED PRODUCTS
+  // --------------------------------------------
+
+  const recommendationsContainer = getElement("recommendations");
+
+  if (recommendationsContainer) {
     const recommendations = flowers
-        .filter(f => f.id !== flower.id)
-        .slice(0, 4);
+      .filter(item => item.id !== flower.id)
+      .slice(0, 4);
 
-    document.getElementById("recommendations").innerHTML =
-        recommendations.map(f => `
-            <article class="recommendation-card">
-                <a class="recommendation-image"
-                   href="product.html?flower=${encodeURIComponent(f.id)}">
-                    <img src="${f.image}"
-                         alt="${f.name}"
-                         loading="lazy">
-                </a>
+    recommendationsContainer.innerHTML = recommendations.map(item => `
+      <article class="recommendation-card">
+        <a
+          class="recommendation-image"
+          href="product.html?flower=${encodeURIComponent(item.id)}"
+        >
+          <img
+            src="${item.image}"
+            alt="${item.name}"
+            loading="lazy"
+          >
+        </a>
 
-                      
         <div class="recommendation-meta">
-            <a href="product.html?flower=${encodeURIComponent(f.id)}">
-                ${f.name}
-            </a>
-            <span>
-                BND ${Number(f.price).toFixed(2)}
-            </span>
+          <a href="product.html?flower=${encodeURIComponent(item.id)}">
+            ${item.name}
+          </a>
+
+          <span>BND ${Number(item.price).toFixed(2)}</span>
         </div>
+      </article>
+    `).join("");
+  }
 
-            </article>
-        `).join("");
 
-    // Add selected flower to cart
-    document.getElementById("add-to-cart").addEventListener("click", () => {
-        const giftCard = document.getElementById("gift-card").value;
-        const extraFlowers = Number(extras.value);
-        const cart = getCartItems();
+  // --------------------------------------------
+  // ADD TO CART
+  // --------------------------------------------
 
-        const existing = cart.find(item =>
-            item.id === flower.id &&
-            item.giftCard === giftCard &&
-            Number(item.extraFlowers) === extraFlowers
-        );
+  const addToCartButton = getElement("add-to-cart");
+  const cartMessage = getElement("cart-message");
 
-        if (existing) {
-            existing.quantity =
-                Number(existing.quantity || 1) + quantity;
-        } else {
-            cart.push({
-                id: flower.id,
-                quantity,
-                giftCard,
-                extraFlowers
-            });
-        }
+  if (addToCartButton) {
+    addToCartButton.addEventListener("click", () => {
+      const giftCard = giftCardSelect ? giftCardSelect.value : "none";
+      const extraFlowers = extras ? Number(extras.value) || 0 : 0;
 
-        saveCartItems(cart);
-        updateCartCount();
+      const cart = getCartItems();
 
-        document.getElementById("cart-message").textContent =
-            flower.name + " added to your cart.";
+      const existing = cart.find(item =>
+        item.id === flower.id &&
+        item.giftCard === giftCard &&
+        Number(item.extraFlowers || 0) === extraFlowers
+      );
+
+      if (existing) {
+        existing.quantity =
+          Number(existing.quantity || 1) + quantity;
+      } else {
+        cart.push({
+          id: flower.id,
+          quantity: quantity,
+          giftCard: giftCard,
+          extraFlowers: extraFlowers
+        });
+      }
+
+      saveCartItems(cart);
+      updateCartCount();
+
+      if (cartMessage) {
+        cartMessage.textContent = flower.name + " added to your cart!";
+      }
+
+      // Briefly change the button text to confirm the action.
+      const originalText = addToCartButton.textContent;
+
+      addToCartButton.textContent = "Added to Cart!";
+
+      setTimeout(() => {
+        addToCartButton.textContent = originalText;
+      }, 1500);
     });
+  }
 });
