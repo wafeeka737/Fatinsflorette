@@ -1337,3 +1337,55 @@ img {
         gap: 25px 12px;
     }
 }
+
+
+/* =========================================
+   TABLET RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .site-header {
+        gap: 12px;
+        padding: 10px 16px;
+    }
+
+    .logo-name {
+        font-size: 17px;
+    }
+
+    .logo-tagline {
+        font-size: 7px;
+        letter-spacing: 1px;
+    }
+
+    .main-nav {
+        gap: 10px;
+    }
+
+    /* Resize all navigation links equally */
+
+    .main-nav > a,
+    .nav-dropdown > .dropdown-toggle {
+        font-size: 8px;
+    }
+
+    .header-actions {
+        gap: 5px;
+    }
+
+    .search-button,
+    .cart-link {
+        min-width: 29px;
+        height: 29px;
+    }
+
+    .home-intro {
+        gap: 30px;
+    }
+
+    .footer-main {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px;
+    }
+}
