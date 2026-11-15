@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 ...localFlower,
                 ...databaseFlower,
 
-                // Preserve local image and category information.
+
                 image: localFlower.image,
                 category: localFlower.category,
                 color: localFlower.color,

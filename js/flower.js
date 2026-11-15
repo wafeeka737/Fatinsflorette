@@ -552,10 +552,7 @@ const flowers = [
 
 window.flowers = flowers;
 
-
-// ============================================
 // FLOWER HELPER FUNCTIONS
-// ============================================
 
 function getFlowerById(id) {
   return flowers.find(flower => flower.id === id);
@@ -591,10 +588,7 @@ function updateCartCount() {
   cartCount.textContent = totalItems;
 }
 
-
-// ============================================
 // MOBILE NAVIGATION
-// ============================================
 
 document.addEventListener("DOMContentLoaded", () => {
   const menuToggle = document.querySelector(".menu-toggle");
@@ -612,8 +606,6 @@ document.addEventListener("DOMContentLoaded", () => {
       menuToggle.setAttribute("aria-expanded", String(isOpen));
     });
 
-    // Close the mobile menu when a normal navigation link is selected.
-    // Dropdown links still navigate normally.
     mainNav.querySelectorAll("a").forEach(link => {
       link.addEventListener("click", () => {
         mainNav.classList.remove("nav-open");
@@ -621,7 +613,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    // Close the menu when the user taps outside it.
     document.addEventListener("click", event => {
       if (
         mainNav.classList.contains("nav-open") &&
@@ -638,23 +629,17 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// ============================================
 // PRODUCT PAGE
-// This section runs only when product elements exist.
-// ============================================
 
 document.addEventListener("DOMContentLoaded", () => {
   const productMain = document.querySelector(".product-main");
 
-  // Prevent product-page code from breaking the catalogue,
-  // homepage, occasion page, or other pages.
   if (!productMain) return;
 
   const params = new URLSearchParams(window.location.search);
   const flowerId = params.get("flower");
   const flower = getFlowerById(flowerId);
 
-  // Check whether the selected flower exists.
   if (!flower) {
     productMain.innerHTML = `
       <div class="product-error">
@@ -666,12 +651,10 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  // Helper for safely finding product page elements.
   function getElement(id) {
     return document.getElementById(id);
   }
 
-  // Display the selected flower's information.
   document.title = flower.name + " | Fatin's Florette";
 
   const breadcrumbName = getElement("breadcrumb-name");
@@ -698,9 +681,7 @@ document.addEventListener("DOMContentLoaded", () => {
       flower.description || "Please contact us for more details.";
   }
 
-  // --------------------------------------------
   // QUANTITY AND PRICE
-  // --------------------------------------------
 
   let quantity = 1;
 
@@ -712,8 +693,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function updatePrice() {
     const extraPrice = extras ? Number(extras.value) || 0 : 0;
 
-    // Only the printed gift card costs BND 2.
-    // "none" and "handwritten" do not add a charge.
+  
     let giftCardPrice = 0;
 
     if (giftCardSelect && giftCardSelect.value === "printed") {
@@ -761,10 +741,7 @@ document.addEventListener("DOMContentLoaded", () => {
     giftCardSelect.addEventListener("change", updatePrice);
   }
 
-
-  // --------------------------------------------
   // FAVOURITE BUTTON
-  // --------------------------------------------
 
   let favourites = [];
 
@@ -813,10 +790,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   drawHeart();
 
-
-  // --------------------------------------------
   // RECOMMENDED PRODUCTS
-  // --------------------------------------------
 
   const recommendationsContainer = getElement("recommendations");
 
@@ -849,10 +823,7 @@ document.addEventListener("DOMContentLoaded", () => {
     `).join("");
   }
 
-
-  // --------------------------------------------
   // ADD TO CART
-  // --------------------------------------------
 
   const addToCartButton = getElement("add-to-cart");
   const cartMessage = getElement("cart-message");
