@@ -306,15 +306,9 @@
 /* ========== RESPONSIVE DESIGN (MOBILE) ========== */
 
 @media (max-width: 850px) {
-    .about-container {
-        width: calc(100% - 24px);
-        padding: 30px 0;
-    }
-    
-    .about-card { 
-        padding: 30px 20px; 
-    }
-    
+    /* ... keep your other mobile styles ... */
+
+    /* UPDATE THIS SECTION */
     .story-section {
         flex-direction: column;
         gap: 30px;
@@ -322,50 +316,22 @@
     
     .image-cluster {
         width: 100%;
-        height: 300px;
+        height: auto; /* Change from 300px to auto */
+        min-height: 320px; /* Ensures the box is tall enough to hold the images */
+        margin-top: 20px; /* Adds space between the text and the images */
+        margin-bottom: 20px; /* Adds space below the images */
     }
     
     .image-cluster img {
-        width: 180px;
-        height: 240px;
+        width: 160px; /* Slightly smaller so they fit better on narrow phones */
+        height: 220px;
     }
     
-    .workshop-section {
-        flex-direction: column-reverse;
-        gap: 30px;
-    }
-    
-    .workshop-main-image {
-        max-width: 100%;
-    }
-    
-    .workshop-main-image img {
-        height: 300px;
+    /* This pushes the bottom image down so it doesn't overlap the top one */
+    .image-cluster img:last-child {
+        bottom: -20px; /* Pushes it lower */
+        right: 0;
     }
 
-    .founder-section {
-        flex-direction: column;
-        align-items: center;
-        padding: 30px 20px;
-        text-align: center;
-    }
-    
-    .founder-image {
-        flex: 0 0 auto;
-        width: 100%;
-        max-width: 240px;
-        margin-bottom: 20px;
-    }
-    
-    .founder-text {
-        text-align: center;
-    }
-    
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .gallery-grid img {
-        height: 180px;
-    }
+    /* ... keep the rest of your mobile styles ... */
 }
