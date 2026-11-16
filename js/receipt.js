@@ -4,9 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Receipt JS Loaded");
 
 
-    // ============================
     // BILLING INFORMATION
-    // ============================
 
     const firstName =
         localStorage.getItem("firstName") || "";
@@ -43,20 +41,17 @@ document.addEventListener("DOMContentLoaded", () => {
         `${address}<br>${city} ${zip}`.trim();
 
 
-    // ============================
     // INVOICE NUMBER
-    // ============================
 
-    const invoiceNumber =
-        "INV-" + Math.floor(Math.random() * 1000000);
+    const invoiceNumber = localStorage.getItem("orderId")
+    ? "INV-" + localStorage.getItem("orderId")
+    : "INV-" + Math.floor(Math.random() * 1000000);
 
     document.getElementById("receipt-order-number").textContent =
         invoiceNumber;
 
 
-    // ============================
     // PAYMENT TIME
-    // ============================
 
     const currentTime = new Date();
 
@@ -64,9 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
         currentTime.toLocaleString();
 
 
-    // ============================
     // PAYMENT METHOD
-    // ============================
 
     const paymentMethod =
         localStorage.getItem("paymentMethod");
@@ -75,13 +68,9 @@ document.addEventListener("DOMContentLoaded", () => {
         paymentMethod || "Not Selected";
 
 
-    // ============================
     // LOAD CART
-    // ============================
 
-   // ============================
 // LOAD PURCHASED ITEMS
-// ============================
 // change it here so taht cart loads from floretteOrderItems instead of floretteCart and remove and store receipt//
 const cart =
     JSON.parse(
@@ -91,16 +80,11 @@ const cart =
     const receiptItems =
         document.getElementById("receipt-items-container");
 
-
-    // ============================
     // DISPLAY ORDER ITEMS
-    // ============================
 
     cart.forEach(item => {
 
-// =====================================
 // CUSTOM BUILD-A-BOUQUET
-// =====================================
 
 if (item.type === "customBouquet") {
 
@@ -177,9 +161,7 @@ if (item.type === "customBouquet") {
 }
 
 
-// =====================================
 // NORMAL CATALOGUE FLOWERS
-// =====================================
 
 const flower =
     flowers.find(
@@ -270,9 +252,7 @@ if (!flower) return;
     });
 
 
-    // ============================
     // DISPLAY TOTALS
-    // ============================
 
     const subtotal =
         Number(
