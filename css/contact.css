@@ -275,37 +275,57 @@ details p {
     white-space: pre-line;
 }
 
-
 /* ========== RESPONSIVE ========== */
 
 @media (max-width: 850px) {
     .page-bg {
         width: calc(100% - 24px);
         margin-top: 16px;
+        padding: 20px 0 40px; /* Reduced padding */
     }
 
     .main-card {
-        padding: 30px 20px;
+        padding: 25px 15px; /* Reduced padding so it fits the screen better */
+        width: 100% !important;
+        box-sizing: border-box; /* Ensures padding doesn't expand the width */
     }
 
     .contact-top {
         flex-direction: column;
         text-align: center;
-        gap: 30px;
+        gap: 20px;
     }
 
     .contact-image {
-        width: 220px;
-        height: 220px;
+        width: 180px; /* Made slightly smaller so it doesn't push the card */
+        height: 180px;
+    }
+
+    .contact-form-container {
+        width: 100% !important;
+        max-width: 100% !important;
     }
 
     .contact-form-container h2 {
         text-align: center;
     }
 
+    /* --- THIS IS THE MAGIC FIX FOR THE FORM --- */
+    .name-row {
+        flex-direction: column; /* Stacks First Name and Last Name on top of each other */
+        gap: 10px; /* Adds a little space between them */
+    }
+
+    /* Forces all inputs to fit inside the white card */
+    input, 
+    textarea {
+        width: 100% !important;
+        box-sizing: border-box !important; 
+    }
+
     .contact-info {
         flex-direction: column;
-        gap: 15px;
+        gap: 20px;
         padding: 20px 0;
     }
 }
