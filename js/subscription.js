@@ -246,60 +246,111 @@ function showPrice() {
 // ---------- CONFIRM THE SUBSCRIPTION ----------
 
 // when the user clicks "Send Subscription Request"
-function confirmSubscription() {
+async function confirmSubscription() {
   let error = document.getElementById("step2-error");
   error.textContent = "";
 
-  // check again, in case the user took out all the flowers
+  // Check if the user has selected a plan and flowers
   if (chosenPlan == "" || chosenFlowers.length == 0) {
     error.textContent = "Please go back and add at least one flower.";
     return;
   }
 
-  // text for the length, like "1 Year" or "6 months"
+  // Convert duration into text
   let months = Number(document.getElementById("length").value);
   let lengthText = months + " months";
+
   if (months == 1) {
     lengthText = "1 month";
   }
+
   if (months == 12) {
     lengthText = "1 Year";
   }
 
-  // list of the flowers
+  // List the selected flowers
   let flowerText = "";
+
   for (let i = 0; i < chosenFlowers.length; i++) {
-    flowerText = flowerText + chosenFlowers[i].name + " x " + chosenFlowers[i].qty + "<br>";
+    flowerText += chosenFlowers[i].name + " x " +
+      chosenFlowers[i].qty + "<br>";
   }
 
-  // put everything together
-  let subscription = {
-    plan: chosenPlan,
-    flowers: chosenFlowers,
-    frequency: document.getElementById("frequency").value,
-    months: months,
-    deliveries: getDeliveries(),
-    pricePerDelivery: Number(getPricePerDelivery().toFixed(2)),
-    estimatedTotal: Number(getTotal().toFixed(2))
+  // Match subscription plans with database category IDs
+  const categoryIDs = {
+    "Fresh Flowers": 1,
+    "Seasonal Flowers": 2,
+    "Dried Flowers": 3
   };
 
-  console.log(subscription);
+  // Get today's date using the user's local date
+  let today = new Date();
+  let startDate =
+    today.getFullYear() + "-" +
+    String(today.getMonth() + 1).padStart(2, "0") + "-" +
+    String(today.getDate()).padStart(2, "0");
 
-  // TODO: send "subscription" to the database developer's code
-  // (they will tell us the link / file to send it to)
+  // Prepare subscription details for the database
+  const subscriptionPayload = {
+    Customer_ID: 1,
+    Category_ID: categoryIDs[chosenPlan],
+    Frequency: document.getElementById("frequency").value,
+    Duration: lengthText,
+    Start_Date: startDate,
+    Notes:
+      "Flowers selected: " +
+      chosenFlowers.map(f => f.name + " x" + f.qty).join(", ") +
+      ". Delivery area: " +
+      document.getElementById("area").value,
+    Subscription_Status: "Pending",
+    Total_Price: Number(getTotal().toFixed(2))
+  };
 
-  // hide the steps and show the thank you message
-  document.getElementById("step1").classList.add("hidden");
-  document.getElementById("step2").classList.add("hidden");
-  document.getElementById("success").classList.remove("hidden");
+  console.log("Subscription being sent:", subscriptionPayload);
 
-  document.getElementById("success-text").innerHTML =
-    "We got your subscription request.<br><br>" +
-    "Subscription: " + chosenPlan + "<br>" +
-    "Flowers for each delivery:<br>" + flowerText +
-    "Delivery: " + document.getElementById("frequency").value + "<br>" +
-    "Length: " + lengthText + "<br>" +
-    "<b>Estimated total: $" + getTotal().toFixed(2) + "</b>";
+  // Send subscription details to the server
+  try {
+    const response = await fetch("http://localhost:5000/subscriptions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(subscriptionPayload)
+    });
 
-  document.getElementById("success").scrollIntoView({ behavior: "smooth" });
+    const data = await response.json();
+
+console.log("Server response:", data);
+
+if (!response.ok) {
+  throw new Error(
+    data.sqlMessage || data.message || JSON.stringify(data)
+  );
+}
+
+    console.log("Subscription saved:", data);
+
+    // Show the success page only after database saves successfully
+    document.getElementById("step1").classList.add("hidden");
+    document.getElementById("step2").classList.add("hidden");
+    document.getElementById("success").classList.remove("hidden");
+
+    document.getElementById("success-text").innerHTML =
+      "We got your subscription request.<br><br>" +
+      "Subscription: " + chosenPlan + "<br>" +
+      "Flowers for each delivery:<br>" + flowerText +
+      "Delivery: " + document.getElementById("frequency").value + "<br>" +
+      "Length: " + lengthText + "<br>" +
+      "<b>Estimated total: $" + getTotal().toFixed(2) + "</b>";
+
+    document.getElementById("success").scrollIntoView({
+      behavior: "smooth"
+    });
+
+  } catch (err) {
+  console.error("Failed to save subscription:", err);
+
+  error.textContent =
+    "Unable to save subscription: " + err.message;
+}
 }

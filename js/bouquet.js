@@ -50,6 +50,52 @@ let flowers = [
   { name: "Ranunculus (Seasonal)", image: "../images/ranunculus.png", shape: "ranunculus", colour: "Pink", price: 5.5 },
 ];
 
+// ---------- LOAD FLOWERS FROM DATABASE ----------
+
+async function loadLiveFlowers() {
+  try {
+    const response = await fetch("http://localhost:5000/products");
+
+    if (!response.ok) {
+      throw new Error("Unable to connect to database.");
+    }
+
+    const dbData = await response.json();
+
+    if (!Array.isArray(dbData)) {
+      throw new Error("Invalid product data received.");
+    }
+
+    flowers = flowers.map(localFlower => {
+      const dbFlower = dbData.find(db =>
+        String(db.name).trim().toLowerCase() ===
+        localFlower.name.trim().toLowerCase()
+      );
+
+      if (dbFlower && Number.isFinite(Number(dbFlower.price))) {
+        return {
+          ...localFlower,
+          price: Number(dbFlower.price)
+        };
+      }
+
+      return localFlower;
+    });
+
+    console.log("Flowers successfully loaded from database!");
+    console.log(flowers);
+
+  } catch (error) {
+    console.error("Database connection error:", error);
+    console.log("Using the original flower list instead.");
+  }
+
+  saveState();
+  refreshAll();
+  goToStep(1);
+  checkPictures();
+}
+
 // the wrapped bouquet (the paper) and its colours
 let wrapper = {
   name: "Wrapped bouquet",
@@ -1101,9 +1147,6 @@ window.location.href =
 } // closes your function here
 
 
-// ---------- start ----------
+// ----------- start -----------
 
-saveState();
-refreshAll();
-goToStep(1);
-checkPictures();
+loadLiveFlowers();
