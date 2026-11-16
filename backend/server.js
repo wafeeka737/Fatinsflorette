@@ -275,7 +275,6 @@ app.post("/orders", (req, res) => {
     const {
         Customer_ID,
         Payment_Method,
-        Delivery_Method,
         Shipping_Fee,
         Subtotal,
         Total_Amount,
@@ -285,14 +284,14 @@ app.post("/orders", (req, res) => {
 
     const orderSql = `
         INSERT INTO orders (
-            Customer_ID, Order_Date, Payment_Method, Delivery_Method,
+            Customer_ID, Order_Date, Payment_Method,
             Shipping_Fee, Subtotal, Total_Amount, Order_Status
         )
-        VALUES (?, NOW(), ?, ?, ?, ?, ?, ?)`;
+        VALUES (?, NOW(), ?, ?, ?, ?, ?)`;
 
     db.query(
         orderSql,
-        [Customer_ID, Payment_Method, Delivery_Method, Shipping_Fee, Subtotal, Total_Amount, Order_Status],
+        [Customer_ID, Payment_Method, Shipping_Fee, Subtotal, Total_Amount, Order_Status],
         (err, orderResult) => {
             if (err) {
                 console.error(err);
