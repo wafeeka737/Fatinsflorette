@@ -103,18 +103,25 @@
                     <img src="../pics/contact.png" alt="Bouquet of flowers">
                 </div>
 
-                <div class="contact-form-container">
-                    <h2>Get In Touch</h2>
-                    <form action="#" method="post">
-                        <div class="name-row">
-                            <input type="text" name="first_name" placeholder="First Name" required>
-                            <input type="text" name="last_name" placeholder="Last Name" required>
-                        </div>
-                        <input type="tel" name="phone" placeholder="Phone Number">
-                        <textarea name="message" placeholder="Message" required></textarea>
-                        <button type="submit" class="hero-button">Submit</button>
-                    </form>
-                </div>
+               <div class="contact-form-container">
+    <h2>Get In Touch</h2>
+    
+    <!-- ADDED id="whatsappForm" HERE -->
+    <form id="whatsappForm">
+        <div class="name-row">
+            <!-- ADDED id="firstName" and id="lastName" HERE -->
+            <input type="text" id="firstName" name="first_name" placeholder="First Name" required>
+            <input type="text" id="lastName" name="last_name" placeholder="Last Name" required>
+        </div>
+        <!-- ADDED id="phone" HERE -->
+        <input type="tel" id="phone" name="phone" placeholder="Phone Number">
+        
+        <!-- ADDED id="message" HERE -->
+        <textarea id="message" name="message" placeholder="Message" required></textarea>
+        
+        <button type="submit" class="hero-button">Submit</button>
+    </form>
+</div>
             </section>
 
             <section class="contact-info">
@@ -233,6 +240,7 @@
         </div>
     </footer>
     
+    <!-- Existing script for the menu -->
     <script>
         const toggle = document.querySelector('.menu-toggle');
         const nav = document.getElementById('mainNav');
@@ -243,6 +251,38 @@
             });
         }
     </script>
+
+    <!-- Existing script for search -->
     <script src="../js/search.js"></script>
+
+    <!-- 👇 PASTE THE NEW WHATSAPP SCRIPT RIGHT HERE 👇 -->
+    <script>
+        document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevents the 405 Not Allowed error
+
+            // Get values from the form
+            var fname = document.getElementById('firstName').value;
+            var lname = document.getElementById('lastName').value;
+            var phone = document.getElementById('phone').value;
+            var msg = document.getElementById('message').value;
+
+            // Your WhatsApp number (Country code + number, no symbols)
+            var myNumber = "6738633134"; 
+
+            // Format the message with line breaks (%0A) and bold text (*)
+            var text = "Hello Fatin's Florette!%0A%0A" + 
+                       "*Name:* " + fname + " " + lname + "%0A" + 
+                       "*Phone:* " + phone + "%0A" + 
+                       "*Message:* " + msg;
+
+            // Open WhatsApp in a new tab
+            window.open("https://wa.me/" + myNumber + "?text=" + text, "_blank");
+            
+            // Clear the form after sending
+            document.getElementById('whatsappForm').reset();
+        });
+    </script>
+    <!-- 👆 END OF NEW SCRIPT 👆 -->
+
 </body>
 </html>
