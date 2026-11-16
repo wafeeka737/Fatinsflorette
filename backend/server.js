@@ -269,6 +269,7 @@ app.post("/cart", (req, res) => {
 });
 
 // checkout link (order & order item)
+//making changes here - ezah 
 app.post("/orders", (req, res) => {
 
     const {
@@ -284,82 +285,53 @@ app.post("/orders", (req, res) => {
 
     const orderSql = `
         INSERT INTO orders (
-            Customer_ID,
-            Order_Date,
-            Payment_Method,
-            Delivery_Method,
-            Shipping_Fee,
-            Subtotal,
-            Total_Amount,
-            Order_Status
-        )     
+            Customer_ID, Order_Date, Payment_Method, Delivery_Method,
+            Shipping_Fee, Subtotal, Total_Amount, Order_Status
+        )
         VALUES (?, NOW(), ?, ?, ?, ?, ?, ?)`;
 
     db.query(
         orderSql,
-        [
-            Customer_ID,
-            Payment_Method,
-            Delivery_Method,
-            Shipping_Fee,
-            Subtotal,
-            Total_Amount,
-            Order_Status,
-        ],
+        [Customer_ID, Payment_Method, Delivery_Method, Shipping_Fee, Subtotal, Total_Amount, Order_Status],
         (err, orderResult) => {
             if (err) {
+                console.error(err);
                 return res.status(500).json(err);
             }
 
             const orderId = orderResult.insertId;
 
-            // Insert order items here if needed
-
             if (!orderItems || orderItems.length === 0) {
-                return res.json({
-                    message: "Order placed successfully",
-                });
+                return res.json({ message: "Order placed successfully", orderId });
             }
+
+            const orderItemSql = `
+                INSERT INTO OrderItem (Order_ID, Product_ID, Quantity, Price, Subtotal)
+                VALUES (?, ?, ?, ?, ?)`;
 
             let completed = 0;
             let hasError = false;
 
             orderItems.forEach((item) => {
-                const orderItemSql = `
-                    INSERT INTO OrderItem (
-                        Order_ID,
-                        Product_ID,
-                        Quantity,
-                        Price,
-                        Subtotal
-                    )     
-                    VALUES (?, ?, ?, ?, ?)`;
+                db.query(
+                    orderItemSql,
+                    [orderId, item.Product_ID, item.Quantity, item.Price, item.Subtotal],
+                    (err) => {
+                        if (hasError) return;
+
+                        if (err) {
+                            hasError = true;
+                            console.error(err);
+                            return res.status(500).json(err);
+                        }
+
+                        completed++;
+                        if (completed === orderItems.length) {
+                            res.json({ message: "Order placed successfully", orderId });
+                        }
+                    }
+                );
             });
-            
-            db.query(
-                orderItemSql,
-                [
-                    orderId,
-                    item.Product_ID,
-                    item.Quantity,
-                    item.Price,
-                    item.Subtotal
-                ],
-                (err) => {
-
-                    if (hasError) return;
-
-                    if (err) {
-                        hasError = true;
-                        return res.status(500).json(err);
-                    }
-
-                    completed++;
-                    if (completed === orderItems.length) {
-                        res.json({ message: "Order placed successfully" });
-                    }
-                }
-            );
         }
     );
 });

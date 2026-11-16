@@ -347,7 +347,7 @@ const checkoutForm =
 
 checkoutForm.addEventListener(
     "submit",
-    function (event) {
+    async function (event) {
 
         event.preventDefault();
 
@@ -573,8 +573,57 @@ checkoutForm.addEventListener(
             }
 
         }
+        // ===== SAVE ORDER TO DATABASE =====
+try {
+    const dbRes = await fetch("http://localhost:5000/products");
+    const dbProducts = await dbRes.json();
 
+    const orderItems = cart.map(item => {
+        const qty = Number(item.quantity || 1);
+        const giftCardPrice = (item.giftCard === "printed" || item.giftCard === "2") ? 2 : 0;
+        const extra = Number(item.extraFlowers || 0);
+        let base = 0;
+        let productId = null;
 
+        if (item.type === "customBouquet") {
+            base = Number(item.price || 0);   // custom bouquets have no Product_ID
+        } else {
+            const flower = flowers.find(f => f.id === item.id);
+            if (flower) {
+                base = Number(flower.price);
+                const match = dbProducts.find(p =>
+                    String(p.name).trim().toLowerCase() === flower.name.trim().toLowerCase()
+                );
+                productId = match ? match.id : null;
+            }
+        }
+
+        const price = base + giftCardPrice + extra;
+        return { Product_ID: productId, Quantity: qty, Price: price, Subtotal: price * qty };
+    });
+
+    const response = await fetch("http://localhost:5000/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            Customer_ID: 1,
+            Payment_Method: paymentMethod,
+            Delivery_Method: deliveryMethod,
+            Shipping_Fee: shippingFee,
+            Subtotal: subtotal,
+            Total_Amount: subtotal + shippingFee,
+            Order_Status: "Pending",
+            orderItems: orderItems
+        })
+    });
+
+    if (!response.ok) throw new Error("Server rejected the order (status " + response.status + ")");
+    const result = await response.json();
+    if (result.orderId) localStorage.setItem("orderId", result.orderId);
+
+} catch (error) {
+    console.error("Order was NOT saved to the database:", error);
+}
         // =============================
         // SAVE CHECKOUT INFO
         // =============================
