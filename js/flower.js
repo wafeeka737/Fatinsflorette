@@ -1,6 +1,4 @@
-// ============================================
-// FATIN'S FLORETTE - FLOWER DATA
-// ============================================
+
 
 const flowers = [
   {
@@ -11,7 +9,7 @@ const flowers = [
     description: "Fresh lilies arranged in a delicate bouquet, bringing a touch of elegance and beauty to any special occasion.",
     color: "pink",
     image: "../images/lilies 1.jpeg",
-    tags: ["best-seller"],
+    tags: ["best-seller"]
   },
   {
     id: "sunflower-bouquet",
@@ -54,7 +52,7 @@ const flowers = [
     color: "purple",
     description: "Lovely lilac roses come together in a graceful arrangement, adding a soft and charming touch to any occasion.",
     image: "../images/fresh purple bouquet.jpeg",
-    tags: ["best-seller"],
+    tags: ["best-seller"]
   },
   {
     id: "mixed-flower-bouquet",
@@ -97,7 +95,7 @@ const flowers = [
     color: "pink",
     description: "A lovely arrangement of dried flowers in soft, warm tones, creating a charming keepsake that lasts beyond the occasion.",
     image: "../images/dried flowers 5.jpeg",
-    tags: ["dried"],
+    tags: ["dried"]
   },
   {
     id: "sunset",
@@ -107,7 +105,7 @@ const flowers = [
     color: "mixed",
     description: "Warm golden grasses and dried blooms come together in a natural arrangement, bringing a cosy and rustic touch to any space.",
     image: "../images/dried flowers 6.jpeg",
-    tags: ["dried"],
+    tags: ["dried"]
   },
   {
     id: "everlasting-blush",
@@ -117,7 +115,7 @@ const flowers = [
     color: "pink",
     description: "Soft blush and cream artificial blooms create a beautiful arrangement that adds lasting charm to any room.",
     image: "../images/artificial flower basket 2.jpeg",
-    tags: ["artificial", "basket series"],
+    tags: ["artificial", "basket series"]
   },
   {
     id: "lilac-letters",
@@ -138,7 +136,7 @@ const flowers = [
     color: "purple",
     description: "Warm-toned artificial flowers create a cheerful arrangement that keeps its beauty without the need for regular care.",
     image: "../images/artificial flower basket 1.jpeg",
-    tags: ["artificial", "basket series"],
+    tags: ["artificial", "basket series"]
   },
   {
     id: "sweet-on-you",
@@ -192,7 +190,7 @@ const flowers = [
     color: "red",
     description: "A sweet little surprise featuring beautiful blooms and treats, because sometimes you don't need a reason to make someone smile.",
     image: "../images/petals and pastries 8.jpeg",
-    tags: ["Petals & Pastries"],
+    tags: ["Petals & Pastries"]
   },
   {
     id: "for-you",
@@ -213,7 +211,7 @@ const flowers = [
     color: "green",
     description: "A charming floral and pastry pairing, bringing together the beauty of fresh blooms and the sweetness of a little treat.",
     image: "../images/petals and pastries 12.jpeg",
-    tags: ["Petals & Pastries"],
+    tags: ["Petals & Pastries"]
   },
   {
     id: "lilac-butter",
@@ -343,7 +341,7 @@ const flowers = [
     color: "blue",
     description: "Soft blue dried flowers create a dreamy arrangement, offering a unique and lasting gift for someone special.",
     image: "../images/dried flowers 8.jpeg",
-    tags: ["dried"],
+    tags: ["dried"]
   },
   {
     id: "satin-Bloom",
@@ -386,7 +384,7 @@ const flowers = [
     color: "blue",
     description: "A delicate blend of blue dried blooms creates a calming arrangement, perfect for adding a soft touch to your home.",
     image: "../images/dried flowers 10.jpeg",
-    tags: ["best-seller"],
+    tags: ["best-seller"]
   },
   {
     id: "blanc de Rose",
