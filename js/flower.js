@@ -333,7 +333,7 @@ const flowers = [
     color: "yellow",
     description: "A sweet arrangement of soft yellow blooms presented in a beautiful basket, bringing warmth and happiness to any space.",
     image: "../images/basket fresh flowers 5.jpeg",
-    tags: ["basket series"]
+    tags: ["basket series"],
   },
   {
     id: "lune-Bleue",
@@ -552,7 +552,9 @@ const flowers = [
 
 window.flowers = flowers;
 
+// ============================================
 // FLOWER HELPER FUNCTIONS
+// ============================================
 
 function getFlowerById(id) {
   return flowers.find(flower => flower.id === id);
@@ -588,7 +590,9 @@ function updateCartCount() {
   cartCount.textContent = totalItems;
 }
 
+// ============================================
 // MOBILE NAVIGATION
+// ============================================
 
 document.addEventListener("DOMContentLoaded", () => {
   const menuToggle = document.querySelector(".menu-toggle");
@@ -626,248 +630,4 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   updateCartCount();
-});
-
-
-// PRODUCT PAGE
-
-document.addEventListener("DOMContentLoaded", () => {
-  const productMain = document.querySelector(".product-main");
-
-  if (!productMain) return;
-
-  const params = new URLSearchParams(window.location.search);
-  const flowerId = params.get("flower");
-  const flower = getFlowerById(flowerId);
-
-  if (!flower) {
-    productMain.innerHTML = `
-      <div class="product-error">
-        <h2>Flower not found</h2>
-        <p>Please return to the catalogue and select a flower.</p>
-        <a href="catalog.html">Back to Catalogue</a>
-      </div>
-    `;
-    return;
-  }
-
-  function getElement(id) {
-    return document.getElementById(id);
-  }
-
-  document.title = flower.name + " | Fatin's Florette";
-
-  const breadcrumbName = getElement("breadcrumb-name");
-  const productImage = getElement("product-image");
-  const productCategory = getElement("product-category");
-  const productName = getElement("product-name");
-  const productDescription = getElement("product-description");
-
-  if (breadcrumbName) breadcrumbName.textContent = flower.name;
-
-  if (productImage) {
-    productImage.src = flower.image;
-    productImage.alt = flower.name;
-  }
-
-  if (productCategory) {
-    productCategory.textContent = flower.category.toUpperCase() + " FLOWERS";
-  }
-
-  if (productName) productName.textContent = flower.name;
-
-  if (productDescription) {
-    productDescription.textContent =
-      flower.description || "Please contact us for more details.";
-  }
-
-  // QUANTITY AND PRICE
-
-  let quantity = 1;
-
-  const quantityText = getElement("quantity");
-  const extras = getElement("extra-flowers");
-  const price = getElement("product-price");
-  const giftCardSelect = getElement("gift-card");
-
-  function updatePrice() {
-    const extraPrice = extras ? Number(extras.value) || 0 : 0;
-
-  
-    let giftCardPrice = 0;
-
-    if (giftCardSelect && giftCardSelect.value === "printed") {
-      giftCardPrice = 2;
-    }
-
-    const total =
-      (Number(flower.price) + extraPrice + giftCardPrice) * quantity;
-
-    if (price) {
-      price.textContent = "BND " + total.toFixed(2);
-    }
-  }
-
-  updatePrice();
-
-  const quantityMinus = getElement("quantity-minus");
-  const quantityPlus = getElement("quantity-plus");
-
-  if (quantityMinus) {
-    quantityMinus.addEventListener("click", () => {
-      quantity = Math.max(1, quantity - 1);
-
-      if (quantityText) quantityText.textContent = quantity;
-
-      updatePrice();
-    });
-  }
-
-  if (quantityPlus) {
-    quantityPlus.addEventListener("click", () => {
-      quantity = Math.min(20, quantity + 1);
-
-      if (quantityText) quantityText.textContent = quantity;
-
-      updatePrice();
-    });
-  }
-
-  if (extras) {
-    extras.addEventListener("change", updatePrice);
-  }
-
-  if (giftCardSelect) {
-    giftCardSelect.addEventListener("change", updatePrice);
-  }
-
-  // FAVOURITE BUTTON
-
-  let favourites = [];
-
-  try {
-    const savedFavourites = JSON.parse(
-      localStorage.getItem("floretteFavourites") || "[]"
-    );
-
-    favourites = Array.isArray(savedFavourites) ? savedFavourites : [];
-  } catch (error) {
-    favourites = [];
-  }
-
-  const heart = getElement("favourite-button");
-
-  function drawHeart() {
-    if (!heart) return;
-
-    const isFavourite = favourites.includes(flower.id);
-
-    heart.textContent = isFavourite ? "♥" : "♡";
-    heart.classList.toggle("is-favourite", isFavourite);
-    heart.setAttribute("aria-pressed", String(isFavourite));
-  }
-
-  if (heart) {
-    heart.addEventListener("click", () => {
-      if (favourites.includes(flower.id)) {
-        favourites = favourites.filter(id => id !== flower.id);
-      } else {
-        favourites.push(flower.id);
-      }
-
-      try {
-        localStorage.setItem(
-          "floretteFavourites",
-          JSON.stringify(favourites)
-        );
-      } catch (error) {
-        console.error("Unable to save favourites:", error);
-      }
-
-      drawHeart();
-    });
-  }
-
-  drawHeart();
-
-  // RECOMMENDED PRODUCTS
-
-  const recommendationsContainer = getElement("recommendations");
-
-  if (recommendationsContainer) {
-    const recommendations = flowers
-      .filter(item => item.id !== flower.id)
-      .slice(0, 4);
-
-    recommendationsContainer.innerHTML = recommendations.map(item => `
-      <article class="recommendation-card">
-        <a
-          class="recommendation-image"
-          href="product.html?flower=${encodeURIComponent(item.id)}"
-        >
-          <img
-            src="${item.image}"
-            alt="${item.name}"
-            loading="lazy"
-          >
-        </a>
-
-        <div class="recommendation-meta">
-          <a href="product.html?flower=${encodeURIComponent(item.id)}">
-            ${item.name}
-          </a>
-
-          <span>BND ${Number(item.price).toFixed(2)}</span>
-        </div>
-      </article>
-    `).join("");
-  }
-
-  // ADD TO CART
-
-  const addToCartButton = getElement("add-to-cart");
-  const cartMessage = getElement("cart-message");
-
-  if (addToCartButton) {
-    addToCartButton.addEventListener("click", () => {
-      const giftCard = giftCardSelect ? giftCardSelect.value : "none";
-      const extraFlowers = extras ? Number(extras.value) || 0 : 0;
-
-      const cart = getCartItems();
-
-      const existing = cart.find(item =>
-        item.id === flower.id &&
-        item.giftCard === giftCard &&
-        Number(item.extraFlowers || 0) === extraFlowers
-      );
-
-      if (existing) {
-        existing.quantity =
-          Number(existing.quantity || 1) + quantity;
-      } else {
-        cart.push({
-          id: flower.id,
-          quantity: quantity,
-          giftCard: giftCard,
-          extraFlowers: extraFlowers
-        });
-      }
-
-      saveCartItems(cart);
-      updateCartCount();
-
-      if (cartMessage) {
-        cartMessage.textContent = flower.name + " added to your cart!";
-      }
-
-      // Briefly change the button text to confirm the action.
-      const originalText = addToCartButton.textContent;
-
-      addToCartButton.textContent = "Added to Cart!";
-
-      setTimeout(() => {
-        addToCartButton.textContent = originalText;
-      }, 1500);
-    });
-  }
 });
