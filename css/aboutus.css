@@ -307,7 +307,6 @@
 /* ========== RESPONSIVE DESIGN (MOBILE) ========== */
 
 @media (max-width: 850px) {
-    /* 1. Force the outer containers to be full width */
     .about-container {
         width: 100% !important;
         padding: 20px 10px !important;
@@ -320,7 +319,6 @@
         box-sizing: border-box;
     }
     
-    /* 2. Force the story section to stack */
     .story-section {
         display: flex;
         flex-direction: column !important;
@@ -333,7 +331,6 @@
         max-width: 100% !important;
     }
 
-    /* 3. Remove the overlapping/absolute images and stack them normally */
     .image-cluster {
         position: relative !important;
         width: 100% !important;
@@ -343,18 +340,17 @@
         justify-content: center !important;
         gap: 15px !important;
         margin-top: 10px !important;
-        min-width: 0 !important; /* Resets the 280px min-width */
+        min-width: 0 !important; 
     }
     
     .image-cluster img {
-        position: static !important; /* CRITICAL: Removes absolute positioning */
-        width: 48% !important; /* Makes them sit side-by-side */
+        position: static !important; 
+        width: 48% !important; 
         max-width: 160px !important;
         height: 220px !important;
-        transform: none !important; /* Disables hover jump on mobile */
+        transform: none !important; 
     }
 
-    /* 4. Fix the Workshop Section */
     .workshop-section {
         display: flex;
         flex-direction: column-reverse !important;

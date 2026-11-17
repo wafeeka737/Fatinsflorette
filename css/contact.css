@@ -275,37 +275,72 @@ details p {
     white-space: pre-line;
 }
 
-
 /* ========== RESPONSIVE ========== */
 
 @media (max-width: 850px) {
     .page-bg {
-        width: calc(100% - 24px);
-        margin-top: 16px;
+        width: 100% !important; /* Force full width */
+        padding: 10px !important; /* Small padding around the whole page */
+        margin-top: 10px;
     }
 
     .main-card {
-        padding: 30px 20px;
+        padding: 20px 15px !important; /* Slimmer padding for mobile */
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
 
     .contact-top {
-        flex-direction: column;
-        text-align: center;
-        gap: 30px;
+        flex-direction: column !important;
+        align-items: center !important; /* FORCES EVERYTHING TO THE CENTER */
+        gap: 20px !important; /* Reduces the massive 40px gap on mobile */
     }
 
     .contact-image {
-        width: 220px;
-        height: 220px;
+        width: 160px !important;
+        height: 160px !important;
+        margin: 0 auto; /* Centers the image */
+    }
+
+    .contact-form-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto; /* Centers the form container */
     }
 
     .contact-form-container h2 {
         text-align: center;
     }
 
+    /* Force form elements to fit perfectly */
+    form {
+        width: 100% !important;
+    }
+
+    /* Stack the names */
+    .name-row {
+        flex-direction: column !important;
+        gap: 10px !important;
+        width: 100% !important;
+    }
+
+    /* Fix the input widths */
+    input, 
+    textarea {
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Center the contact info blocks */
     .contact-info {
-        flex-direction: column;
-        gap: 15px;
-        padding: 20px 0;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center;
+        gap: 20px !important;
+        padding: 20px 0 !important;
+    }
+
+    .info-block {
+        width: 100%;
     }
 }
